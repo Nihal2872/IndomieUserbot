@@ -10,10 +10,10 @@ RUN apt-get install -y --no-install-recommends \
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
-RUN git clone -b Kyy-Userbot https://github.com/IndomieGorengSatu/IndomieUserbot /home/IndomieUserbot/ \
+RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUserbot /home/IndomieUserbot/ \
     && chmod 777 /home/IndomieUserbot \
     && mkdir /home/IndomieUserbot/bin/
-WORKDIR /home/Kyy-Userbot/
+WORKDIR /home/IndomieUserbot/
 COPY ./sample_config.env ./config.env* /home/IndomieUserbot/
 
 #Install python requirements

@@ -1,3 +1,8 @@
+#Credits: mrconfused
+# Recode by @mrismanaziz
+# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
+# t.me/SharingUserbot & t.me/Lunatic0de
+
 from userbot.utils.tools import media_type
 from userbot.utils import (
     _format,
@@ -15,10 +20,6 @@ from userbot import CMD_HANDLER as cmd
 from userbot import BOTLOG_CHATID
 from telethon import Button
 import asyncio
-Credits: mrconfused
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
 
 
 class LOG_CHATS:

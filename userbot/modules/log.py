@@ -1,9 +1,17 @@
-#Credits: mrconfused
+# Credits: mrconfused
 # Recode by @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from userbot.utils.tools import media_type
+import asyncio
+from telethon import Button
+
+from userbot import BOTLOG_CHATID
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, LOGS, SUDO_USERS, tgbot, bot
+from userbot.modules.sql_helper import no_log_pms_sql
+from userbot.modules.sql_helper.globals import addgvar, gvarstatus
+from userbot.modules.vcgplugin import vcmention
 from userbot.utils import (
     _format,
     chataction,
@@ -12,14 +20,7 @@ from userbot.utils import (
     indomie_cmd,
     indomie_handler,
 )
-from userbot.modules.vcgplugin import vcmention
-from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.modules.sql_helper import no_log_pms_sql
-from userbot import CMD_HELP, LOGS, SUDO_USERS, tgbot, bot
-from userbot import CMD_HANDLER as cmd
-from userbot import BOTLOG_CHATID
-from telethon import Button
-import asyncio
+from userbot.utils.tools import media_type
 
 
 class LOG_CHATS:
@@ -27,7 +28,6 @@ class LOG_CHATS:
         self.RECENT_USER = None
         self.NEWPM = None
         self.COUNT = 0
-
 
 saya = bot.get_me()
 OWNER_ID = saya.id
@@ -215,7 +215,7 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@flicks_cmd(pattern="gruplog (on|off)$")
+@indomie_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if event.sender_id in SUDO_USERS:
         return

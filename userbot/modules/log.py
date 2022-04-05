@@ -1,13 +1,14 @@
-# Credits: mrconfused
+Credits: mrconfused
 # Recode by @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
+from telethon import Button
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS
+from userbot import CMD_HELP, LOGS, SUDO_USERS, tgbot, bot
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.modules.vcgplugin import vcmention
@@ -28,6 +29,8 @@ class LOG_CHATS:
         self.NEWPM = None
         self.COUNT = 0
 
+saya = bot.get_me()
+OWNER_ID = saya.id
 
 LOG_CHATS_ = LOG_CHATS()
 
@@ -39,20 +42,25 @@ async def logaddjoin(event):
     if not (user and user.is_self):
         return
     if hasattr(chat, "username") and chat.username:
-        chat = f"[{chat.title}](https://t.me/{chat.username}/{event.action_message.id})"
+        chat = f"https://t.me/{chat.username}/{event.action_message.id}"
     else:
-        chat = f"[{chat.title}](https://t.me/c/{chat.id}/{event.action_message.id})"
+        chat = f"https://t.me/c/{chat.id}/{event.action_message.id}"
+    buttons = Button.url(
+        "View Message", f"{chat}"
+    )
     if event.user_added:
         tmp = event.added_by
-        text = f"📩 **#ADD_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {chat}"
+        gc = await event.get_chat()
+        text = f"📩 **#ADD_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {gc.title}"
     elif event.user_joined:
-        text = f"📨 **#JOIN_LOG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {chat}"
+        gc = await event.get_chat()
+        text = f"📨 **#JOIN_LOG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {gc.title}"
     else:
         return
-    await event.client.send_message(BOTLOG_CHATID, text)
+    await tgbot.send_message(BOTLOG_CHATID, text, buttons=buttons)
 
 
-@indomie_handler(incoming=True, func=lambda e: e.is_private)
+@indomie_handler(func=lambda e: e.is_private)
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
@@ -87,7 +95,7 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@indomie_handler(incoming=True, func=lambda e: e.mentioned)
+@indomie_handler(func=lambda e: e.mentioned)
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -125,8 +133,10 @@ async def log_tagged_messages(event):
         )
 
 
-@indomie_cmd(pattern="save(?: |$)(.*)", allow_sudo=False)
+@indomie_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
+    if log_text.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
             reply_msg = await log_text.get_reply_message()
@@ -147,8 +157,10 @@ async def log(log_text):
         )
 
 
-@indomie_cmd(pattern="log$", allow_sudo=False)
-async def set_log_p_m(event):
+@indomie_cmd(pattern="log$")
+async def set_no_log_p_m(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if no_log_pms_sql.is_approved(chat.id):
@@ -158,8 +170,10 @@ async def set_log_p_m(event):
             )
 
 
-@indomie_cmd(pattern="nolog$", allow_sudo=False)
+@indomie_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id):
@@ -169,8 +183,10 @@ async def set_no_log_p_m(event):
             )
 
 
-@indomie_cmd(pattern="pmlog (on|off)$", allow_sudo=False)
+@indomie_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
@@ -199,8 +215,10 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@indomie_cmd(pattern="gruplog (on|off)$", allow_sudo=False)
+@flicks_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,

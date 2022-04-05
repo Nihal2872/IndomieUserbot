@@ -7,10 +7,10 @@ import asyncio
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS, SUDO_USERS
+from userbot import CMD_HELP, LOGS
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.modules.vcgplugin import vcmention
+from userbot.modules.vcplugin import vcmention
 from userbot.utils import (
     _format,
     chataction,
@@ -52,7 +52,7 @@ async def logaddjoin(event):
     await event.client.send_message(BOTLOG_CHATID, text)
 
 
-@indomie_handler(func=lambda e: e.is_private)
+@indomie_handler(incoming=True, func=lambda e: e.is_private)
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
@@ -87,7 +87,7 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@indomie_handler(func=lambda e: e.mentioned)
+@indomie_handler(incoming=True, func=lambda e: e.mentioned)
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -125,10 +125,8 @@ async def log_tagged_messages(event):
         )
 
 
-@indomie_cmd(pattern="save(?: |$)(.*)")
+@indomie_cmd(pattern="save(?: |$)(.*)", allow_sudo=False)
 async def log(log_text):
-    if log_text.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
             reply_msg = await log_text.get_reply_message()
@@ -144,15 +142,13 @@ async def log(log_text):
     else:
         await edit_delete(
             log_text,
-            "**Untuk Menggunakan Module ini, Lo Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
+            "**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
             30,
         )
 
 
-@indomie_cmd(pattern="log$")
-async def set_no_log_p_m(event):
-    if event.sender_id in SUDO_USERS:
-        return
+@indomie_cmd(pattern="log$", allow_sudo=False)
+async def set_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if no_log_pms_sql.is_approved(chat.id):
@@ -162,10 +158,8 @@ async def set_no_log_p_m(event):
             )
 
 
-@indomie_cmd(pattern="nolog$")
+@indomie_cmd(pattern="nolog$", allow_sudo=False)
 async def set_no_log_p_m(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id):
@@ -175,10 +169,8 @@ async def set_no_log_p_m(event):
             )
 
 
-@indomie_cmd(pattern="pmlog (on|off)$")
+@indomie_cmd(pattern="pmlog (on|off)$", allow_sudo=False)
 async def set_pmlog(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
@@ -207,10 +199,8 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@indomie_cmd(pattern="gruplog (on|off)$")
+@indomie_cmd(pattern="gruplog (on|off)$", allow_sudo=False)
 async def set_gruplog(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
@@ -253,4 +243,3 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}gruplog on/off`\
         \n  •  **Function : **__Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup pmlogger.__"
     }
-)

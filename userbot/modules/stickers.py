@@ -638,9 +638,9 @@ CMD_HELP.update(
         \n  ↳ : **Untuk Mengedit emoji stiker dengan emoji yang baru.\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stkrinfo`\
         \n  ↳ : **Untuk Mendapatkan Informasi Sticker Pack.\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stickers` <nama sticker pack >\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stickers` <nama sticker pack>\
         \n  ↳ : **Untuk Mencari Sticker Pack.\
-        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang` | `{cmd}tikel` | `{cmd}colong\
+        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang` | `{cmd}tikel` | `{cmd}colong`.\
         \n  •  **CONTOH:** `{cmd}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
     "
     }

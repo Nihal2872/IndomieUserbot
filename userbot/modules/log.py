@@ -1,26 +1,21 @@
-# Credits: mrconfused
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Credits: cat userbot
+# Ported by @vckyaz
+# FROM GeezProjects <https://github.com/vckyou/GeezProjects>
 
 import asyncio
 
+from telethon import events
+
 from userbot import BOTLOG_CHATID
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS, SUDO_USERS
+from userbot import CMD_HELP, LOGS, bot
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.modules.vcgplugin import vcmention
-from userbot.utils import (
-    _format,
-    chataction,
-    edit_delete,
-    edit_or_reply,
-    indomie_cmd,
-    indomie_handler,
-)
+from userbot.modules.vcgPlugin import vcmention
+from userbot.utils import _format
+from telethon import events
 from userbot.utils.tools import media_type
 
+from userbot.events import register
 
 class LOG_CHATS:
     def __init__(self):
@@ -32,7 +27,7 @@ class LOG_CHATS:
 LOG_CHATS_ = LOG_CHATS()
 
 
-@chataction()
+@bot.on(events.ChatAction)
 async def logaddjoin(event):
     user = await event.get_user()
     chat = await event.get_chat()
@@ -52,7 +47,8 @@ async def logaddjoin(event):
     await event.client.send_message(BOTLOG_CHATID, text)
 
 
-@indomie_handler(func=lambda e: e.is_private)
+@bot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+@bot.on(events.MessageEdited(incoming=True, func=lambda e: e.is_private))
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
@@ -87,7 +83,8 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@indomie_handler(func=lambda e: e.mentioned)
+@bot.on(events.NewMessage(incoming=True, func=lambda e: e.mentioned))
+@bot.on(events.MessageEdited(incoming=True, func=lambda e: e.mentioned))
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -103,7 +100,7 @@ async def log_tagged_messages(event):
         return
     full = None
     try:
-        full = await event.client.get_entity(event.message.sender_id)
+        full = await event.client.get_entity(event.message.from_id)
     except Exception as e:
         LOGS.info(str(e))
     messaget = media_type(event)
@@ -125,10 +122,8 @@ async def log_tagged_messages(event):
         )
 
 
-@indomie_cmd(pattern="save(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.save(?: |$)(.*)")
 async def log(log_text):
-    if log_text.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
             reply_msg = await log_text.get_reply_message()
@@ -138,53 +133,36 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await log_text.client.send_message(BOTLOG_CHATID, textx)
         else:
-            await edit_delete(log_text, "**Apa yang harus saya simpan?**")
+            await log_text.edit("**Apa yang harus saya simpan?**")
             return
-        await edit_delete(log_text, "**Berhasil disimpan di Grup Log**")
+        await log_text.edit("**Berhasil disimpan di Grup Log**")
     else:
-        await edit_delete(
-            log_text,
-            "**Untuk Menggunakan Module ini, Lo Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
-            30,
-        )
+        await log_text.edit(
+            "**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**")
 
 
-@indomie_cmd(pattern="log$")
+@register(pattern=r"^\.log$")
 async def set_no_log_p_m(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if no_log_pms_sql.is_approved(chat.id):
             no_log_pms_sql.disapprove(chat.id)
-            await edit_delete(
-                event, "**LOG Chat dari Grup ini Berhasil Diaktifkan**", 15
-            )
+            await event.edit("**LOG Chat dari Grup ini Berhasil Diaktifkan**")
 
 
-@indomie_cmd(pattern="nolog$")
+@register(outgoing=True, pattern=r"^\.nolog$")
 async def set_no_log_p_m(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id):
             no_log_pms_sql.approve(chat.id)
-            await edit_delete(
-                event, "**LOG Chat dari Grup ini Berhasil Dimatikan**", 15
-            )
+            await event.edit("**LOG Chat dari Grup ini Berhasil Dimatikan**")
 
 
-@indomie_cmd(pattern="pmlog (on|off)$")
+@register(outgoing=True, pattern=r"^\.pmlog (on|off)$")
 async def set_pmlog(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID == -100:
-        return await edit_delete(
-            event,
-            "**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
-            30,
-        )
+        return await event.edit("**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**")
     input_str = event.pattern_match.group(1)
     if input_str == "off":
         h_type = False
@@ -196,27 +174,21 @@ async def set_pmlog(event):
         PMLOG = True
     if PMLOG:
         if h_type:
-            await edit_or_reply(event, "**PM LOG Sudah Diaktifkan**")
+            await event.edit("**PM LOG Sudah Diaktifkan**")
         else:
             addgvar("PMLOG", h_type)
-            await edit_or_reply(event, "**PM LOG Berhasil Dimatikan**")
+            await event.edit("**PM LOG Berhasil Dimatikan**")
     elif h_type:
         addgvar("PMLOG", h_type)
-        await edit_or_reply(event, "**PM LOG Berhasil Diaktifkan**")
+        await event.edit("**PM LOG Berhasil Diaktifkan**")
     else:
-        await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
+        await event.edit("**PM LOG Sudah Dimatikan**")
 
 
-@indomie_cmd(pattern="gruplog (on|off)$")
+@register(outgoing=True, pattern=r"^\.gruplog (on|off)$")
 async def set_gruplog(event):
-    if event.sender_id in SUDO_USERS:
-        return
     if BOTLOG_CHATID == -100:
-        return await edit_delete(
-            event,
-            "**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
-            30,
-        )
+        return await event.edit("**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**")
     input_str = event.pattern_match.group(1)
     if input_str == "off":
         h_type = False
@@ -228,29 +200,29 @@ async def set_gruplog(event):
         GRUPLOG = True
     if GRUPLOG:
         if h_type:
-            await edit_or_reply(event, "**Group Log Sudah Diaktifkan**")
+            await event.edit("**Group Log Sudah Diaktifkan**")
         else:
             addgvar("GRUPLOG", h_type)
-            await edit_or_reply(event, "**Group Log Berhasil Dimatikan**")
+            await event.edit("**Group Log Berhasil Dimatikan**")
     elif h_type:
         addgvar("GRUPLOG", h_type)
-        await edit_or_reply(event, "**Group Log Berhasil Diaktifkan**")
+        await event.edit("**Group Log Berhasil Diaktifkan**")
     else:
-        await edit_or_reply(event, "**Group Log Sudah Dimatikan**")
+        await event.edit("**Group Log Sudah Dimatikan**")
 
 
 CMD_HELP.update(
     {
-        "log": f"**Plugin : **`log`\
-        \n\n  •  **Syntax :** `{cmd}save`\
-        \n  •  **Function : **__Untuk Menyimpan pesan yang ditandai ke grup pribadi.__\
-        \n\n  •  **Syntax :** `{cmd}log`\
-        \n  •  **Function : **__Untuk mengaktifkan Log Chat dari obrolan/grup itu.__\
-        \n\n  •  **Syntax :** `{cmd}nolog`\
-        \n  •  **Function : **__Untuk menonaktifkan Log Chat dari obrolan/grup itu.__\
-        \n\n  •  **Syntax :** `{cmd}pmlog on/off`\
-        \n  •  **Function : **__Untuk mengaktifkan atau menonaktifkan pencatatan pesan pribadi__\
-        \n\n  •  **Syntax :** `{cmd}gruplog on/off`\
-        \n  •  **Function : **__Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup pmlogger.__"
+        "log": f"**Modules : **`log`\
+        \n\n •  **Command  :** `.save`\
+        \n  •  **Function  : **__Untuk Menyimpan pesan yang ditandai ke grup pribadi.__\
+        \n\n •  **Command  :** `.log`\
+        \n  •  **Function  : **__Untuk mengaktifkan Log Chat dari obrolan/grup itu.__\
+        \n\n •  **Command  :** `.nolog`\
+        \n  •  **Function  : **__Untuk menonaktifkan Log Chat dari obrolan/grup itu.__\
+        \n\n •  **Command  :** `.pmlog on/off`\
+        \n  •  **Function  : **__Untuk mengaktifkan atau menonaktifkan pencatatan pesan pribadi__\
+        \n\n •  **Command  :** `.gruplog on/off`\
+        \n  •  **Function  : **__Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup pmlogger.__"
     }
 )

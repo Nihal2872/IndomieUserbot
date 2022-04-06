@@ -13,6 +13,7 @@ import urllib.request
 from os import remove
 
 from PIL import Image
+from telethon.tl import functions, types
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (
@@ -22,12 +23,14 @@ from telethon.tl.types import (
     MessageMediaPhoto,
     MessageMediaUnsupported,
 )
+from telethon.errors import PackShortNameOccupiedError
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon import events
 from userbot import (
     S_PACK_NAME as custompack,
     CMD_HELP,
     CMD_HANDLER as cmd,
+    bot,
 )
 from userbot.utils.tools import animator, create_quotly
 from userbot.utils import indomie_cmd, edit_delete, edit_or_reply

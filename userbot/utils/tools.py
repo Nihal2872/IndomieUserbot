@@ -129,11 +129,14 @@ async def runcmd(cmd: str) -> tuple[str, str, int, int]:
 
 async def bacot_kontol():
     memek = str(pybase64.b64decode("QEluZG9taWVTdG9yZQ=="))[2:15]
-    kontol = str(pybase64.b64decode("QEluZG9taWVQcm9qZWN0"))[2:15]
     try:
         await bot(Get(memek))
     except BaseException:
         pass
+
+
+async def memek_item():
+    kontol = str(pybase64.b64decode("QEluZG9taWVQcm9qZWN0"))[2:15]
     try:
         await bot(Get(kontol))
     except BaseException:

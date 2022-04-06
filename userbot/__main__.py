@@ -21,7 +21,7 @@ from userbot import (
 )
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
-from userbot.utils.tools import bacot_kontol
+from userbot.utils.tools import bacot_kontol, memek_item
 
 try:
     for module_name in ALL_MODULES:
@@ -52,6 +52,7 @@ async def userbot_on():
 
 bot.loop.run_until_complete(userbot_on())
 bot.loop.run_until_complete(bacot_kontol())
+bot.loop.run_until_complete(memek_item())
 if not BOT_TOKEN:
     LOGS.info(
         "Vars BOT_TOKEN kaga di isi, otw bikin bot di @Botfather ngeeengg..."

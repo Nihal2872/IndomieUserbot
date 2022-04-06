@@ -452,70 +452,6 @@ async def _(event):
             await xx.edit("**Berhasil Menghapus Stiker.**")
 
 
-@indomie_cmd(pattern="csticker ?(.*)")
-async def pussy(args):
-    "To kang a sticker."
-    message = await args.get_reply_message()
-    user = await args.client.get_me()
-    userid = user.id
-    if message and message.media:
-        if message.file and "video/mp4" in message.file.mime_type:
-            xx = await edit_or_reply(args, "__⌛ Downloading..__")
-            sticker = await animator(message, args, xx)
-            await edit_or_reply(xx, f"`{random.choice(KANGING_STR)}`")
-        else:
-            await edit_delete(args, "`Reply to video/gif...!`")
-            return
-    else:
-        await edit_delete(args, "`I can't convert that...`")
-        return
-    cmd = "/newvideo"
-    packname = f"tonic_{userid}_temp_pack"
-    response = urllib.request.urlopen(
-        urllib.request.Request(f"http://t.me/addstickers/{packname}")
-    )
-    htmlstr = response.read().decode("utf8").split("\n")
-    if (
-        "  A <strong>Telegram</strong> user has created the <strong>Sticker&nbsp;Set</strong>."
-        not in htmlstr
-    ):
-        async with args.client.conversation("@Stickers") as xconv:
-            await delpack(
-                xx,
-                xconv,
-                cmd,
-                args,
-                packname,
-            )
-    await xx.edit("`Hold on, making sticker...`")
-    async with args.client.conversation("@Stickers") as conv:
-        otherpack, packname, emoji = await newpacksticker(
-            xx,
-            conv,
-            "/newvideo",
-            args,
-            1,
-            "IndomieUserbot",
-            True,
-            "💦",
-            packname,
-            False,
-            io.BytesIO(),
-        )
-    if otherpack is None:
-        return
-    await xx.delete()
-    await args.client.send_file(
-        args.chat_id,
-        sticker,
-        force_document=True,
-        caption=f"**[Sticker Preview](t.me/addstickers/{packname})**\n*__It will remove automatically on your next convert.__",
-        reply_to=message,
-    )
-    if os.path.exists(sticker):
-        os.remove(sticker)
-
-
 @indomie_cmd(pattern="itos$")
 async def _(event):
     if event.fwd_from:
@@ -692,9 +628,9 @@ async def sticker_to_png(sticker):
 CMD_HELP.update(
     {
         "stickers": f"**Plugin : **`stickers`\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` atau `{cmd}tikel` [emoji]\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` | `{cmd}tikel` | `{cmd}colong` [emoji]\
         \n  ↳ : **Balas .kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` [emoji] atau `{cmd}tikel` [emoji]\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` [emoji] | `{cmd}tikel` [emoji] | `{cmd}colong` [emoji]\
         \n  ↳ : **Balas {cmd}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}delsticker` <reply sticker>\
         \n  ↳ : **Untuk Menghapus sticker dari Sticker Pack.\
@@ -704,9 +640,7 @@ CMD_HELP.update(
         \n  ↳ : **Untuk Mendapatkan Informasi Sticker Pack.\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stickers` <nama sticker pack >\
         \n  ↳ : **Untuk Mencari Sticker Pack.\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}csticker`\
-        \n  ↳ : **Balas Gif/Video Untuk menjadikan Sticker\
-        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang`\
+        \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang` | `{cmd}tikel` | `{cmd}colong\
         \n  •  **CONTOH:** `{cmd}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
     "
     }
@@ -715,7 +649,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "sticker_v2": f"**Plugin : **`stickers`\
+        "stickersv2": f"**Plugin : **`stickers`\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣?? :** `{cmd}getsticker`\
         \n  ↳ : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}get`\

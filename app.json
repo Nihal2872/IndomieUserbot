@@ -11,7 +11,7 @@
   ],
   "repository": "https://github.com/indomiegorengsatu/IndomieUserbot/IndomieUserbot",
   "telegram": "https://t.me/IndomieGenetik",
-  "success_url": "https://t.me/mukalokayabab1",
+  "success_url": "https://t.me/IndomieProject",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -39,14 +39,6 @@
       "description": "Heroku API KEY mu, dapatkan dari web 'https://dashboard.heroku.com/account'",
       "required": true
     },
-    "BOTLOG_CHATID": {
-      "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
-      "required": true
-    },
-    "G_BAN_LOGGER_GROUP": {
-      "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
-      "required": true
-    },
     "BOT_TOKEN": {
       "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini.",
       "required": false
@@ -63,10 +55,6 @@
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true
-    },
-    "S_PACK_NAME": {
-      "description": "Nama Sticker Pack lo",
-      "required": false
     }
   },
   "addons": [

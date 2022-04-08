@@ -115,11 +115,7 @@ SUDO_USERS = {
         "SUDO_USERS",
         "1447438514").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
-
-# For Blacklist Group Support
-BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
-if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001681347365]
+BLACKLIST_GCAST = {int(x) for x in os.environ.get("BLACKLIST_GCAST", "").split()}
 
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_KEY") or None)

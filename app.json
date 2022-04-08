@@ -22,11 +22,6 @@
       "description": "Dapatkan Api Hash Di Web my.telegram.org",
       "required": true
     },
-    "ALIVE_LOGO": {
-      "description": "Foto dalam module .alive",
-      "value": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
-      "required": false
-    },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di repl.it / menggunakan bot @IndomieStringBot di telegram, jika masih tidak paham gimana cara ngambil nya, mending gausa bikin bot anjing. pake jasa gua aja wkwk",
       "required": true

@@ -37,7 +37,6 @@ def STORAGE(n):
     return Storage(Path("data") / n)
 
 
-
 redis_db = None
 
 load_dotenv("config.env")

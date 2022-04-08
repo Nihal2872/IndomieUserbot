@@ -118,7 +118,10 @@ del _DEVS
 
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
-BLACKLIST_GCAST = {int(x) for x in os.environ.get("BLACKLIST_GCAST","").split()}
+BLACKLIST_GCAST = {
+    int(x) for x in os.environ.get(
+        "BLACKLIST_GCAST",
+        "").split()}
 
 
 # For Blacklist Group Support

@@ -182,7 +182,7 @@ async def auto_accept(event):
                 if is_approved(event.chat_id) and BOTLOG:
                     await event.client.send_message(
                         BOTLOG_CHATID,
-                        "\\**#AUTO-APPROVED**//\n"
+                        r"\\**#AUTO-APPROVED**//\n"
                         + "Pengguna: "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
@@ -255,7 +255,7 @@ async def approvepm(apprvpm):
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "\\**#DITERIMA**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={uid})"
+            r"\\**#DITERIMA**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={uid})"
         )
 
 
@@ -284,7 +284,7 @@ async def disapprovepm(disapprvpm):
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            "\\**#DITOLAK**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={disapprvpm.chat_id})"
+            r"\\**#DITOLAK**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={disapprvpm.chat_id})"
         )
 
 

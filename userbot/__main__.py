@@ -1,64 +1,82 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-""" Userbot start point """
-
-import sys
 from importlib import import_module
+from sys import argv
+from platform import python_version
+from pytgcalls import __version__ as pytgcalls
 
-
-from userbot import (
-    BOT_TOKEN,
-    BOT_USERNAME,
-    BOT_VER,
-    BOTLOG_CHATID,
-    ALIVE_LOGO,
-    LOGS,
-    bot,
-    call_py,
-)
+from telethon import version
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
+from userbot import ALIVE_LOGO, BOT_VER as ubotversion, LOGS, BOT_TOKEN, BOT_USERNAME, BOTLOG_CHATID, bot
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
-from userbot.utils.tools import bacot_kontol, memek_item
+from userbot.modules.assistant import ASST_MODULES
+from userbot.utils import autobot, autopilot
+from userbot.pytgcalls import call_py
+
+
+
+INVALID_PH = '\nERROR: Nomor Telepon yang dimasukkan TIDAK VALID' \
+             '\n Tips: Gunakan Kode Negara beserta nomornya.' \
+             '\n atau periksa nomor telepon Anda dan coba lagi !'
+
+
 
 try:
-    for module_name in ALL_MODULES:
-        imported_module = import_module("userbot.modules." + module_name)
     bot.start()
     call_py.start()
-    user = bot.get_me()
-    LOGS.info(f"♨IndomieUserbot♨ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
-except BaseException as e:
-    LOGS.info(str(e), exc_info=True)
-    sys.exit(1)
+except PhoneNumberInvalidError:
+    print(INVALID_PH)
+    exit(1)
 
+for module_name in ALL_MODULES:
+    imported_module = import_module("userbot.modules." + module_name)
 
-async def userbot_on():
-    user = await bot.get_me()
-    try:
-        if BOTLOG_CHATID != 0:
-            await bot.send_file(
-                BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Bᴏᴛ :** [{user.first_name}](tg://user?id={user.id})\n✦ **Bᴏᴛ Vᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **Sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━"
-            )
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
+for module_name in ASST_MODULES:
+    imported_module = import_module("userbot.modules.assistant." + module_name)
 
+if not BOTLOG_CHATID:
+    LOGS.info(
+        "Vars BOTLOG_CHATID laga di isi, otewe bikin grup ngeeeng..."
+    )
+    bot.loop.run_until_complete(autopilot())
 
-bot.loop.run_until_complete(userbot_on())
-bot.loop.run_until_complete(bacot_kontol())
-bot.loop.run_until_complete(memek_item())
 if not BOT_TOKEN:
     LOGS.info(
         "Vars BOT_TOKEN kaga di isi, otw bikin bot di @Botfather ngeeengg..."
     )
     bot.loop.run_until_complete(autobot())
-if len(sys.argv) not in (1, 3, 4):
+
+
+LOGS.info(
+    f"Python Version - {python_version()} \
+      \nTelethon Version - {version.__version__} \
+      \nPyTgCalls Version - {pytgcalls.__version__} \
+      \nIndomieUserbot Version - ⚙️ V{ubotversion} [ BERHASIL DIAKTIFKAN! ]")
+
+async def sokasik():
+    user = await bot.get_me()
+    try:
+        if BOTLOG_CHATID != 0:
+            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan**\n\n✦ **Oᴡɴᴇʀ Bᴏᴛ :** [{user.first_name}](tg://user?id={user.id})\n✦ **Bᴏᴛ Vᴇʀ :** {BOT_VER}\n✦ **Sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ​ :** @IndomieStore")
+    except Exception as e:
+        LOGS.info(str(e))
+    try:
+        await bot(JoinChannelRequest("@IndomieProject"))
+    except BaseException:
+        pass
+    try:
+        await bot(JoinChannelRequest("@IndomieStore"))
+    except BaseException:
+        pass
+    try:
+        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException:
+        pass
+
+
+
+bot.loop.run_until_complete(sokasik())
+
+if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()

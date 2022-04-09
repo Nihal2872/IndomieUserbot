@@ -44,11 +44,10 @@ if not BOT_TOKEN:
     bot.loop.run_until_complete(autobot())
 
 
-LOGS.info(
-    f"Python Version - {python_version()} \
-      \nTelethon Version - {version.__version__} \
-      \nPyTgCalls Version - {pytgcalls.__version__} \
-      \nIndomieUserbot Version - ⚙️ V{ubotversion} [ BERHASIL DIAKTIFKAN! ]")
+LOGS.info(f"Python Version - {python_version()}")
+LOGS.info(f"Telethon Version - {version.__version__}")
+LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
+LOGS.info(f"IndomieUserbot Version - ⚙️ V{ubotversion} [ BERHASIL DIAKTIFKAN! ]")
 
 
 async def sokasik():

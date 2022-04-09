@@ -13,11 +13,9 @@ from userbot.utils import autobot, autopilot
 from userbot.pytgcalls import call_py
 
 
-
 INVALID_PH = '\nERROR: Nomor Telepon yang dimasukkan TIDAK VALID' \
              '\n Tips: Gunakan Kode Negara beserta nomornya.' \
              '\n atau periksa nomor telepon Anda dan coba lagi !'
-
 
 
 try:
@@ -52,6 +50,7 @@ LOGS.info(
       \nPyTgCalls Version - {pytgcalls.__version__} \
       \nIndomieUserbot Version - ⚙️ V{ubotversion} [ BERHASIL DIAKTIFKAN! ]")
 
+
 async def sokasik():
     user = await bot.get_me()
     try:
@@ -71,7 +70,6 @@ async def sokasik():
         await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
-
 
 
 bot.loop.run_until_complete(sokasik())

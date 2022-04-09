@@ -574,7 +574,7 @@ async def bot_start(event):
                         \n\n**Saya adalah {my_mention} \
                         \n**Anda dapat Menghubungi  [{OWNER}](tg://user?id={OWNER_ID}) dari sini. \
                         \n**Jangan Melakukan Spam Atau anda akan di blokir** \
-                        \n\n**Powered by**: [Flicks-Userbot](https://github.com/farizjs/Flicks-Userbot)**"
+                        \n\n**Powered by**: [IndomieProject](https://t.me/IndomieProject)**"
             buttons = [
                 (
                     Button.inline("ɪɴꜰᴏ", data="infor"),
@@ -639,8 +639,8 @@ async def infor(event):
                 \n**Id** - {OWNER_ID} \
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
                 \n**Store** - [Link](t.me/IndomieStore) \
-                \n\n**Repo** - [Github](github.com/IndomieGorengSatu) \
-                \nPowerd By 💕 @IndomieProject",
+                \n**Repo** - [Github](github.com/IndomieGorengSatu) \
+                \n\n**Powerd By 💕 [IndomieProject](https://t.me/IndomieProject)**"
         buttons=[
             [
                 custom.Button.inline(

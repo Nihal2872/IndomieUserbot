@@ -29,7 +29,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 for module_name in ASST_MODULES:
-    imported_module = import_module("userbot.modules.assistant." + module_name)
+    imported_module = import_module("userbot.modules.asisstant." + module_name)
 
 if not BOTLOG_CHATID:
     LOGS.info(

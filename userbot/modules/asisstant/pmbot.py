@@ -34,7 +34,7 @@ from userbot.utils import (
     reply_id,
     time_formatter,
 )
-from userbot.logger import logging
+from userbot.core.logger import logging
 
 LOGS = logging.getLogger(__name__)
 

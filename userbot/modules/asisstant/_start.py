@@ -640,7 +640,7 @@ async def infor(event):
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
                 \n**Store** - [Link](t.me/IndomieStore) \
                 \n**Repo** - [Github](github.com/IndomieGorengSatu) \
-                \n\n**Powerd By 💕 [IndomieProject](https://t.me/IndomieProject)**"
+                \n\n**Powerd By 💕 [IndomieProject](https://t.me/IndomieProject)**",
         buttons=[
             [
                 custom.Button.inline(

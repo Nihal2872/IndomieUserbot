@@ -10,7 +10,7 @@ from userbot import ALIVE_LOGO, BOT_VER as ubotversion, LOGS, BOT_TOKEN, BOT_USE
 from userbot.modules import ALL_MODULES
 from userbot.modules.asisstant import ASST_MODULES
 from userbot.utils import autobot, autopilot
-from userbot.pytgcalls import call_py
+from userbot import call_py
 
 
 INVALID_PH = '\nERROR: Nomor Telepon yang dimasukkan TIDAK VALID' \

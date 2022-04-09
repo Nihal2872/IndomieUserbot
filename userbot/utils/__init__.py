@@ -38,6 +38,7 @@ from .tools import (
 )
 from .utils import (
     autobot,
+    autopilot,
     create_supergroup,
     load_module,
     remove_plugin,

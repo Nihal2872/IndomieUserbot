@@ -35,15 +35,16 @@ async def autobot():
     if BOT_TOKEN:
         return
     await bot.start()
+    await asyncio.sleep(15)
     await bot.send_message(
         BOTLOG_CHATID, "**SEDANG MEMBUAT BOT TELEGRAM UNTUK ANDA DI @BotFather**"
     )
     who = await bot.get_me()
-    name = who.first_name + " Assistant Bot"
+    name = f"{who.first_name} Assistant Bot"
     if who.username:
-        username = who.username + "_userbot"
+        username = f"{who.username}_userbot"
     else:
-        username = "indomie" + (str(who.id))[5:] + "userbot"
+        username = f"Indomie{(str(who.id))[5:]}userbot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -76,7 +77,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "indomie" + (str(who.id))[6:] + str(ran) + "userbot"
+        username = f"indomie{(str(who.id))[6:]}{str(ran)}userbot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
@@ -111,9 +112,10 @@ async def autobot():
                 BOTLOG_CHATID,
                 f"**BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}**",
             )
+            LOGS.info(f"BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}")
             await bot.send_message(
                 BOTLOG_CHATID,
-                "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
+                "**Tunggu Sebentar, Sedang MeRestart Heroku Untuk Menyimpan Perubahan.**",
             )
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -153,9 +155,10 @@ async def autobot():
             BOTLOG_CHATID,
             f"**BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}**",
         )
+         LOGS.info(f"BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}")
         await bot.send_message(
             BOTLOG_CHATID,
-            "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
+            "**Tunggu Sebentar, Sedang MeRestart Heroku Untuk Menyimpan Perubahan.**",
         )
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"

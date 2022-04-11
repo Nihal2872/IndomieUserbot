@@ -265,28 +265,6 @@ async def ban_starters(event):
     await edit_or_reply(event, msg)
 
 
-@tgbot.on(events.CallbackQuery(data=b"about"))
-async def about(event):
-    await event.edit(f"""
-Owner - {user.first_name}
-OwnerID - {user.id}
-[Link To Profile 👤](tg://user?id={user.id})
-By @IndomieProject
-IndomieUserbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot)
-""",
-                     buttons=[
-                         [
-                             custom.Button.inline("ᴄʟᴏsᴇ",
-                                                  data="keluar")],
-                     ]
-                     )
-
-
-@tgbot.on(events.CallbackQuery(data=b"keluar"))
-async def keluar(event):
-    await event.delete()
-
-
 @asst_cmd(pattern="^/uinfo$", from_users=OWNER_ID)
 async def bot_start(event):
     reply_to = await reply_id(event)

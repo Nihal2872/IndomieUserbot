@@ -364,7 +364,7 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
-# Jangankan yang ini, yang atas aja ga blh apalagi yang ini kontol
+# Yang atas aja ga blh apalagi yang ini kontol
 # Blacklist User for IndomieUserbot
 while 0 < 6:
     _BLACKLIST = get(
@@ -373,9 +373,9 @@ while 0 < 6:
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        mieblacklist = []
+        memek = []
         break
-    mieblacklist = _BLACKLIST.json()
+    memek = _BLACKLIST.json()
     break
 
 del _BLACKLIST

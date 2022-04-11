@@ -4,7 +4,7 @@ from platform import python_version
 from pytgcalls import __version__ as pytgcalls
 
 from telethon import version
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.tl.functions.channels import InviteToChannelRequest as addbot, JoinChannelRequest
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import ALIVE_LOGO, BOT_VER as ubotversion, LOGS, BOT_TOKEN, BOT_USERNAME, BOTLOG_CHATID, bot
 from userbot.modules import ALL_MODULES
@@ -67,7 +67,7 @@ async def sokasik():
     except BaseException:
         pass
     try:
-        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+        await bot(addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
 

@@ -49,8 +49,14 @@ def indomie_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
-                )
+                    (reg +
+                     pattern).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        ""))
             try:
                 CMD_LIST[file_test].append(cmd)
             except BaseException:
@@ -88,7 +94,13 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+                cmd = cmd.group(1).replace(
+                    "$",
+                    "").replace(
+                    "\\",
+                    "").replace(
+                    "^",
+                    "")
             except BaseException:
                 pass
             try:
@@ -113,7 +125,7 @@ def command(**args):
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
 
-    return 
+    return
 
 
 def register(**args):

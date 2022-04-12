@@ -338,7 +338,7 @@ async def unblockpm(unblock):
         await unblock.edit("`Udah Di Unblock Jangan caper lagi ya ngentot!.`")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"(set|get|reset) pmpermit(?: |$)(\w*)"))
+@bot.on(indomie_cmd(outgoing=True, pattern=r"(set|get|reset) pmpermit(?: |$)(\w*)"))
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:

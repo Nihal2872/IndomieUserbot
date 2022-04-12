@@ -17,7 +17,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import LOGSPAMMER, DEFAULT, DEVS, bot
+from userbot import CMD_HANDLER, CMD_LIST, LOGSPAMMER, DEFAULT, DEVS, bot
 
 
 def indomie_cmd(pattern=None, command=None, **args):

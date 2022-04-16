@@ -367,30 +367,30 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 
 # Inline bot helper
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
-BOT_USERNAME=os.environ.get("BOT_USERNAME", None)
+BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
 # Yang atas aja ga blh apalagi yang ini kontol
 # Blacklist User for IndomieUserbot
 while 0 < 6:
-    _BLACKLIST=get(
+    _BLACKLIST = get(
         "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        memek=[]
+        memek = []
         break
-    memek=_BLACKLIST.json()
+    memek = _BLACKLIST.json()
     break
 
 del _BLACKLIST
 
-ch=str(b64decode("QEluZG9taWVTdG9yZQ=="))[2:13]
-ch2=str(b64decode("QEluZG9taWVQcm9qZWN0"))[2:17]
+ch = str(b64decode("QEluZG9taWVTdG9yZQ=="))[2:13]
+ch2 = str(b64decode("QEluZG9taWVQcm9qZWN0"))[2:17]
 
 # Init Mongo
-MONGOCLIENT=MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
-MONGO=MONGOCLIENT.userbot
+MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
+MONGO = MONGOCLIENT.userbot
 
 
 def is_mongo_alive():
@@ -404,7 +404,7 @@ def is_mongo_alive():
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
 # We need redis for just caching, so we just leave it to non-persistent
-REDIS=StrictRedis(host='localhost', port=6379, db=0)
+REDIS = StrictRedis(host='localhost', port=6379, db=0)
 
 
 def is_redis_alive():
@@ -420,7 +420,7 @@ def is_redis_alive():
 if not os.path.exists('bin'):
     os.mkdir('bin')
 
-binaries={
+binaries = {
     "https://raw.githubusercontent.com/adekmaulana/megadown/master/megadown":
     "bin/megadown",
     "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py":
@@ -428,17 +428,17 @@ binaries={
 }
 
 for binary, path in binaries.items():
-    downloader=SmartDL(binary, path, progress_bar=False)
+    downloader = SmartDL(binary, path, progress_bar=False)
     downloader.start()
     os.chmod(path, 0o755)
 
 # 'bot' variable
 if STRING_SESSION:
-    session=StringSession(str(STRING_SESSION))
+    session = StringSession(str(STRING_SESSION))
 else:
-    session="IndomieUserBot"
+    session = "IndomieUserBot"
 try:
-    bot=TelegramClient(
+    bot = TelegramClient(
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -446,14 +446,14 @@ try:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py=PyTgCalls(bot)
+    call_py = PyTgCalls(bot)
 except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
 if STRING_2:
-    session2=StringSession(str(STRING_2))
-    MIE2=TelegramClient(
+    session2 = StringSession(str(STRING_2))
+    MIE2 = TelegramClient(
         session=session2,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -461,15 +461,15 @@ if STRING_2:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py2=PyTgCalls(MIE2)
+    call_py2 = PyTgCalls(MIE2)
 else:
-    call_py2=None
-    MIE2=None
+    call_py2 = None
+    MIE2 = None
 
 
 if STRING_3:
-    session3=StringSession(str(STRING_3))
-    MIE3=TelegramClient(
+    session3 = StringSession(str(STRING_3))
+    MIE3 = TelegramClient(
         session=session3,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -477,15 +477,15 @@ if STRING_3:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py3=PyTgCalls(MIE3)
+    call_py3 = PyTgCalls(MIE3)
 else:
-    call_py3=None
-    MIE3=None
+    call_py3 = None
+    MIE3 = None
 
 
 if STRING_4:
-    session4=StringSession(str(STRING_4))
-    MIE4=TelegramClient(
+    session4 = StringSession(str(STRING_4))
+    MIE4 = TelegramClient(
         session=session4,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -493,15 +493,15 @@ if STRING_4:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py4=PyTgCalls(MIE4)
+    call_py4 = PyTgCalls(MIE4)
 else:
-    call_py4=None
-    MIE4=None
+    call_py4 = None
+    MIE4 = None
 
 
 if STRING_5:
-    session5=StringSession(str(STRING_5))
-    MIE5=TelegramClient(
+    session5 = StringSession(str(STRING_5))
+    MIE5 = TelegramClient(
         session=session5,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -509,14 +509,14 @@ if STRING_5:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py5=PyTgCalls(MIE5)
+    call_py5 = PyTgCalls(MIE5)
 else:
-    call_py5=None
-    MIE5=None
+    call_py5 = None
+    MIE5 = None
 
 
 async def update_restart_msg(chat_id, msg_id):
-    message=(
+    message = (
         f"**IndomieUserBot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
@@ -528,12 +528,12 @@ async def update_restart_msg(chat_id, msg_id):
 try:
     from userbot.modules.sql_helper.globals import delgvar, gvarstatus
 
-    chat_id, msg_id=gvarstatus("restartstatus").split("\n")
+    chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
             LOOP.run_until_complete(
-    update_restart_msg(
-        int(chat_id), int(msg_id)))
+                update_restart_msg(
+                    int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -542,7 +542,7 @@ except AttributeError:
 
 
 if BOT_TOKEN is not None:
-    tgbot=TelegramClient(
+    tgbot = TelegramClient(
         "TG_BOT_TOKEN",
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -551,22 +551,22 @@ if BOT_TOKEN is not None:
         connection_retries=None,
     ).start(bot_token=BOT_TOKEN)
 else:
-    tgbot=None
+    tgbot = None
 
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows=6
-    number_of_cols=2
+    number_of_rows = 6
+    number_of_cols = 2
     global looters
-    looters=page_number
-    helpable_modules=[p for p in loaded_modules if not p.startswith("_")]
-    helpable_modules=sorted(helpable_modules)
-    modules=[
+    looters = page_number
+    helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
+    helpable_modules = sorted(helpable_modules)
+    modules = [
         custom.Button.inline(f"✦ {x} ✦", data=f"ub_modul_{x}")
         for x in helpable_modules
     ]
 
-    pairs=list(
+    pairs = list(
         zip(
             modules[::number_of_cols],
             modules[1::number_of_cols],
@@ -574,18 +574,18 @@ def paginate_help(page_number, loaded_modules, prefix):
     )
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
-    max_num_pages=ceil(len(pairs) / number_of_rows)
-    modulo_page=page_number % max_num_pages
+    max_num_pages = ceil(len(pairs) / number_of_rows)
+    modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
-        pairs=pairs[
+        pairs = pairs[
             modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
         ] + [
             (
                 custom.Button.inline(
-    "««", data=f"{prefix}_prev({modulo_page})"),
+                    "««", data=f"{prefix}_prev({modulo_page})"),
                 custom.Button.inline("Tutup", b"close"),
                 custom.Button.inline(
-    "»»", data=f"{prefix}_next({modulo_page})"),
+                    "»»", data=f"{prefix}_next({modulo_page})"),
             )
         ]
 
@@ -607,7 +607,8 @@ with bot:
         indomielogo = INLINE_PIC
         tgbotusername = BOT_USERNAME
 
-        @tgbot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+        @tgbot.on(events.NewMessage(incoming=True,
+                  func=lambda e: e.is_private))
         async def bot_pms(event):
             chat = await event.get_chat()
             if check_is_black_list(chat.id):
@@ -663,8 +664,12 @@ with bot:
                         return await event.reply(f"**ERROR:** `{e}`")
                     try:
                         add_user_to_db(
-                            reply_to, user_name, user_id, reply_msg, event.id, msg.id
-                        )
+                            reply_to,
+                            user_name,
+                            user_id,
+                            reply_msg,
+                            event.id,
+                            msg.id)
                     except Exception as e:
                         LOGS.error(str(e))
                         if BOTLOG:
@@ -678,7 +683,8 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@IndomieProject"):
+            if event.query.user_id == uid and query.startswith(
+                    "@IndomieProject"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=indomielogo,
@@ -691,7 +697,11 @@ with bot:
                     title="Repository",
                     description="Repository Indomie Userbot",
                     url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    thumb=InputWebDocument(
+                        INLINE_PIC,
+                        0,
+                        "image/jpeg",
+                        []),
                     text="**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Rᴇᴘᴏ :** [Indomie](https://t.me/IndomieGenetik)\n✦ **Cʜᴀɴɴᴇʟ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ :** @IndomieStore\n✦ **Rᴇᴘᴏsɪᴛᴏʀʏ :** [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
@@ -721,9 +731,9 @@ with bot:
                         to_check -= 1
                     if n_escapes % 2 == 0:
                         buttons.append(
-                            (match.group(2), match.group(3), bool(match.group(4)))
-                        )
-                        note_data += markdown_note[prev : match.start(1)]
+                            (match.group(2), match.group(3), bool(
+                                match.group(4))))
+                        note_data += markdown_note[prev: match.start(1)]
                         prev = match.end(1)
                     elif n_escapes % 2 == 1:
                         note_data += markdown_note[prev:to_check]
@@ -745,7 +755,11 @@ with bot:
                     title="☯ IndomieUserbot ☯",
                     description="Indomie Userbot | Telethon",
                     url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    thumb=InputWebDocument(
+                        INLINE_PIC,
+                        0,
+                        "image/jpeg",
+                        []),
                     text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assɪsᴛᴀɴᴛ:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Uᴘᴅᴀᴛᴇs:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
@@ -770,7 +784,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
-                buttons = paginate_help(current_page_number, dugmeler, "helpme")
+                buttons = paginate_help(
+                    current_page_number, dugmeler, "helpme")
                 text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
@@ -789,8 +804,10 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(current_page_number + 1, dugmeler, "helpme")
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number + 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
@@ -801,7 +818,8 @@ with bot:
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline("• Re-Open Menu •", data="reopen")
+                openlagi = custom.Button.inline(
+                    "• Re-Open Menu •", data="reopen")
                 await event.edit(
                     "• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", buttons=openlagi
                 )
@@ -816,8 +834,10 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(current_page_number - 1, dugmeler, "helpme")
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number - 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
@@ -840,9 +860,8 @@ with bot:
                         + " "
                     )
                 else:
-                    help_string = (
-                        str(CMD_HELP[modul_name]).replace("`", "").replace("**", "")
-                    )
+                    help_string = (str(CMD_HELP[modul_name]).replace(
+                        "`", "").replace("**", ""))
 
                 reply_pop_up_alert = (
                     help_string
@@ -858,5 +877,4 @@ with bot:
         LOGS.info(
             "Help Mode Inline Bot Mu Tidak aktif. Tidak di aktifkan juga tidak apa-apa. "
             "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
-            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. "
-        )
+            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. ")

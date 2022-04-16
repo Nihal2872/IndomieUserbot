@@ -142,76 +142,76 @@ STRING_5 = os.environ.get("STRING_5", None)
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
 
 # Load or No Load modules
-LOAD=os.environ.get("LOAD", "").split()
-NO_LOAD=os.environ.get("NO_LOAD", "").split()
+LOAD = os.environ.get("LOAD", "").split()
+NO_LOAD = os.environ.get("NO_LOAD", "").split()
 
 # Userbot logging feature switch.
-BOTLOG=sb(os.environ.get("BOTLOG", "True"))
-LOGSPAMMER=sb(os.environ.get("LOGSPAMMER", "False"))
+BOTLOG = sb(os.environ.get("BOTLOG", "True"))
+LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
 # Custom Pmpermit text
-PMPERMIT_TEXT=os.environ.get("PMPERMIT_TEXT", None)
+PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
-PMPERMIT_PIC=os.environ.get(
+PMPERMIT_PIC = os.environ.get(
     "PMPERMIT_PIC") or "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png"
 
 # Bleep Blop, this is a bot ;)
-PM_AUTO_BAN=sb(os.environ.get("PM_AUTO_BAN", "True"))
-PM_LIMIT=int(os.environ.get("PM_LIMIT", 6))
+PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
+PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
-CMD_HANDLER=os.environ.get("CMD_HANDLER") or "."
-SUDO_HANDLER=os.environ.get("SUDO_HANDLER", r"$")
+CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
 # Send .chatid in any group with all your administration bots (added)
-G_BAN_LOGGER_GROUP=os.environ.get("G_BAN_LOGGER_GROUP", "")
+G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
 if G_BAN_LOGGER_GROUP:
-    G_BAN_LOGGER_GROUP=int(G_BAN_LOGGER_GROUP)
+    G_BAN_LOGGER_GROUP = int(G_BAN_LOGGER_GROUP)
 
 # Heroku Credentials for updater.
-HEROKU_MEMEZ=sb(os.environ.get("HEROKU_MEMEZ", "True"))
-HEROKU_APP_NAME=os.environ.get("HEROKU_APP_NAME", "")
-HEROKU_API_KEY=os.environ.get("HEROKU_API_KEY", "")
+HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "True"))
+HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", "")
+HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
 
 # JustWatch Country
-WATCH_COUNTRY=os.environ.get("WATCH_COUNTRY", "ID")
+WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", "ID")
 
 # Github Credentials for updater and Gitupload.
-GIT_REPO_NAME=os.environ.get("GIT_REPO_NAME", None)
-GITHUB_ACCESS_TOKEN=os.environ.get("GITHUB_ACCESS_TOKEN", None)
+GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
+GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 
 # Custom (forked) repo URL for updater.
-UPSTREAM_REPO_URL=os.environ.get(
+UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
     "https://github.com/indomiegorengsatu/IndomieUserbot")
-UPSTREAM_REPO_BRANCH=os.environ.get(
+UPSTREAM_REPO_BRANCH = os.environ.get(
     "UPSTREAM_REPO_BRANCH", "IndomieUserbot")
 
 # Console verbose logging
-CONSOLE_LOGGER_VERBOSE=sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 # SQL Database URI
-DB_URI=os.environ.get("DATABASE_URL", None)
+DB_URI = os.environ.get("DATABASE_URL", None)
 
 # OCR API key
-OCR_SPACE_API_KEY=os.environ.get(
+OCR_SPACE_API_KEY = os.environ.get(
     "OCR_SPACE_API_KEY") or "12dc42a0ff88957"
 
 # remove.bg API key
-REM_BG_API_KEY=os.environ.get(
+REM_BG_API_KEY = os.environ.get(
     "REM_BG_API_KEY") or "ihAEGNtfnVtCsWnzqiXM1GcS"
 
 # Redis URI & Redis Password
-REDIS_URI=os.environ.get('REDIS_URI', None)
-REDIS_PASSWORD=os.environ.get('REDIS_PASSWORD', None)
+REDIS_URI = os.environ.get('REDIS_URI', None)
+REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', None)
 
 if REDIS_URI and REDIS_PASSWORD:
     try:
-        REDIS_HOST=REDIS_URI.split(':')[0]
-        REDIS_PORT=REDIS_URI.split(':')[1]
-        redis_connection=redis.Redis(
-            host = REDIS_HOST, port = REDIS_PORT, password = REDIS_PASSWORD
+        REDIS_HOST = REDIS_URI.split(':')[0]
+        REDIS_PORT = REDIS_URI.split(':')[1]
+        redis_connection = redis.Redis(
+            host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD
         )
         redis_connection.ping()
     except Exception as e:
@@ -367,30 +367,30 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 
 # Inline bot helper
 BOT_TOKEN = os.environ.get("BOT_TOKEN"), None)
-BOT_USERNAME = os.environ.get("BOT_USERNAME"), None)
+BOT_USERNAME=os.environ.get("BOT_USERNAME"), None)
 
 # Yang atas aja ga blh apalagi yang ini kontol
 # Blacklist User for IndomieUserbot
 while 0 < 6:
-    _BLACKLIST = get(
+    _BLACKLIST=get(
         "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        memek = []
+        memek=[]
         break
-    memek = _BLACKLIST.json()
+    memek=_BLACKLIST.json()
     break
 
 del _BLACKLIST
 
-ch = str(b64decode("QEluZG9taWVTdG9yZQ=="))[2:13]
-ch2 = str(b64decode("QEluZG9taWVQcm9qZWN0"))[2:17]
+ch=str(b64decode("QEluZG9taWVTdG9yZQ=="))[2:13]
+ch2=str(b64decode("QEluZG9taWVQcm9qZWN0"))[2:17]
 
 # Init Mongo
-MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
-MONGO = MONGOCLIENT.userbot
+MONGOCLIENT=MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
+MONGO=MONGOCLIENT.userbot
 
 
 def is_mongo_alive():
@@ -404,7 +404,7 @@ def is_mongo_alive():
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
 # We need redis for just caching, so we just leave it to non-persistent
-REDIS = StrictRedis(host='localhost', port=6379, db=0)
+REDIS=StrictRedis(host='localhost', port=6379, db=0)
 
 
 def is_redis_alive():
@@ -420,7 +420,7 @@ def is_redis_alive():
 if not os.path.exists('bin'):
     os.mkdir('bin')
 
-binaries = {
+binaries={
     "https://raw.githubusercontent.com/adekmaulana/megadown/master/megadown":
     "bin/megadown",
     "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py":
@@ -428,17 +428,17 @@ binaries = {
 }
 
 for binary, path in binaries.items():
-    downloader = SmartDL(binary, path, progress_bar=False)
+    downloader=SmartDL(binary, path, progress_bar=False)
     downloader.start()
     os.chmod(path, 0o755)
 
 # 'bot' variable
 if STRING_SESSION:
-    session = StringSession(str(STRING_SESSION))
+    session=StringSession(str(STRING_SESSION))
 else:
-    session = "IndomieUserBot"
+    session="IndomieUserBot"
 try:
-    bot = TelegramClient(
+    bot=TelegramClient(
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -446,14 +446,14 @@ try:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py = PyTgCalls(bot)
+    call_py=PyTgCalls(bot)
 except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
 if STRING_2:
-    session2 = StringSession(str(STRING_2))
-    MIE2 = TelegramClient(
+    session2=StringSession(str(STRING_2))
+    MIE2=TelegramClient(
         session=session2,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -461,15 +461,15 @@ if STRING_2:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py2 = PyTgCalls(MIE2)
+    call_py2=PyTgCalls(MIE2)
 else:
-    call_py2 = None
-    MIE2 = None
+    call_py2=None
+    MIE2=None
 
 
 if STRING_3:
-    session3 = StringSession(str(STRING_3))
-    MIE3 = TelegramClient(
+    session3=StringSession(str(STRING_3))
+    MIE3=TelegramClient(
         session=session3,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -477,15 +477,15 @@ if STRING_3:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py3 = PyTgCalls(MIE3)
+    call_py3=PyTgCalls(MIE3)
 else:
-    call_py3 = None
-    MIE3 = None
+    call_py3=None
+    MIE3=None
 
 
 if STRING_4:
-    session4 = StringSession(str(STRING_4))
-    MIE4 = TelegramClient(
+    session4=StringSession(str(STRING_4))
+    MIE4=TelegramClient(
         session=session4,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -493,15 +493,15 @@ if STRING_4:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py4 = PyTgCalls(MIE4)
+    call_py4=PyTgCalls(MIE4)
 else:
-    call_py4 = None
-    MIE4 = None
+    call_py4=None
+    MIE4=None
 
 
 if STRING_5:
-    session5 = StringSession(str(STRING_5))
-    MIE5 = TelegramClient(
+    session5=StringSession(str(STRING_5))
+    MIE5=TelegramClient(
         session=session5,
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -509,14 +509,14 @@ if STRING_5:
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py5 = PyTgCalls(MIE5)
+    call_py5=PyTgCalls(MIE5)
 else:
-    call_py5 = None
-    MIE5 = None
+    call_py5=None
+    MIE5=None
 
 
 async def update_restart_msg(chat_id, msg_id):
-    message = (
+    message=(
         f"**IndomieUserBot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
@@ -528,10 +528,12 @@ async def update_restart_msg(chat_id, msg_id):
 try:
     from userbot.modules.sql_helper.globals import delgvar, gvarstatus
 
-    chat_id, msg_id = gvarstatus("restartstatus").split("\n")
+    chat_id, msg_id=gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            LOOP.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+            LOOP.run_until_complete(
+    update_restart_msg(
+        int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -540,7 +542,7 @@ except AttributeError:
 
 
 if BOT_TOKEN is not None:
-    tgbot = TelegramClient(
+    tgbot=TelegramClient(
         "TG_BOT_TOKEN",
         api_id=API_KEY,
         api_hash=API_HASH,
@@ -549,22 +551,22 @@ if BOT_TOKEN is not None:
         connection_retries=None,
     ).start(bot_token=BOT_TOKEN)
 else:
-    tgbot = None
+    tgbot=None
 
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows = 6
-    number_of_cols = 2
+    number_of_rows=6
+    number_of_cols=2
     global looters
-    looters = page_number
-    helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
-    helpable_modules = sorted(helpable_modules)
-    modules = [
+    looters=page_number
+    helpable_modules=[p for p in loaded_modules if not p.startswith("_")]
+    helpable_modules=sorted(helpable_modules)
+    modules=[
         custom.Button.inline(f"✦ {x} ✦", data=f"ub_modul_{x}")
         for x in helpable_modules
     ]
 
-    pairs = list(
+    pairs=list(
         zip(
             modules[::number_of_cols],
             modules[1::number_of_cols],
@@ -572,16 +574,18 @@ def paginate_help(page_number, loaded_modules, prefix):
     )
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
-    max_num_pages = ceil(len(pairs) / number_of_rows)
-    modulo_page = page_number % max_num_pages
+    max_num_pages=ceil(len(pairs) / number_of_rows)
+    modulo_page=page_number % max_num_pages
     if len(pairs) > number_of_rows:
-        pairs = pairs[
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
+        pairs=pairs[
+            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
         ] + [
             (
-                custom.Button.inline("««", data=f"{prefix}_prev({modulo_page})"),
+                custom.Button.inline(
+    "««", data=f"{prefix}_prev({modulo_page})"),
                 custom.Button.inline("Tutup", b"close"),
-                custom.Button.inline("»»", data=f"{prefix}_next({modulo_page})"),
+                custom.Button.inline(
+    "»»", data=f"{prefix}_next({modulo_page})"),
             )
         ]
 

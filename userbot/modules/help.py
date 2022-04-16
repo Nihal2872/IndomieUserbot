@@ -25,7 +25,7 @@ async def help(indomie):
             await asyncio.sleep(50)
             await indomie.delete()
     else:
-        memek = await event.client.get_me()
+        memek = await indomie.client.get_me()
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
@@ -35,7 +35,8 @@ async def help(indomie):
                            f"**• Bᴏᴛ Oᴡɴᴇʀ :** [{memek.first_name}](tg://user?id={memek.id})\n\n"
                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                            f"✦ {string}✦\n\n"
-                           "\n\nSupport @IndomieProject",
+                           "\n\nSupport @IndomieProject"
+                           "\nStore @IndomieStore",
                            )
         await indomie.reply(
-            f"\n✎ **ɴᴏᴛᴇꜱ :** `<{cmd}help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba yahahaha...**")
+            f"\n✎ **Contoh :** `<{cmd}help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba yahahaha...**")

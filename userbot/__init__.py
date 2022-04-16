@@ -68,7 +68,8 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
@@ -141,76 +142,76 @@ STRING_5 = os.environ.get("STRING_5", None)
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0))
 
 # Load or No Load modules
-LOAD = os.environ.get("LOAD", "").split()
-NO_LOAD = os.environ.get("NO_LOAD", "").split()
+LOAD=os.environ.get("LOAD", "").split()
+NO_LOAD=os.environ.get("NO_LOAD", "").split()
 
 # Userbot logging feature switch.
-BOTLOG = sb(os.environ.get("BOTLOG", "True"))
-LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
+BOTLOG=sb(os.environ.get("BOTLOG", "True"))
+LOGSPAMMER=sb(os.environ.get("LOGSPAMMER", "False"))
 
 # Custom Pmpermit text
-PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
+PMPERMIT_TEXT=os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
-PMPERMIT_PIC = os.environ.get(
+PMPERMIT_PIC=os.environ.get(
     "PMPERMIT_PIC") or "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png"
 
 # Bleep Blop, this is a bot ;)
-PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
-PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
+PM_AUTO_BAN=sb(os.environ.get("PM_AUTO_BAN", "True"))
+PM_LIMIT=int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
-CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
-SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
+CMD_HANDLER=os.environ.get("CMD_HANDLER") or "."
+SUDO_HANDLER=os.environ.get("SUDO_HANDLER", r"$")
 
 # Send .chatid in any group with all your administration bots (added)
-G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
+G_BAN_LOGGER_GROUP=os.environ.get("G_BAN_LOGGER_GROUP", "")
 if G_BAN_LOGGER_GROUP:
-    G_BAN_LOGGER_GROUP = int(G_BAN_LOGGER_GROUP)
+    G_BAN_LOGGER_GROUP=int(G_BAN_LOGGER_GROUP)
 
 # Heroku Credentials for updater.
-HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "True"))
-HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", "")
-HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
+HEROKU_MEMEZ=sb(os.environ.get("HEROKU_MEMEZ", "True"))
+HEROKU_APP_NAME=os.environ.get("HEROKU_APP_NAME", "")
+HEROKU_API_KEY=os.environ.get("HEROKU_API_KEY", "")
 
 # JustWatch Country
-WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", "ID")
+WATCH_COUNTRY=os.environ.get("WATCH_COUNTRY", "ID")
 
 # Github Credentials for updater and Gitupload.
-GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
+GIT_REPO_NAME=os.environ.get("GIT_REPO_NAME", None)
+GITHUB_ACCESS_TOKEN=os.environ.get("GITHUB_ACCESS_TOKEN", None)
 
 # Custom (forked) repo URL for updater.
-UPSTREAM_REPO_URL = os.environ.get(
+UPSTREAM_REPO_URL=os.environ.get(
     "UPSTREAM_REPO_URL",
     "https://github.com/indomiegorengsatu/IndomieUserbot")
-UPSTREAM_REPO_BRANCH = os.environ.get(
+UPSTREAM_REPO_BRANCH=os.environ.get(
     "UPSTREAM_REPO_BRANCH", "IndomieUserbot")
 
 # Console verbose logging
-CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+CONSOLE_LOGGER_VERBOSE=sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 # SQL Database URI
-DB_URI = os.environ.get("DATABASE_URL", None)
+DB_URI=os.environ.get("DATABASE_URL", None)
 
 # OCR API key
-OCR_SPACE_API_KEY = os.environ.get(
+OCR_SPACE_API_KEY=os.environ.get(
     "OCR_SPACE_API_KEY") or "12dc42a0ff88957"
 
 # remove.bg API key
-REM_BG_API_KEY = os.environ.get(
+REM_BG_API_KEY=os.environ.get(
     "REM_BG_API_KEY") or "ihAEGNtfnVtCsWnzqiXM1GcS"
 
 # Redis URI & Redis Password
-REDIS_URI = os.environ.get('REDIS_URI', None)
-REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', None)
+REDIS_URI=os.environ.get('REDIS_URI', None)
+REDIS_PASSWORD=os.environ.get('REDIS_PASSWORD', None)
 
 if REDIS_URI and REDIS_PASSWORD:
     try:
-        REDIS_HOST = REDIS_URI.split(':')[0]
-        REDIS_PORT = REDIS_URI.split(':')[1]
-        redis_connection = redis.Redis(
-            host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD
+        REDIS_HOST=REDIS_URI.split(':')[0]
+        REDIS_PORT=REDIS_URI.split(':')[1]
+        redis_connection=redis.Redis(
+            host = REDIS_HOST, port = REDIS_PORT, password = REDIS_PASSWORD
         )
         redis_connection.ping()
     except Exception as e:

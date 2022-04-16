@@ -86,19 +86,23 @@ def indomie_cmd(
         if bot:
             if not disable_edited:
                 bot.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=indomie_reg))
             bot.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
-            )
+                func,
+                events.NewMessage(
+                    **args,
+                    outgoing=True,
+                    pattern=indomie_reg))
         if bot:
             if allow_sudo:
                 if not disable_edited:
                     bot.add_event_handler(
                         func,
                         events.MessageEdited(
-                            **args, from_users=list(SUDO_USERS), pattern=sudo_reg
-                        ),
+                            **args,
+                            from_users=list(SUDO_USERS),
+                            pattern=sudo_reg),
                     )
                 bot.add_event_handler(
                     func,
@@ -109,35 +113,31 @@ def indomie_cmd(
         if MIE2:
             if not disable_edited:
                 MIE2.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-                )
-            MIE2.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
-            )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=indomie_reg))
+            MIE2.add_event_handler(func, events.NewMessage(
+                **args, outgoing=True, pattern=indomie_reg))
         if MIE3:
             if not disable_edited:
                 MIE3.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-                )
-            MIE3.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
-            )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=indomie_reg))
+            MIE3.add_event_handler(func, events.NewMessage(
+                **args, outgoing=True, pattern=indomie_reg))
         if MIE4:
             if not disable_edited:
                 MAN4.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-                )
-            MIE4.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
-            )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=indomie_reg))
+            MIE4.add_event_handler(func, events.NewMessage(
+                **args, outgoing=True, pattern=indomie_reg))
         if MIE5:
             if not disable_edited:
                 MIE5.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-                )
-            MIE5.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
-            )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=indomie_reg))
+            MIE5.add_event_handler(func, events.NewMessage(
+                **args, outgoing=True, pattern=indomie_reg))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:

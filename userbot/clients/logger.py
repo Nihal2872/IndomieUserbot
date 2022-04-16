@@ -22,7 +22,7 @@ MSG_ON = """
 ➠ **Userbot Version -** `{}@{}`
 ➠ **Ketik** `{}alive` **untuk Mengecheck Bot**
 ━━
-➠ **Maintenance By:** @IndomieProject
+➠ **Powered By:** @IndomieProject
 """
 
 

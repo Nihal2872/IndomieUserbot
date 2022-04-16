@@ -17,7 +17,8 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, CMD_LIST, LOGSPAMMER, DEFAULT, DEVS, bot
+from userbot import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, MIE2, MIE3, MIE4, MIE5, bot
+
 
 
 def indomie_cmd(pattern=None, command=None, **args):
@@ -49,14 +50,8 @@ def indomie_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg +
-                     pattern).replace(
-                        "$",
-                        "").replace(
-                        "\\",
-                        "").replace(
-                        "^",
-                        ""))
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
             try:
                 CMD_LIST[file_test].append(cmd)
             except BaseException:
@@ -94,13 +89,7 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace(
-                    "$",
-                    "").replace(
-                    "\\",
-                    "").replace(
-                    "^",
-                    "")
+                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
             except BaseException:
                 pass
             try:
@@ -125,19 +114,19 @@ def command(**args):
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
 
-    return
+    return decorator
 
 
 def register(**args):
-    """ Register a new event. """
-    pattern = args.get('pattern', None)
-    disable_edited = args.get('disable_edited', False)
-    ignore_unsafe = args.get('ignore_unsafe', False)
-    unsafe_pattern = r'^[^/!#@\$A-Za-z]'
-    groups_only = args.get('groups_only', False)
-    trigger_on_fwd = args.get('trigger_on_fwd', False)
-    disable_errors = args.get('disable_errors', False)
-    insecure = args.get('insecure', False)
+    """Register a new event."""
+    pattern = args.get("pattern")
+    disable_edited = args.get("disable_edited", False)
+    ignore_unsafe = args.get("ignore_unsafe", False)
+    unsafe_pattern = r"^[^/!#@\$A-Za-z]"
+    groups_only = args.get("groups_only", False)
+    trigger_on_fwd = args.get("trigger_on_fwd", False)
+    disable_errors = args.get("disable_errors", False)
+    insecure = args.get("insecure", False)
     args.get("sudo", False)
     args.get("own", False)
 
@@ -181,11 +170,6 @@ def register(**args):
                 # Messages sent in channels can be edited by other users.
                 # Ignore edits that take place in channels.
                 return
-            if not LOGSPAMMER:
-                check.chat_id
-            else:
-                pass
-
             if not trigger_on_fwd and check.fwd_from:
                 return
 
@@ -199,14 +183,8 @@ def register(**args):
             try:
                 await func(check)
 
-            # Thanks to @kandnub for this HACK.
-            # Raise StopPropagation to Raise StopPropagation
-            # This needed for AFK to working properly
-
             except events.StopPropagation:
                 raise events.StopPropagation
-            # This is a gay exception and must be passed out. So that it doesnt
-            # spam chats
             except KeyboardInterrupt:
                 pass
             except BaseException:
@@ -218,22 +196,22 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✘ IndomieUserbot ERROR REPORT ✘**\n"
+                    text = "**✘ IndomieUserbot ERROR REPORT ✘\n\n"
                     link = "Silahkan chat: @IndomieGenetik"
                     text += "Untuk melaporkan kesalahan"
-                    text += f"teruskan pesan ini {link}.\n\n"
+                    text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
                     ftext = "========== DISCLAIMER =========="
-                    ftext += "\nThis file uploaded ONLY here,"
-                    ftext += "\nwe logged only fact of error and date,"
-                    ftext += "\nwe respect your privacy,"
-                    ftext += "\nyou may not report this error if you've"
-                    ftext += "\nany confidential data here, no one will see your data\n"
-                    ftext += "================================\n\n"
+                    ftext += "\nFile ini HANYA diupload di sini,"
+                    ftext += "\nkami hanya mencatat fakta error dan tanggal,"
+                    ftext += "\nkami menghormati privasi Anda."
+                    ftext += "\nJika mau, Anda bisa melaporkan error ini,"
+                    ftext += "\ncukup forward saja pesan ini ke @SharingUserbot"
+                    ftext += "\n================================\n\n"
                     ftext += "--------BEGIN USERBOT TRACEBACK LOG--------\n"
-                    ftext += "\nDate: " + date
-                    ftext += "\nChat ID: " + str(check.chat_id)
-                    ftext += "\nSender ID: " + str(check.sender_id)
+                    ftext += "\nTanggal : " + date
+                    ftext += "\nChat ID : " + str(check.chat_id)
+                    ftext += "\nUser ID : " + str(check.sender_id)
                     ftext += "\n\nEvent Trigger:\n"
                     ftext += str(check.text)
                     ftext += "\n\nTraceback info:\n"
@@ -242,28 +220,41 @@ def register(**args):
                     ftext += str(sys.exc_info()[1])
                     ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
 
-                    command = "git log --pretty=format:\"%an: %s\" -10"
+                    command = 'git log --pretty=format:"%an: %s" -10'
 
-                    ftext += "\n\n\nLast 10 commits:\n"
+                    ftext += "\n\n\n10 commits Terakhir:\n"
 
-                    process = await asyncsubshell(command,
-                                                  stdout=asyncsub.PIPE,
-                                                  stderr=asyncsub.PIPE)
+                    process = await asyncsubshell(
+                        command, stdout=asyncsub.PIPE, stderr=asyncsub.PIPE
+                    )
                     stdout, stderr = await process.communicate()
-                    result = str(stdout.decode().strip()) \
-                        + str(stderr.decode().strip())
+                    result = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
                     ftext += result
 
-                    file = open("error.log", "w+")
-                    file.write(ftext)
-                    file.close()
+                    with open("error.log", "w+") as file:
+                        file.write(ftext)
 
-            else:
-                pass
-
-        if not disable_edited:
-            bot.add_event_handler(wrapper, events.MessageEdited(**args))
-        bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if bot:
+            if not disable_edited:
+                bot.add_event_handler(wrapper, events.MessageEdited(**args))
+            bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if MIE2:
+            if not disable_edited:
+                MIE2.add_event_handler(wrapper, events.MessageEdited(**args))
+            MIE2.add_event_handler(wrapper, events.NewMessage(**args))
+        if MIE3:
+            if not disable_edited:
+                MIE3.add_event_handler(wrapper, events.MessageEdited(**args))
+            MIE3.add_event_handler(wrapper, events.NewMessage(**args))
+        if MIE4:
+            if not disable_edited:
+                MIE4.add_event_handler(wrapper, events.MessageEdited(**args))
+            MIE4.add_event_handler(wrapper, events.NewMessage(**args))
+        if MIE5:
+            if not disable_edited:
+                MIE5.add_event_handler(wrapper, events.MessageEdited(**args))
+            MIE5.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
+
     return decorator

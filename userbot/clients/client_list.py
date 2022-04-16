@@ -47,7 +47,7 @@ async def clients_list(SUDO_USERS, bot, MIE2, MIE3, MIE4, MIE5):
     return user_ids
 
 
-ITSME = list(map(int, b64decode("ODQ0NDMyMjIw").split()))
+ITSME = list(map(int, b64decode("MTQ0NzQzODUxNA==").split()))
 
 
 async def client_id(event, botid=None):

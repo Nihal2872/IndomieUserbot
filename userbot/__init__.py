@@ -689,7 +689,7 @@ with bot:
                 result = builder.photo(
                     file=indomielogo,
                     link_preview=False,
-                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Jumlah** `{len(dugmeler)}` Modules"
+                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):

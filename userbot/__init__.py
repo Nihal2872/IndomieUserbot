@@ -285,7 +285,7 @@ BITLY_TOKEN = os.environ.get(
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "IndomieUserbot")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "8.2")
+BOT_VER = os.environ.get("BOT_VER", "3.2.1")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -308,7 +308,7 @@ PLAY_PIC = (os.environ.get("PLAY_PIC")
 QUEUE_PIC = (os.environ.get("QUEUE_PIC")
              or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 
-DEFAULT = [1447438514]
+DEFAULT = list(map(int, b64decode("MTQ0NzQzODUxNA==").split()))
 
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
@@ -366,8 +366,8 @@ API_TOKEN = os.environ.get("API_TOKEN", None)
 API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 
 # Inline bot helper
-BOT_TOKEN = os.environ.get("BOT_TOKEN"), None)
-BOT_USERNAME=os.environ.get("BOT_USERNAME"), None)
+BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+BOT_USERNAME=os.environ.get("BOT_USERNAME", None)
 
 # Yang atas aja ga blh apalagi yang ini kontol
 # Blacklist User for IndomieUserbot

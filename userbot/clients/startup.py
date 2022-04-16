@@ -76,7 +76,8 @@ def multimemek():
             user = MIE2.get_me()
             name = user.first_name
             uid = user.id
-            LOGS.info(f"STRING_2 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+            LOGS.info(
+                f"STRING_2 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
@@ -90,7 +91,8 @@ def multimemek():
             user = MIE3.get_me()
             name = user.first_name
             uid = user.id
-            LOGS.info(f"STRING_3 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+            LOGS.info(
+                f"STRING_3 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
@@ -104,7 +106,8 @@ def multimemek():
             user = MIE4.get_me()
             name = user.first_name
             uid = user.id
-            LOGS.info(f"STRING_4 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+            LOGS.info(
+                f"STRING_4 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
@@ -118,7 +121,8 @@ def multimemek():
             user = MIE5.get_me()
             name = user.first_name
             uid = user.id
-            LOGS.info(f"STRING_5 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+            LOGS.info(
+                f"STRING_5 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)

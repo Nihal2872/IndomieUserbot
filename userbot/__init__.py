@@ -41,6 +41,8 @@ def STORAGE(n):
 
 
 load_dotenv("config.env")
+
+LOOP = get_event_loop()
 StartTime = time.time()
 repo = Repo()
 branch = repo.active_branch.name

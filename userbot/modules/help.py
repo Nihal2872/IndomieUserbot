@@ -8,7 +8,6 @@
 import asyncio
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.events import register
 
 modules = CMD_HELP
 
@@ -36,6 +35,6 @@ async def help(indomie):
                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                            f"✦ {string}✦\n\n"
                            "\n\nSupport @IndomieProject",
-        )
+                           )
         await indomie.reply(
             f"\n✎ **ɴᴏᴛᴇꜱ :** `<{cmd}help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba yahahaha...**")

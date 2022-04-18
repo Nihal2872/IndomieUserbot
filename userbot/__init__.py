@@ -134,11 +134,11 @@ API_KEY = int(os.environ.get("API_KEY") or None)
 API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
-STRING_SESSION = os.environ.get("STRING_SESSION", None)
-STRING_2 = os.environ.get("STRING_2", None)
-STRING_3 = os.environ.get("STRING_3", None)
-STRING_4 = os.environ.get("STRING_4", None)
-STRING_5 = os.environ.get("STRING_5", None)
+STRING = os.environ.get("STRING", None)
+STRING2 = os.environ.get("STRING2", None)
+STRING3 = os.environ.get("STRING3", None)
+STRING4 = os.environ.get("STRING4", None)
+STRING5 = os.environ.get("STRING5", None)
 
 # Logging channel/group ID configuration.
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
@@ -435,8 +435,8 @@ for binary, path in binaries.items():
     os.chmod(path, 0o755)
 
 # 'bot' variable
-if STRING_SESSION:
-    session = StringSession(str(STRING_SESSION))
+if STRING:
+    session = StringSession(str(STRING))
 else:
     session = "IndomieUserBot"
 try:
@@ -450,11 +450,11 @@ try:
     )
     call_py = PyTgCalls(bot)
 except Exception as e:
-    print(f"STRING_SESSION - {e}")
+    print(f"STRING - {e}")
     sys.exit()
 
-if STRING_2:
-    session2 = StringSession(str(STRING_2))
+if STRING2:
+    session2 = StringSession(str(STRING2))
     MIE2 = TelegramClient(
         session=session2,
         api_id=API_KEY,
@@ -469,8 +469,8 @@ else:
     MIE2 = None
 
 
-if STRING_3:
-    session3 = StringSession(str(STRING_3))
+if STRING3:
+    session3 = StringSession(str(STRING3))
     MIE3 = TelegramClient(
         session=session3,
         api_id=API_KEY,
@@ -485,8 +485,8 @@ else:
     MIE3 = None
 
 
-if STRING_4:
-    session4 = StringSession(str(STRING_4))
+if STRING4:
+    session4 = StringSession(str(STRING4))
     MIE4 = TelegramClient(
         session=session4,
         api_id=API_KEY,
@@ -501,8 +501,8 @@ else:
     MIE4 = None
 
 
-if STRING_5:
-    session5 = StringSession(str(STRING_5))
+if STRING5:
+    session5 = StringSession(str(STRING5))
     MIE5 = TelegramClient(
         session=session5,
         api_id=API_KEY,

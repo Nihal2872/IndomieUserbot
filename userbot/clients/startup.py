@@ -140,7 +140,7 @@ def multimemek():
         except Exception as e:
             LOGS.info(str(e))
 
-    if not STRING_SESSION:
+    if not STRING:
         failed += 1
     if not STRING_2:
         failed += 1

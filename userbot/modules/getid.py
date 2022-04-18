@@ -36,7 +36,7 @@ async def _(event):
             bot_api_file_id = pack_bot_file_id(r_msg.media)
             await edit_or_reply(
                 event,
-                "**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`\n**💎 Bot API File ID:** `{}`".format(
+                "**💬 Message ID:** `{}`\n**🙋‍♂️ User ID:** `{}`\n**💎 Bot API File ID:** `{}`".format(
                     str(r_msg.id),
                     str(r_msg.sender_id),
                     bot_api_file_id,
@@ -46,13 +46,13 @@ async def _(event):
         else:
             await edit_or_reply(
                 event,
-                "**👥 Chat ID:** `{}`\n**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`".format(
+                "**👥 Group ID:** `{}`\n**💬 Message ID:** `{}`\n**🙋‍♂️ User ID:** `{}`".format(
                     str(event.chat_id), str(r_msg.id), str(r_msg.sender_id)
                 ),
             )
 
     else:
-        await edit_or_reply(event, f"**👥 Chat ID: **`{event.chat_id}`")
+        await edit_or_reply(event, f"**👥 Group ID: **`{event.chat_id}`")
 
 
 CMD_HELP.update(

@@ -133,7 +133,6 @@ async def dyno_usage(dyno):
     await dyno.edit("Sabar goblok.")
     await dyno.edit("Sabar goblok..")
     await dyno.edit("Sabar goblok...")
-    await asyncio.sleep(1)
     useragent = (
         'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
         'AppleWebKit/537.36 (KHTML, like Gecko) '

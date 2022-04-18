@@ -29,8 +29,8 @@ from userbot.utils import edit_or_reply, indomie_cmd
 async def _(event):
     if event.fwd_from:
         return
-    ManUBOT = await tgbot.get_me()
-    BOT_USERNAME = ManUBOT.username
+    kontol = await tgbot.get_me()
+    BOT_USERNAME = kontol.username
     if BOT_USERNAME is not None:
         chat = "@Botfather"
         try:

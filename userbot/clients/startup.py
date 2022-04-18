@@ -20,11 +20,11 @@ from userbot import (
     MIE3,
     MIE4,
     MIE5,
-    STRING_2,
-    STRING_3,
-    STRING_4,
-    STRING_5,
-    STRING_SESSION,
+    STRING2,
+    STRING3,
+    STRING4,
+    STRING5,
+    STRING,
     memek,
     bot,
     call_py,
@@ -52,7 +52,7 @@ def multimemek():
         LOGS.warning(EOL.format(version))
         sys.exit(1)
     failed = 0
-    if STRING_SESSION:
+    if STRING:
         try:
             bot.start()
             call_py.start()
@@ -61,7 +61,7 @@ def multimemek():
             name = user.first_name
             uid = user.id
             LOGS.info(
-                f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——"
+                f"STRING detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——"
             )
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
@@ -69,7 +69,7 @@ def multimemek():
         except Exception as e:
             LOGS.info(str(e))
 
-    if STRING_2:
+    if STRING2:
         try:
             MIE2.start()
             LOOP.run_until_complete(man_client(MIE2))
@@ -77,14 +77,14 @@ def multimemek():
             name = user.first_name
             uid = user.id
             LOGS.info(
-                f"STRING_2 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+                f"STRING2 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
             LOGS.info(str(e))
 
-    if STRING_3:
+    if STRING3:
         try:
             MIE3.start()
             LOOP.run_until_complete(memek_client(MIE3))
@@ -92,14 +92,14 @@ def multimemek():
             name = user.first_name
             uid = user.id
             LOGS.info(
-                f"STRING_3 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+                f"STRING3 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
             LOGS.info(str(e))
 
-    if STRING_4:
+    if STRING4:
         try:
             MIE4.start()
             LOOP.run_until_complete(memek_client(MIE4))
@@ -107,14 +107,14 @@ def multimemek():
             name = user.first_name
             uid = user.id
             LOGS.info(
-                f"STRING_4 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+                f"STRING4 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
             LOGS.info(str(e))
 
-    if STRING_5:
+    if STRING5:
         try:
             MIE5.start()
             LOOP.run_until_complete(memek_client(MIE5))
@@ -122,7 +122,7 @@ def multimemek():
             name = user.first_name
             uid = user.id
             LOGS.info(
-                f"STRING_5 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+                f"STRING5 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
             if user.id in memek:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)

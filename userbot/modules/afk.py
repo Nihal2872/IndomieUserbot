@@ -65,7 +65,8 @@ async def set_not_afk(event):
         await bash("rm -rf *.tgs")
 
 
-@indomie_handler(incoming=True, func=lambda e: bool(e.mentioned or e.is_private))
+@indomie_handler(incoming=True,
+                 func=lambda e: bool(e.mentioned or e.is_private))
 async def on_afk(event):
     if event.fwd_from:
         return

@@ -126,7 +126,7 @@ def indomie_cmd(
                 **args, outgoing=True, pattern=indomie_reg))
         if MIE4:
             if not disable_edited:
-                MAN4.add_event_handler(
+                MIE4.add_event_handler(
                     func, events.MessageEdited(
                         **args, outgoing=True, pattern=indomie_reg))
             MIE4.add_event_handler(func, events.NewMessage(

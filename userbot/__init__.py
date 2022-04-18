@@ -147,6 +147,13 @@ BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
 LOAD = os.environ.get("LOAD", "").split()
 NO_LOAD = os.environ.get("NO_LOAD", "").split()
 
+# Support
+CHANNEL2 = os.environ.get("CHANNEL", "IndomieStore")
+CHANNEL2 = os.environ.get("CHANNEL2", "IndomieProject")
+
+# Custom icon HELP
+ICON_HELP = os.environ.get("ICON_HELP", "✦")
+
 # Userbot logging feature switch.
 BOTLOG = sb(os.environ.get("BOTLOG", "True"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))

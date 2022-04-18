@@ -22,7 +22,7 @@
       "description": "Dapatkan Api Hash Di Web my.telegram.org",
       "required": true
     },
-     "STRING_SESSION": {
+     "STRING": {
       "description": "Dapatkan String Session di repl.it / menggunakan bot @IndomieStringBot di telegram, jika masih tidak paham gimana cara ngambil nya, mending gausa bikin bot anjing. pake jasa gua aja wkwk",
       "required": true
     },

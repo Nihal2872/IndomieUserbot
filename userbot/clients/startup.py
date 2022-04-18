@@ -142,12 +142,12 @@ def multimemek():
 
     if not STRING:
         failed += 1
-    if not STRING_2:
+    if not STRING2:
         failed += 1
-    if not STRING_3:
+    if not STRING3:
         failed += 1
-    if not STRING_4:
+    if not STRING4:
         failed += 1
-    if not STRING_5:
+    if not STRING5:
         failed += 1
     return failed

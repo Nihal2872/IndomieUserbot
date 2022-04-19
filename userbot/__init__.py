@@ -148,7 +148,7 @@ LOAD = os.environ.get("LOAD", "").split()
 NO_LOAD = os.environ.get("NO_LOAD", "").split()
 
 # Support
-CHANNEL2 = os.environ.get("CHANNEL", "IndomieStore")
+CHANNEL = os.environ.get("CHANNEL", "IndomieStore")
 CHANNEL2 = os.environ.get("CHANNEL2", "IndomieProject")
 
 # Custom icon HELP

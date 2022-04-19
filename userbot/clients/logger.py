@@ -14,7 +14,6 @@ from userbot import BOT_VER as version
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import MIE2, MIE3, MIE4, MIE5, bot, branch, tgbot
-from userbot.utils import checking
 
 MSG_ON = """
 ✦ **IndomieUserbot Berhasil Di Aktifkan**

@@ -46,11 +46,6 @@
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": false
     },
-    "PM_AUTO_BAN": {
-      "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya dan False untuk mematikannya.",
-      "value": "True",
-      "required": true
-    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true

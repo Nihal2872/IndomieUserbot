@@ -23,7 +23,7 @@
       "required": true
     },
      "STRING": {
-      "description": "Dapatkan String Session di repl.it / menggunakan bot @IndomieStringBot di telegram, jika masih tidak paham gimana cara ngambil nya, mending gausa bikin bot anjing. pake jasa gua aja wkwk",
+      "description": "Dapatkan String Session di bot @IndomieStringBot, jika masih tidak paham gimana cara ngambil nya, mending gausa bikin bot anjing.",
       "required": true
     },
     "HEROKU_APP_NAME": {
@@ -44,7 +44,7 @@
     },
     "BOTLOG_CHATID": {
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
-      "required": true
+      "required": false
     },
     "PM_AUTO_BAN": {
       "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya dan False untuk mematikannya.",

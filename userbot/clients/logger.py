@@ -7,7 +7,7 @@
 
 import asyncio
 
-from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
+from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest, JoinChannelRequest
 from telethon.tl.types import ChatAdminRights
 
 from userbot import BOT_VER as version
@@ -54,7 +54,8 @@ async def memek_userbot_on():
         pass
     try:
         if bot:
-            await checking(bot)
+            await bot(JoinChannelRequest("@IndomieStore"))
+            await bot(JoinChannelRequest("@IndomieProject"))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await bot.send_message(
@@ -65,7 +66,8 @@ async def memek_userbot_on():
         pass
     try:
         if MIE2:
-            await checking(MIE2)
+            await MIE2(JoinChannelRequest("@IndomieStore"))
+            await MIE2(JoinChannelRequest("@IndomieProject"))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await MIE2.send_message(
@@ -76,7 +78,8 @@ async def memek_userbot_on():
         pass
     try:
         if MIE3:
-            await checking(MIE3)
+            await MIE3(JoinChannelRequest("@IndomieStore"))
+            await MIE3(JoinChannelRequest("@IndomieProject"))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await MIE3.send_message(
@@ -87,7 +90,8 @@ async def memek_userbot_on():
         pass
     try:
         if MIE4:
-            await checking(MIE4)
+            await MIE4(JoinChannelRequest("@IndomieStore"))
+            await MIE4(JoinChannelRequest("@IndomieProject"))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await MIE4.send_message(
@@ -98,7 +102,8 @@ async def memek_userbot_on():
         pass
     try:
         if MIE5:
-            await checking(MIE5)
+            await MIE5(JoinChannelRequest("@IndomieStore"))
+            await MIE5(JoinChannelRequest("@IndomieProject"))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await MIE5.send_message(

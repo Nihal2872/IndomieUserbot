@@ -63,7 +63,7 @@ async def get_user_from_event(
             if not noedits:
                 await edit_delete(
                     mieevent,
-                    "`Pass the user's username, id or reply!",
+                    "`Pass the user's username, id or reply!`",
                     60,
                 )
             return None, None
@@ -72,7 +72,7 @@ async def get_user_from_event(
     if not noedits:
         await edit_delete(
             mieevent,
-            "`Pass the user's username, id or reply!",
+            "`Pass the user's username, id or reply!`",
             60,
         )
     return None, None

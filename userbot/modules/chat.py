@@ -410,38 +410,38 @@ async def get_users(event):
     chat_mek = mek_.lower()
     restricted = ["@SharingUserbot", "@sharinguserbot"]
     if chat_mek in restricted:
-        await edit_or_reply(event, "**Anda tidak dapat Mengundang Anggota dari sana.**")
+        await edit_or_reply(event, "**You cannot Invite Members from there.**")
         await event.client.send_message(
-            -1001473548283, "**Maaf Telah Mencuri Member dari Sini.**"
+            -1001473548283, "**Sorry For Stealing Member From Here.**"
         )
         return
     if not mek_:
         return await edit_or_reply(
-            event, "**Berikan Link Grup Chat untuk menculik membernya**"
+            event, "**Send the Chat Group Link to kidnap the members**"
         )
-    mek = await edit_or_reply(event, f"**Mengundang Member Dari Group {mek_}**")
+    mek = await edit_or_reply(event, f"**Inviting Members of the Group {mek_}**")
     pepek = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
         return await mek.edit(
-            "**Tidak bisa Menambahkan Member di sini Harap ketik di Grup Chat**"
+            "**Can't Add Member here Please type in Group Chat**"
         )
     s = 0
     f = 0
     error = "None"
-    await mek.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
+    await mek.edit("**Terminal Status**\n\n`Gathering Users...`")
     async for user in event.client.iter_participants(pepek.full_chat.id):
         try:
             await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
             s += 1
             await mek.edit(
-                f"**Terminal Running**\n\n• **Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**\n\n**× LastError:** `{error}`"
+                f"**Terminal Running**\n\n• **Invited** `{s}` **people** \n• **Failed to Invite** `{f}` **people**\n\n**× LastError:** `{error}`"
             )
         except Exception as e:
             error = str(e)
             f += 1
     return await mek.edit(
-        f"**Terminal Finished** \n\n• **Berhasil Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**"
+        f"**Terminal Finished** \n\n• **Successfully Invited** `{s}` **people** \n• **failed to invite** `{f}` **people**"
     )
 
 
@@ -566,6 +566,7 @@ CMD_HELP.update(
         "invite": f"**Plugin : **`invite`\
         \n\n  •  **Syntax :** `{cmd}invite` <username/user id>\
         \n  •  **Function : **Untuk Menambahkan/invite pengguna ke group chat.\
+        \n\n  •  **Syntax :** `{cmd}inviteall` <username grup yang mau di culik membernya>\
     "
     }
 )
@@ -577,9 +578,18 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}kickme`\
         \n  •  **Function : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
         \n\n  •  **Syntax :** `{cmd}leave`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master Telah Meninggalkan Grup, bye !!\
-        \n\n  •  **Syntax :** `{cmd}kikme`\
         \n  •  **Function : **Keluar grup dengan menampilkan pesan GC NYA JELEK GOBLOK KELUAR DULU AH CROTT 🥴\
+    "
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "inviteall": f"**Plugin : **`inviteall`\
+        \n\n  •   𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}inviteall`\
+        \n  •  **Function :** __Scrapes users from the given chat to your group__.\
+        \n  •  **Function : **To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group)\
     "
     }
 )

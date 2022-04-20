@@ -394,8 +394,8 @@ while 0 < 6:
 
 del _BLACKLIST
 
-ch = str(b64decode("QEluZG9taWVTdG9yZQ=="))[2:13]
-ch2 = str(b64decode("QEluZG9taWVQcm9qZWN0"))[2:17]
+ch = str(b64decode("QGluZG9taWVzdG9yZQ=="))[2:13]
+ch2 = str(b64decode("QGluZG9taWVwcm9qZWN0"))[2:17]
 
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)

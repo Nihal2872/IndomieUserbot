@@ -587,9 +587,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "inviteall": f"**Plugin : **`inviteall`\
-        \n\n  •   𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}inviteall`\
-        \n  •  **Function :** __Scrapes users from the given chat to your group__.\
-        \n  •  **Function :** To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group)\
+        \n\n  •   **Commands :** `{cmd}inviteall`\
+        \n  •  **Function :** To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group).\
     "
     }
 )

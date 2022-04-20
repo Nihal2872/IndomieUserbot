@@ -129,7 +129,7 @@ async def kikme(leave):
         return await edit_or_reply(
             leave, "**Perintah ini Dilarang digunakan di Group ini**"
         )
-    await edit_or_reply(leave, "**GC NYA JELEK GOBLOK KELUAR DULU AH CROTT** 🥴")
+    await edit_or_reply(leave, "**GRUP KONTOL BABI TELASO ANJING TAI BEDEBAH PEPEK TOLOL**")
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
@@ -578,7 +578,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}kickme`\
         \n  •  **Function : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
         \n\n  •  **Syntax :** `{cmd}leave`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan GC NYA JELEK GOBLOK KELUAR DULU AH CROTT 🥴\
+        \n  •  **Function : **Keluar grup dengan menampilkan pesan GRUP KONTOL BABI TELASO ANJING TAI BEDEBAH PEPEK TOLOL\
     "
     }
 )
@@ -589,7 +589,7 @@ CMD_HELP.update(
         "inviteall": f"**Plugin : **`inviteall`\
         \n\n  •   𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}inviteall`\
         \n  •  **Function :** __Scrapes users from the given chat to your group__.\
-        \n  •  **Function : **To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group)\
+        \n  •  **Function :** To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group)\
     "
     }
 )

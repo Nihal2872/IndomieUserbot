@@ -79,8 +79,8 @@ async def get_user_from_event(
 
 
 async def checking(client):
-    kontol = str(pybase64.b64decode("QEluZG9taWVQcm9qZWN0"))[2:13]
-    memek = str(pybase64.b64decode("QEluZG9taWVTdG9yZQ=="))[2:17]
+    kontol = str(pybase64.b64decode("QGluZG9taWVzdG9yZQ=="))[2:13]
+    memek = str(pybase64.b64decode("QGluZG9taWVwcm9qZWN0"))[2:17]
     if client:
         try:
             await client(Get(kontol))

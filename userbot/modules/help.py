@@ -5,7 +5,7 @@
 #
 
 from userbot import CHANNEL, CHANNEL2
-from userbot import CMD_HELP, ICON_HELP
+from userbot import CMD_HELP, ICON_HELP, ch2
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import edit_delete, edit_or_reply, indomie_cmd
 
@@ -17,7 +17,7 @@ async def help(indomie):
     args = indomie.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© {CHANNEL2}")
+            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© {ch2}")
         else:
             await edit_delete(indomie, f"`{args}`**NGETIK YANG BENER NGENTOT!!.**")
     else:

@@ -31,7 +31,8 @@ from userbot.utils import autobot, autopilot
 
 try:
     for module_name in ASST_MODULES:
-        imported_module = import_module("userbot.modules.asisstant." + module_name)
+        imported_module = import_module(
+            "userbot.modules.asisstant." + module_name)
     for module_name in ALL_MODULES:
         imported_module = import_module(f"userbot.modules.{module_name}")
     client = multimemek()

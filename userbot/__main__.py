@@ -26,11 +26,14 @@ from userbot import BOTLOG_CHATID, LOGS, LOOP, bot
 from userbot.clients import memek_userbot_on, multimemek
 from userbot.core.git import git
 from userbot.modules import ALL_MODULES
+from userbot.modules.assistant import ASST_MODULES
 from userbot.utils import autobot, autopilot
 
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module(f"userbot.modules.{module_name}")
+    for module_name in ASST_MODULES:
+        imported_module = import_module(f"userbot.modules.assistant.{module_name}")
     client = multimemek()
     total = 5 - client
     git()

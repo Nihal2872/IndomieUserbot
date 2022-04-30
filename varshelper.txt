@@ -4,7 +4,11 @@ API_HASH =
 
 
 # Userbot Session String this var is important
-STRING_SESSION =
+STRING  =
+STRING2 =
+STRING3 =
+STRING4 =
+STRING5 =
 
 # Logging channel/group ID configuration. this var is important
 BOTLOG_CHATID =

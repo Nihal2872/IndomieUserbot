@@ -18,9 +18,8 @@ from youtube_dl.utils import (ContentTooShortError, DownloadError,
 from youtubesearchpython import SearchVideos
 
 from userbot.events import register
-from userbot import CMD_HELP, ALIVE_NAME
-
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+from userbot import CMD_HELP, owner
+from userbot import CMD_HANDLER as cmd
 
 
 @register(outgoing=True, pattern=r"^\.song (.*)")
@@ -106,7 +105,7 @@ Connected to server...
         rip_data["title"], rip_data["uploader"]
     )
     await event.edit(f"`{upteload}`")
-    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {DEFAULTUSER}\n╰┈────────────────┈➤"
+    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {owner}\n╰┈────────────────┈➤"
     await event.client.send_file(
         event.chat_id,
         f"{rip_data['id']}.mp3",
@@ -208,7 +207,7 @@ async def download_vsong(event):
 async def original(event):
     if not event.pattern_match.group(1):
         return await event.edit("Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `.lirik` <Judul Lagu>")
-    geez = event.pattern_match.group(1)
+    memek = event.pattern_match.group(1)
     event = await event.edit("`Sedang Mencari Lirik Lagu...`")
     dc = random.randrange(1, 3)
     if dc == 1:
@@ -218,7 +217,7 @@ async def original(event):
     if dc == 3:
         piki = "AIzaSyDdOKnwnPwVIQ_lbH5sYE4FoXjAKIQV0DQ"
     extract_lyrics = sl(f"{piki}", "15b9fb6193efd5d90")
-    sh1vm = extract_lyrics.get_lyrics(f"{geez}")
+    sh1vm = extract_lyrics.get_lyrics(f"{memek}")
     a7ul = sh1vm["lyrics"]
     await event.client.send_message(event.chat_id, a7ul, reply_to=event.reply_to_msg_id)
     await event.delete()
@@ -226,11 +225,11 @@ async def original(event):
 
 CMD_HELP.update(
     {
-        "musikdownload": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.song <Penyanyi atau Band - Judul Lagu>`\
+        "musikdownload": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}song <Penyanyi atau Band - Judul Lagu>`\
          \n↳ : Mengunduh Sebuah Lagu Yang Diinginkan.\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vsong` `<judul lagu>`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vsong` `<judul lagu>`\
          \n↳ : `unggah video lagu.`\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.lirik` <Penyanyi atau Band - Judul Lagu>`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lirik` <Penyanyi atau Band - Judul Lagu>`\
          \n↳ : Mencari Lirik Lagu Yang Diinginkan."
     }
 )

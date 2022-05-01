@@ -2,13 +2,8 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.events import register
-from userbot import bot, CMD_HELP, ALIVE_NAME
-from platform import uname
-
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
+from userbot import bot, CMD_HELP, owner
+from userbot import CMD_HANDLER as cmd
 
 
 @register(outgoing=True, pattern="^.igsaver ?(.*)")
@@ -47,12 +42,14 @@ async def igsaver(event):
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
-                caption=f"**Download By {DEFAULTUSER}**",
+                caption=f"**Download By {owner}**",
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             await bot(functions.messages.DeleteHistoryRequest(peer=chat, max_id=0))
             await event.delete()
 
 
-CMD_HELP.update({"instasaver": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.igsaver`"
-                 "\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `.igsaver`"})
+CMD_HELP.update({
+        "instasaver": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}igsaver`"
+        "\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `.igsaver`."
+})

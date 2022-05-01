@@ -1,10 +1,6 @@
-from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import CMD_HELP, owner
+from userbot import CMD_HANDLER as cmd
 from userbot.events import register
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @register(outgoing=True, pattern="^.p(?: |$)(.*)")
@@ -28,25 +24,9 @@ async def perkenalan(event):
 # Istigfar
 
 
-@register(outgoing=True, pattern="^.perkenalan(?: |$)(.*)")
-async def perkenalan(event):
-    event.pattern_match.group(1)
-    await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {DEFAULTUSER}`")
-    sleep(2)
-    await event.edit(f"`Gw Tinggal Di {WEATHER_DEFCITY}`")
-    sleep(2)
-    await event.edit("`Salam Kenal...`")
-    sleep(2)
-    await event.edit("`Udah Gitu Aja :v`")
-# Perkenalan
-
-
 CMD_HELP.update({
-    "gabut": "**Modules** - `Gabut`\
-    \n\n Cmd : `.l`\
-    \nUsage : Untuk Menjawab Salam\
-    \n\n Cmd : `.perkenalan`\
-    \nUsage : Memperkenalkan Diri\
-    \n\n Cmd : `.p`\
-    \nUsage : Untuk Memberi Salam."
+    "gabut": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}p`"
+    "\n↳ : Memberi Salam"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}l`"
+    "\n↳ : Menjawab Salam."
 })

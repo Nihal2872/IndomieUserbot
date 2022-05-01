@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 # Copyright (C) 2020 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
@@ -13,7 +13,7 @@ export SEMAPHORE_PROJECT_DIR=$(pwd)
 . "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/telegram
 TELEGRAM_TOKEN=${BOT_API_KEY}
 export BOT_API_KEY TELEGRAM_TOKEN
-tg_sendinfo "<code>I am gonna merge staging into Geez-UserBot</code>"
+tg_sendinfo "<code>I am gonna merge staging into IndomieUserBot</code>"
 cd
 git clone https://github.com/sahyam2019/oub-remix.git
 cd oub-remix

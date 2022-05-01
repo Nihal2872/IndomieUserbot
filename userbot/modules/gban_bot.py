@@ -6,12 +6,8 @@ Available Commands:
 import asyncio
 from userbot import CMD_HELP
 from userbot.events import register
-from userbot import ALIVE_NAME, G_BAN_LOGGER_GROUP, bot
-# imported from uniborg by @heyworld
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
+from userbot import G_BAN_LOGGER_GROUP, bot, owner
+from userbot import CMD_HANDLER as cmd
 
 
 @register(outgoing=True, pattern="^.gbanb(?: |$)(.*)")
@@ -35,7 +31,7 @@ async def _(event):
     await event.delete()
     await event.reply("**gbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User gbanned by {DEFAULTUSER}**")
+    await event.edit(f"**User gbanned by {owner}**")
     asyncio.sleep(5)
     await event.delete()
 
@@ -58,13 +54,13 @@ async def _(event):
     await event.delete()
     await event.reply("**ungbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User ungbanned by {DEFAULTUSER}**")
+    await event.edit(f"**User ungbanned by {owner}**")
     asyncio.sleep(5)
     await event.delete()
 
 CMD_HELP.update({
-    "gbanbot": "`.gbanb`\
-    \nUsage: globally Ban Bot.\
-    \n\n`.ungbanb` :\
-    \nUsage: Cancel globally Ban Bot."
+    "gbanbot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gbanb`\
+    \n↳ : globally Ban Bot.\
+    \n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ungbanb`\
+    \n↳ : Cancel globally Ban Bot."
 })

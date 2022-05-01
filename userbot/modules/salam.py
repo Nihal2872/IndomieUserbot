@@ -1,13 +1,9 @@
-from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
-
-@register(outgoing=True, pattern='^P(?: |$)(.*)')
+@register(outgoing=True, pattern='^.P(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("𝐀𝐬𝐬𝐚𝐥𝐚𝐦𝐮'𝐚𝐥𝐚𝐢𝐤𝐮𝐦...")
@@ -19,7 +15,7 @@ async def typewriter(typew):
     await typew.edit("𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇....SAYANG!!!!")
 
 
-@register(outgoing=True, pattern='^L(?: |$)(.*)')
+@register(outgoing=True, pattern='^.L(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("𝐖𝐚'𝐚𝐥𝐚𝐢𝐤𝐮𝐦𝐬𝐚𝐥𝐚𝐦...")
@@ -32,18 +28,16 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "salam":
-    "P\
-\nUsage: Untuk Memberi salam.\
-\n\nL\
-\nUsage: Untuk Menjawab Salam."
+    "salam": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}P`"
+    "\n↳ : Memberi Salam."
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}L`"
+    "\n↳ : Menjawab Salam."
 })
 
 
 CMD_HELP.update({
-    "salam2":
-    ".atg\
-\nUsage: Istighfar 1.\
-\n\n.ast\
-\nUsage: Istighfaf 2."
+    "salam2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}atg`"
+    "\n↳ : Istigfar 1."
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ast`"
+    "\n↳ : Istigfar 2."
 })

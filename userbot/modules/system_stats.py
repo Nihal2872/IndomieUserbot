@@ -18,13 +18,9 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, ALIVE_NAME, RE_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
+from userbot import ALIVE_LOGO, RE_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
 from userbot.events import register
 
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 modules = CMD_HELP
@@ -165,7 +161,7 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ Versi:** \n "
+            "**⚜-**Userbot Version:** \n "
             f"{BOT_VER}"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
@@ -240,7 +236,7 @@ async def amireallyalive(alive):
         f"├  **Bᴏᴛ Vᴇʀ    :** `{BOT_VER}` \n"
         f"├  **Modules    :** `{len(modules)}` \n"
         f"└  **Uᴘᴛɪᴍᴇ     :** `{uptime}` \n"
-        f"   **[𝐒𝐭𝐨𝐫𝐞]**(https://t.me/IndomieStore) | **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥]**(https://t.me/IndomieProject) | **[𝗢𝘄𝗻𝗲𝗿]**(https://t.me/IndomieGenetik)")
+        f"   **[𝐒𝐭𝐨𝐫𝐞]**(https://t.me/IndomieStore) | **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥]**(https://t.me/IndomieProject) | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -279,7 +275,7 @@ async def redis(alive):
         f"├  **Uᴘᴛɪᴍᴇ   :** `{uptime}` \n"
         f"├  **Sᴜᴘᴘᴏʀᴛ  :** [𝐈𝐧𝐝𝐨𝐦𝐢𝐞 𝐏𝐫𝐨𝐣𝐞𝐜𝐭](https://t.me/IndomieProject) \n"
         f"└  **Oᴡɴᴇʀ    :** [𝐈𝐧𝐝𝐨𝐦𝐢𝐞](https://t.me/IndomieGenetik) \n"
-        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗦𝘁𝗼𝗿𝗲](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
+        f"    **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥](https://t.me/IndomieProject)** | **[𝗦𝘁𝗼𝗿𝗲](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO

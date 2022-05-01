@@ -2,13 +2,9 @@
 # FROM Indomieuserbot <https://github.com/indomiegorengsatu/indomieuserbot>
 # KONTOLLLLL MEMEEEK JEMBUUUT
 
-from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
 from userbot.events import register
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 # War anjing
 
@@ -162,36 +158,36 @@ async def typewriter(typew):
 
 CMD_HELP.update(
     {
-        "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ros\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .rst\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .wr\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ro\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .mas\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .dih\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gcs\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .skb\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .an\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .bk\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gj\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gh\
-        \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lol\
-        \n↳ : lihat sendiri\
+        "war2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{}ehh`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}emak`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ros`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rst`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wr`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ro`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mas`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}dih`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gcs`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}skb`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}an`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}bk`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gj`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gh`\
+        \n↳ : lihat sendiri.\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lol`\
+        \n↳ : lihat sendiri.\
         \n↳ **COBAIN AJA SENDIRI SEMUA!**.\
     "
     }

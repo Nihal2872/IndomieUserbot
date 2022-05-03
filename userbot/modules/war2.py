@@ -158,7 +158,7 @@ async def typewriter(typew):
 
 CMD_HELP.update(
     {
-        "war2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{}ehh`\
+        "war2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ehh`\
         \n↳ : lihat sendiri.\
         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}emak`\
         \n↳ : lihat sendiri.\

@@ -5,6 +5,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from userbot.events import register
 from userbot import CMD_HELP, bot, owner
+from userbot import CMD_HANDLER as cmd
 
 
 @register(outgoing=True, pattern="^.fgban(?: |$)(.*)")

@@ -47,7 +47,7 @@ for module_name in ASST_MODULES:
 
 bot.loop.run_until_complete(memek_userbot_on())
 if not BOTLOG_CHATID:
-bot.loop.run_until_complete(autopilot())
+    bot.loop.run_until_complete(autopilot())
 if not BOT_TOKEN:
     LOGS.info(
         "BOT_TOKEN Vars kaga di isi, otewe bikin bot di @Botfather ngeeeng..."

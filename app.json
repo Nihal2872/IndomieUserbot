@@ -1,17 +1,6 @@
 {
   "name": "IndomieUserbot",
   "description": "[IndomieUserbot] USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN MENEBAR PESONA HEKER DI TELEGRAM.",
-  "logo": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
-  "keywords": [
-    "telegram",
-    "userbot",
-    "plugin",
-    "modular",
-    "productivity"
-  ],
-  "repository": "https://github.com/indomiegorengsatu/IndomieUserbot/IndomieUserbot",
-  "telegram": "https://t.me/IndomieGenetik",
-  "success_url": "https://t.me/IndomieProject",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -45,31 +34,24 @@
     "BOTLOG_CHATID": {
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": false
+    }
   },
   "addons": [
     {
-      "plan": "heroku-postgresql",
+    "plan": "heroku-postgresql",
       "options": {
         "version": "12"
       }
     }
-  ],"buildpacks": [{
-    "url": "https://github.com/heroku/heroku-buildpack-python.git"
-  }, {
-    "url": "https://github.com/heroku/heroku-buildpack-redis"
-  }, {
-    "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
-  }, {
-    "url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab"
-  },{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  }, {
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  }, {
-    "url": "https://github.com/amivin/aria2-heroku"
-  }, {
-    "url": "https://github.com/stevo550/buildpack-slug-cleaner"
-  }],
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
   "formation": {
     "worker": {
       "quantity": 1,

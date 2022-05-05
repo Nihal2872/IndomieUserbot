@@ -244,7 +244,7 @@ async def approvepm(apprvpm):
         return await edit_delete(apprvpm, "**Pesan Anda Sudah Diterima**")
 
     await edit_delete(
-        apprvpm, f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`", 5
+        apprvpm, f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`", 2
     )
 
 

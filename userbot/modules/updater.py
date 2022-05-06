@@ -226,13 +226,13 @@ async def upstream(event):
             "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
     else:
-        await xx.edit("` Proses Update IndomieUserbot, Loading....1%`")
-        await xx.edit("` Proses Update IndomieUserbot, Loading....20%`")
-        await xx.edit("` Proses Update IndomieUserbot, Loading....35%`")
+        await xx.edit("` Proses Update IndomieUserbot, Loading.1%`")
+        await xx.edit("` Proses Update IndomieUserbot, Loading..38%`")
+        await xx.edit("` Proses Update IndomieUserbot, Loading...55%`")
         await xx.edit("` Proses Update IndomieUserbot, Loading....77%`")
-        await xx.edit("` Proses Update IndomieUserbot, Updating...90%`")
-        await xx.edit(
-            "` Proses Update IndomieUserbot, Mohon Tunggu Sebentar....100%`"
+        await xx.edit("` Proses Update IndomieUserbot, Loading.....90%`")
+        await xx.edit("` Proses Update IndomieUserbot, Loading......100%`")
+        await xx.edit("` Proses Update IndomieUserbot, Mohon Tunggu Sebentar.`"
         )
 
     if conf == "now":

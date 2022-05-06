@@ -233,7 +233,7 @@ async def upstream(event):
         await xx.edit("` Proses Update IndomieUserbot, Loading.....90%`")
         await xx.edit("` Proses Update IndomieUserbot, Loading......100%`")
         await xx.edit("` Proses Update IndomieUserbot, Mohon Tunggu Sebentar.`"
-        )
+                      )
 
     if conf == "now":
         await update(event, repo, ups_rem, ac_br)

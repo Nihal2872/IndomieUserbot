@@ -135,7 +135,7 @@ async def autobot():
                 f"BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}")
             await bot.send_message(
                 BOTLOG_CHATID,
-                "**Tunggu Sebentar, Sedang MeRestart Heroku Untuk Menyimpan Perubahan.**",
+                "**Tunggu Sebentar, Sedang Restart Heroku Untuk Menyimpan Perubahan.**",
             )
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -178,7 +178,7 @@ async def autobot():
         LOGS.info(f"BERHASIL MEMBUAT BOT TELEGRAM DENGAN USERNAME @{username}")
         await bot.send_message(
             BOTLOG_CHATID,
-            "**Tunggu Sebentar, Sedang MeRestart Heroku Untuk Menyimpan Perubahan.**",
+            "**Tunggu Sebentar, Sedang Restart Heroku Untuk Menyimpan Perubahan.**",
         )
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"

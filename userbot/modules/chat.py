@@ -406,7 +406,7 @@ async def fetch_info(chat, event):
 
 
 @indomie_cmd(pattern="inviteall ?(.*)")
-@sokap(pattern="^\.cinvite ?(.*)", sudo=True)
+@sokap(pattern="^\\.cinvite ?(.*)", sudo=True)
 async def get_users(event):
     mek_ = event.text[11:]
     chat_mek = mek_.lower()

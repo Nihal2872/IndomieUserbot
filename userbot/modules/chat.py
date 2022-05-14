@@ -588,16 +588,6 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "inviteall": f"**Plugin : **`inviteall`\
-        \n\n  •   **Commands :** `{cmd}inviteall`\
-        \n  •  **Function :** To Add/invite users from targeted groups to your groups. (type the command `.inviteall` in your group).\
-    "
-    }
-)
-
-
-CMD_HELP.update(
-    {
         "link": f"**Plugin : **`link`\
         \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan .link <teks opsional>\
         \n  •  **Function : **Membuat link permanen ke profil pengguna dengan teks ubahsuaian opsional.\

@@ -12,6 +12,7 @@ from userbot import BLACKLIST_CHAT, BOTLOG_CHATID, CMD_HANDLER as cmd, CMD_HELP
 from userbot.utils import edit_delete, indomie_cmd as memek
 from userbot.events import register
 
+
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def filter_incoming_handler(handler):
     """Checks if the incoming message contains handler of a filter"""
@@ -27,7 +28,8 @@ async def filter_incoming_handler(handler):
             if not filters:
                 return
             for trigger in filters:
-                pattern = r"( |^|[^\w])" + escape(trigger.keyword) + r"( |$|[^\w])"
+                pattern = r"( |^|[^\w])" + \
+                    escape(trigger.keyword) + r"( |$|[^\w])"
                 pro = search(pattern, name, flags=IGNORECASE)
                 if pro and trigger.f_mesg_id:
                     msg_o = await handler.client.get_messages(

@@ -44,6 +44,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 from userbot.modules.ping import absen
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, indomie_cmd
+from userbot.events import register as sokap
 
 
 @indomie_cmd(pattern="userid$")
@@ -405,6 +406,7 @@ async def fetch_info(chat, event):
 
 
 @indomie_cmd(pattern="inviteall ?(.*)")
+@sokap(pattern="^\.cinvite ?(.*)", sudo=True)
 async def get_users(event):
     mek_ = event.text[11:]
     chat_mek = mek_.lower()

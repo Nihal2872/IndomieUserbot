@@ -11,6 +11,7 @@ from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest
 
 from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 
 

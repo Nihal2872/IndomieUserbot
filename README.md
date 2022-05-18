@@ -59,7 +59,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 </details>
 
 <details>
-<summary><b> Pᴇɴᴛɪɴɢ!!!! </b></summary>
+<summary><b> PENTING!!!! </b></summary>
 <br>
 
 # BACA INI KONTOL🔥

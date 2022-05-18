@@ -1,6 +1,6 @@
 {
   "name": "IndomieUserbot",
-  "description": "[IndomieUserbot] USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN MENEBAR PESONA HEKER DI TELEGRAM.",
+  "description": "IndomieUserbot USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN MENEBAR PESONA HEKER DI TELEGRAM.",
   "logo": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
   "keywords": [
     "telegram",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/indomiegorengsatu/IndomieUserbot/IndomieUserbot",
+  "repository": "https://github.com/IndomieGorengSatu/IndomieUserbot",
   "telegram": "https://t.me/IndomieGenetik",
   "success_url": "https://t.me/IndomieProject",
   "stack": "container",
@@ -36,10 +36,6 @@
     },
     "BOT_TOKEN": {
       "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini.",
-      "required": false
-    },
-    "BOT_USERNAME": {
-      "description": "id username bot mu blok.",
       "required": false
     },
     "BOTLOG_CHATID": {

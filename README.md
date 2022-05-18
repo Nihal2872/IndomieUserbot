@@ -79,9 +79,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ### JANGAN DI HAPUS CREDIT NYA YA KONTOL
 
 🏆 **THANKS TO**
-*   [IndomieGorengSatu](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot (Template repo)
-*   [Skyzu](https://github.com/Skyzu)       :  Skyzu - Userbot (Inline menu)
+*   [IndomieGorengSatu](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   [Pocong](https://github.com/poocong)      :  Pocong - Userbot (fix repo)
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
@@ -93,7 +92,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <br>
 
 🏆 **BIG SHOUTOUT FOR MY SUHU**
-*   [Abdul](https://github.com/DoellBarr)
+*   [Abdul](https://github.com/DoellBarr) : (Helping me out how to fix pytgcalls)
 *   [Risman](https://github.com/mrismanaziz)  :  Man - Userbot
 
 

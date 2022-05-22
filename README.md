@@ -46,7 +46,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/IndomieGorengSatu/IndomieDeploy"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank""/</a>  
 
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.icons8.com/color/70/telegram-app.png" alt="Deploy via Telegram" target="_blank""/</a>
+<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.icons8.com/color/70/telegram-app.png" alt="Deploy via Telegram" target="_blank"/</a>
 
 
 <h2 align="center">

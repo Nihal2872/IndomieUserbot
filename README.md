@@ -23,9 +23,9 @@
   <img src="https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png">
 </p>
 
-<h2 align="center">
+<h1 align="center">
 <img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
-</h2>
+</h1>
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.

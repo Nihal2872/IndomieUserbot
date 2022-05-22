@@ -23,8 +23,9 @@
   <img src="https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png">
 </p>
 
-
-# <img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
+<h2 align="center">
+<img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
+</h2>
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -48,11 +49,17 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-pink?style=for-the-badge&logo=telegram"width="200""/</a> </p> 
 
 
-## Support & Updates 
+<h2 align="center">
+    Support & Updates 
+</h2>
+
 <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 
-## ❤️Follow Me :
+<h2 align="center">
+    Follow Me
+</h2>
+
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 

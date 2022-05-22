@@ -68,7 +68,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
     <a href="https://t.me/IndomieGenetik" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-    <a href="https://github.com/IndomieGorengSatu" target="blank"><img src="https://img.icons8.com/nolan/452/github.png" /></a>
+    <a href="https://github.com/IndomieGorengSatu" target="blank"><img src="https://img.icons8.com/nolan/55/github.png" /></a>
     <a href="https://instagram.com/w1thmyluv" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">

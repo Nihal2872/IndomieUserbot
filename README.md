@@ -55,8 +55,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 </p>
     <p align="center">
-    <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> 
-    <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+    <a href="https://t.me/IndomieStore" target="blank"><img src="https://img.icons8.com/clouds/344/telegram-app.png" /></a> 
+    <a href="https://t.me/IndomieProject" target="blank"><img src="https://img.icons8.com/clouds/344/telegram-app.png" /></a>
 </p>
 
 
@@ -70,8 +70,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
     <a href="https://t.me/IndomieGenetik" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
     <a href="https://github.com/IndomieGorengSatu" target="blank"><img src="https://img.icons8.com/nolan/55/github.png" /></a>
     <a href="https://instagram.com/w1thmyluv" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
-</p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+</p>
 
 
 </details>

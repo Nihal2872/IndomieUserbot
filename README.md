@@ -30,8 +30,9 @@
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
-
-## Generating Pyrogram String Session
+<h2 align="center">
+    Generating Pyrogram String Session
+</h2>
 
 - Generate a Pyrogram String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
 
@@ -108,5 +109,5 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <summary><b> License </b></summary>
 <br>
 
-## License
+## LICENSE
 Licensed under [Raphielscape Public License](https://github.com/IndomieGorengSatu/IndomieUserbot/blob/IndomieUserbot/LICENSE) - Version 3, 29 June 2007

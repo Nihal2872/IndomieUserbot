@@ -55,8 +55,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 </p>
     <p align="center">
-    <a href="https://t.me/IndomieStore" target="blank"><img src="https://img.icons8.com/clouds/344/telegram-app.png" /></a> 
-    <a href="https://t.me/IndomieProject" target="blank"><img src="https://img.icons8.com/clouds/344/telegram-app.png" /></a>
+    <a href="https://t.me/IndomieStore" target="blank"><img src="https://img.icons8.com/clouds/55/telegram-app.png" /></a> 
+    <a href="https://t.me/IndomieProject" target="blank"><img src="https://img.icons8.com/clouds/55/telegram-app.png" /></a>
 </p>
 
 

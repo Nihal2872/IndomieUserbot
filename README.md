@@ -31,6 +31,12 @@ Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 
+## Generating Pyrogram String Session
+
+- Generate a Pyrogram String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
+
+- Generate a Pyrogram String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
+
 
 <h2 align="center">
    Metode Deploy

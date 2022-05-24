@@ -1,10 +1,12 @@
-version: "3.9"
+version: "4"
 services:
   worker:
     build: .
     environment:
-      BOT_TOKEN: $BOT_TOKEN # defaults to none
-      BOTLOG_CHATID: $BOTLOG_CHATID # defaults to none
-      STRING: $STRING # defaults to none
-      API_KEY: $API_KEY  # defaults to None
-      API_HASH: $API_HASH  # defaults to None
+      BOT_TOKEN: $BOT_TOKEN
+      BOTLOG_CHATID: $BOTLOG_CHATID
+      STRING: $STRING
+      API_KEY: $API_KEY
+      API_HASH: $API_HASH
+      HEROKU_API_KEY: $HEROKU_API_KEY
+      HEROKU_APP_NAME: $HEROKU_APP_NAME

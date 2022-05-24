@@ -41,7 +41,7 @@ cd IndomieUserbot
 pip install --upgrade pip setuptools
 pip install -r requirements.txt
 
-mv sample_config.env config.env
+mv sample.env config.env
 
 mkdir -p $PREFIX/var/lib/postgresql
 initdb $PREFIX/var/lib/postgresql

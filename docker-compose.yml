@@ -1,4 +1,4 @@
-version: "4"
+version: "3.9"
 services:
   indomie:
     build: .
@@ -8,5 +8,3 @@ services:
       STRING: $STRING
       API_KEY: $API_KEY
       API_HASH: $API_HASH
-      HEROKU_API_KEY: $HEROKU_API_KEY
-      HEROKU_APP_NAME: $HEROKU_APP_NAME

@@ -44,7 +44,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
    Heroku Deployment
 </h2>
 
-<h4>Click the button below to deploy Indomie Userbot on Heroku!</h4>
+<h2 align="center">
+    Click the button below to deploy Indomie Userbot on Heroku!
+</h2>
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/IndomieGorengSatu/IndomieDeploy"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank""/</a>  
 
 <p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-pink.svg?style=for-the-badge&logo=telegram"width="200""/</a> </p> 
@@ -54,8 +56,10 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
     Okteto Deployment
 </h2>
 
-<h4>Click the button below to deploy Indomie Userbot on Okteto!</h4>
-<a href="https://cloud.okteto.com/deploy?repository=https://github.com/IndomieGorengSatu/IndomieUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Okteto-informational?style=for-the-badge&logo=Okteto" width="200""/></a>
+<h2 align="center">
+    Click the button below to deploy Indomie Userbot on Okteto!
+</h2>
+<p align="center"><a href="https://cloud.okteto.com/deploy?repository=https://github.com/IndomieGorengSatu/IndomieUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Okteto-informational?style=for-the-badge&logo=Okteto" width="200""/</a> </p>
 
 
 <h2 align="center">

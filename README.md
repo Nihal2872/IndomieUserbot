@@ -50,13 +50,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
 <h2 align="center">
-    Okteto Deployment
-</h2>
-
-<p align="center"><a href="https://cloud.okteto.com/deploy?repository=https://github.com/IndomieGorengSatu/IndomieUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Okteto-informational?style=for-the-badge&logo=Okteto" width="200""/</a> </p>
-
-
-<h2 align="center">
     Support & Updates 
 </h2>
 

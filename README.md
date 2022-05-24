@@ -32,12 +32,12 @@ Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 <h2 align="center">
-    Generating Pyrogram String Session
+    Generating Telethon String Session
 </h2>
 
-- Generate a Pyrogram String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
+- Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
 
-- Generate a Pyrogram String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
+- Generate a Telethon String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
 
 
 <h2 align="center">

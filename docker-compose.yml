@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  worker:
+    build: .
+    environment:
+      BOT_TOKEN: $BOT_TOKEN # defaults to none
+      BOTLOG_CHATID: $BOTLOG_CHATID # defaults to none
+      STRING: $STRING # defaults to none
+      API_ID: $API_ID  # defaults to None
+      API_HASH: $API_HASH  # defaults to None

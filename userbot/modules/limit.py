@@ -7,7 +7,8 @@
 # Yang apus kredit Lo ngentot!
 
 from telethon import events
-from telethon.errors.rpcerrorlist import YouBlockedUserError, UnblockRequest
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_delete, edit_or_reply, indomie_cmd

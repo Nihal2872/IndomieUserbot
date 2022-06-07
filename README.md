@@ -1,4 +1,3 @@
-
 <h1 align="center"><img src="./resources/extras/Indomiepurple.gif" width="35px">𝕴𝖓𝖉𝖔𝖒𝖎𝖊𝖀𝖘𝖊𝖗𝖇𝖔𝖙<img src="./resources/extras/Indomiepurple.gif" width="35px"></h1>
 
 <p align="center">

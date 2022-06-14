@@ -52,13 +52,15 @@
   ],"buildpacks": [{
     "url": "https://github.com/heroku/heroku-buildpack-python.git"
   }, {
+    "url": "heroku/python"
+  }, {
     "url": "https://github.com/heroku/heroku-buildpack-redis"
   }, {
     "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
   }, {
     "url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab"
   },{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
   }, {
     "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
   }, {

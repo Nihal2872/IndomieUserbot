@@ -223,7 +223,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "reubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+    "random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
     \n↳ : Biasalah sadboy hikss\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pt`\
     \n↳ : Pantun berdamage.\

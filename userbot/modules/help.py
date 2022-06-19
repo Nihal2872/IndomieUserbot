@@ -5,7 +5,7 @@
 #
 
 from userbot import CHANNEL, CHANNEL2
-from userbot import CMD_HELP, ICON_HELP, ch2
+from userbot import CMD_HELP, ICON_HELP
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import edit_delete, edit_or_reply, indomie_cmd
 
@@ -17,7 +17,7 @@ async def help(indomie):
     args = indomie.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© {ch2}")
+            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© [IndomieProject](https://t.me/IndomieProject)")
         else:
             await edit_delete(indomie, f"`{args}`**NGETIK YANG BENER NGENTOT!!.**")
     else:
@@ -28,10 +28,10 @@ async def help(indomie):
             string += f"`\t\t\t{ICON_HELP}\t\t\t"
         await edit_or_reply(
             indomie,
-            f"**• List Help [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot):**\n\n"
+            f"**• List Help [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)•**\n\n"
             f"**• Jumlah** `{len(CMD_HELP)}` **Modules**\n"
-            f"**• Bᴏᴛ Oᴡɴᴇʀ :** [{memek.first_name}](tg://user?id={memek.id})\n\n"
-            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+            f"**• Bot Owner :** [{memek.first_name}](tg://user?id={memek.id})\n\n"
+            "**• Help •**\n"
             f"{ICON_HELP}   {string}"
             f"\n\nSupport @{CHANNEL}"
             f"\nSupport @{CHANNEL2}",

@@ -11,7 +11,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_delete, edit_or_reply, indomie_cmd
+from userbot.utils import edit_or_reply, indomie_cmd
 from userbot.events import register
 
 

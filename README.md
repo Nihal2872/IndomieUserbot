@@ -98,9 +98,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ### JANGAN DI HAPUS CREDIT NYA YA KONTOL
 
 🏆 **THANKS TO**
-*   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot (Template repo)
-*   [IndomieGorengSatu](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
+*   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
 *   [Pocong](https://github.com/poocong)      :  Pocong - Userbot (fix repo)
+*   [IndomieGorengSatu](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 

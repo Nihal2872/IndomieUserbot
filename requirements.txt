@@ -19,7 +19,9 @@ dnspython
 emoji
 fontTools
 gitpython
+git+https://github.com/ahupp/python-magic
 git+https://github.com/johnwmillr/LyricsGenius.git
+git+https://github.com/voins/google-images-download.git@2cd68173c961324a2c41c61e8b6f40a49663ce60
 git+https://github.com/yt-dlp/yt-dlp@master
 geopy
 glitch_this
@@ -31,7 +33,7 @@ google-auth-oauthlib
 google_images_download
 gTTS>=2.1.1
 gTTS-token>=1.1.3
-heroku3>=3.4.0
+heroku3>=3.4.0	
 httplib2>=0.18.0
 humanize
 html_telegraph_poster
@@ -51,7 +53,7 @@ patool
 pendulum
 pillow
 psutil
-py-tgcalls==0.8.6
+py-tgcalls
 psycopg2
 psycopg2-binary
 pybase64
@@ -76,7 +78,7 @@ requests>=2.18.4
 redis>=3.3.10
 REPO_LINK
 search-engine-parser>=0.6.1
-speedtest-cli
+speedtest-cli>=2.0.2
 sqlalchemy<=1.3.23
 scikit-image
 scipy
@@ -85,14 +87,14 @@ selenium>=3.141.0
 telethon-session-sqlalchemy
 twitter_scraper
 telegraph
-telethon
+telethon==1.24.0
 telethon-tgcrypto
-urbandict
+urbandict>=0.5
 vcsi
 validators
 wheel
 wget
-wikipedia
+wikipedia>=1.4.0
 wand
 wordcloud
 youtube-search-python

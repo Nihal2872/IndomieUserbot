@@ -72,7 +72,7 @@ PyPDF2
 PyDrive2
 pyDownload
 qrcode
-requests
+requests>=2.18.4
 redis>=3.3.10
 REPO_LINK
 search-engine-parser>=0.6.1

@@ -90,6 +90,7 @@ telethon-tgcrypto
 urbandict
 vcsi
 validators
+wheel
 wget
 wikipedia
 wand

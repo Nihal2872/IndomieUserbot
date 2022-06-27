@@ -17,7 +17,7 @@ WORKDIR /home/IndomieUserbot/
 COPY ./sample.env ./config.env* /home/IndomieUserbot/
 
 #Install python requirements
-RUN pip3 install -U -r requirements.txt
+RUN pip3 install --no-cache-dir --upgrade --requirement requirements.txt
 
 # Finalization
 CMD bash start

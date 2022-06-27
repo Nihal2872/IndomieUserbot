@@ -2,12 +2,12 @@
 FROM indomie/indomie:buster
 #━━━━━ By IndomieUserbot ━━━━━
 
-RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update -y
+RUN apt-get install -y --no-install-recommends \
     curl \
     git \
     ffmpeg
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_17.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
 RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUserbot /home/IndomieUserbot/ \
@@ -20,4 +20,4 @@ COPY ./sample.env ./config.env* /home/IndomieUserbot/
 RUN pip3 install -U -r requirements.txt
 
 # Finalization
-CMD ["python3", "-m", "userbot"]
+CMD bash start

@@ -2,8 +2,8 @@
 FROM indomie/indomie:buster
 #━━━━━ By IndomieUserbot ━━━━━
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update -y && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends \
     curl \
     git \
     ffmpeg
@@ -17,7 +17,7 @@ WORKDIR /home/IndomieUserbot/
 COPY ./sample.env ./config.env* /home/IndomieUserbot/
 
 #Install python requirements
-RUN pip install -r requirements.txt
+RUN pip3 install -U -r requirements.txt
 
 # Finalization
 CMD ["python3", "-m", "userbot"]

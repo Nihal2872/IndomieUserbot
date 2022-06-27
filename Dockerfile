@@ -17,7 +17,7 @@ WORKDIR /home/IndomieUserbot/
 COPY ./sample.env ./config.env* /home/IndomieUserbot/
 
 #Install python requirements
-RUN pip install -U -r requirements.txt
+RUN python -m pip install -upgrade pip -r requirements.txt
 
 # Finalization
 CMD bash start

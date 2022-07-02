@@ -51,6 +51,18 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
 <h2 align="center">
+    VPS Deployment
+</h2>
+
+```console
+indomie@Windows~ $ git clone https://github.com/IndomieGorengSatu/IndomieUserbot
+indomie@Windows~ $ cd IndomieUserbot
+indomie@Windows~ $ pip install -r requirements.txt
+indomie@Windows~ $ vi .env
+indomie@Windows~ $ bash start
+```
+
+<h2 align="center">
     Support & Updates 
 </h2>
 

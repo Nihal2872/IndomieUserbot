@@ -8,4 +8,4 @@ RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUser
 
 WORKDIR /home/IndomieUserbot/
 
-CMD ["python3", "-m", "rams"]
+CMD ["python3", "-m", "indomie"]

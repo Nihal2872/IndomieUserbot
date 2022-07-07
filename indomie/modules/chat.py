@@ -42,7 +42,7 @@ from indomie import BLACKLIST_CHAT
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
 from indomie.events import register
-from indomie.modules.ping import absen
+from indomie.modules.asben import asben, rbb
 from indomie.utils import edit_delete, edit_or_reply, get_user_from_event, indomie_cmd
 from indomie.events import register as sokap
 
@@ -134,9 +134,14 @@ async def kikme(leave):
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(outgoing=True, pattern=r"^\.absenall$", own=True)
+@register(outgoing=True, pattern=r"^\.asbenall$", own=True)
 async def _(event):
-    await event.reply(choice(absen))
+    await event.reply(choice(asben))
+
+
+@register(outgoing=True, pattern=r"^\.rbball$", own=True)
+async def _(event):
+    await event.reply(choice(rbb))
 
 
 @indomie_cmd(pattern="chatinfo(?: |$)(.*)")

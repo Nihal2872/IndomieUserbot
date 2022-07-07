@@ -20,7 +20,7 @@ from indomie.utils import edit_delete, edit_or_reply
 
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
-    "𝗣𝗘𝗠𝗕𝗘𝗥𝗜𝗧𝗔𝗛𝗨𝗔𝗡\n"
+    "   𝗣𝗘𝗠𝗕𝗘𝗥𝗜𝗧𝗔𝗛𝗨𝗔𝗡\n"
     "╚═════════════════════╝\n"
     f"• [`{owner}`] belum menyetujui anda untuk PM.\n"
     f"• Tunggu sampai [`{owner}`] menyetujui PM anda.\n"

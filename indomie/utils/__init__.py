@@ -15,6 +15,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from . import format as _format
 from .chrome import chrome, options
+from ._base import IndomieDB
+from ._hosting import HOSTED_ON
 from .decorator import asst_cmd, callback, chataction, indomie_cmd, indomie_handler
 from .events import checking, get_user_from_event
 from .format import parse_pre
@@ -44,3 +46,4 @@ from .utils import (
     remove_plugin,
     start_assistant,
 )
+from .version import __version__, indomie_version

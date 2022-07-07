@@ -14,10 +14,12 @@ from indomie import BOT_VER as version
 from indomie import BOTLOG_CHATID
 from indomie import CMD_HANDLER as cmd
 from indomie import MIE2, MIE3, MIE4, MIE5, bot, branch, tgbot
+from indomie.utils import HOSTED_ON, indomie_version as jembut
 
 MSG_ON = """
 ✦ **IndomieUserbot Berhasil Di Aktifkan**
 ━━
+➠ **Indomie Version -** `{}` **•[{}]•**
 ➠ **Userbot Version -** `{}@{}`
 ➠ **Ketik** `{}alive` **untuk Mengecheck Bot**
 ━━
@@ -59,7 +61,7 @@ async def memek_userbot_on():
             if BOTLOG_CHATID != 0:
                 await bot.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(jembut, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -71,7 +73,7 @@ async def memek_userbot_on():
             if BOTLOG_CHATID != 0:
                 await MIE2.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(jembut, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -83,7 +85,7 @@ async def memek_userbot_on():
             if BOTLOG_CHATID != 0:
                 await MIE3.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(jembut, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -95,7 +97,7 @@ async def memek_userbot_on():
             if BOTLOG_CHATID != 0:
                 await MIE4.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(jembut, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -107,7 +109,7 @@ async def memek_userbot_on():
             if BOTLOG_CHATID != 0:
                 await MIE5.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(jembut, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass

@@ -85,8 +85,9 @@ async def psu(event):
     help_string += "**Informasi Mesin**\n"
     help_string += f"**Python :** `{sys.version}`\n"
     help_string += f"**Telethon :**`{__version__}`\n"
-    help_string += f"**Pytgcalls:** `{pytgcalls.__version__}`\n"
-    help_string += f"**Indomie Version :** `{indomie_version} [{HOSTED_ON}]`"
+    help_string += f"**Pytgcalls :** `{pytgcalls.__version__}`\n"
+    help_string += f"**Userbot Version :** `{BOT_VER}`\n"
+    help_string += f"**Indomie Version :** `{indomie_version}` **[{HOSTED_ON}]**"
     await edit_or_reply(event, help_string)
 
 
@@ -172,7 +173,7 @@ async def bot_ver(event):
 
 @indomie_cmd(pattern="(?:alive|nyala|on)\s?(.)?")
 async def redis(alive):
-    IndomieDB()
+    ah = IndomieDB()
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     await alive.edit("__Sabar Goblok.__")
@@ -180,14 +181,16 @@ async def redis(alive):
     await alive.edit("__Sabar Goblok...__")
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah aktif.**\n\n"
-        f"┌  **Name     :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"├  **Telethon :** `Vᴇʀ {version.__version__}` \n"
-        f"├  **Python   :** `Vᴇʀ {python_version()}` \n"
-        f"├  **Pytgcalls:** `{pytgcalls.__version__}` \n"
-        f"├  **Branch   :** `{UPSTREAM_REPO_BRANCH}` \n"
-        f"├  **Bot Ver  :** `{BOT_VER}` \n"
-        f"├  **Modules  :** `{len(modules)}` Modules \n"
-        f"└  **Uptime   :** `{uptime}` \n"
+        f"┌  **Name             :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"├  **Telethon         :** `Vᴇʀ {version.__version__}` \n"
+        f"├  **Python           :** `Vᴇʀ {python_version()}` \n"
+        f"├  **Pytgcalls        :** `{pytgcalls.__version__}` \n"
+        f"├  **Branch           :** `{UPSTREAM_REPO_BRANCH}` \n"
+        f"├  **Userbot Version  :** `{BOT_VER}` \n"
+        f"├  **Indomie Version  :** `{indomie_version}` **[{HOSTED_ON}]**\n"
+        f"├  **Modules          :** `{len(modules)}` Modules \n"
+        f"├  **Uptime           :** `{uptime}` \n"
+        f"└  **Base on          :** `{ah.name}` \n"
         f"    **[ᴜᴘᴅᴀᴛᴇꜱ](https://t.me/IndomieProject)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
         try:

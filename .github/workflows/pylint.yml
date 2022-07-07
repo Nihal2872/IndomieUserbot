@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -15,11 +14,8 @@ jobs:
 
       - name: Install Python lint libraries
         run: |
-          pip install autopep8 autoflake
-      - name: Check for showstoppers
-        run: |
-          autopep8 --verbose --in-place --recursive --aggressive --aggressive . *.py
-      - name: Remove unused imports and variables
+          pip install autoflake isort black
+       - name: Remove unused imports and variables
         run: |
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
 

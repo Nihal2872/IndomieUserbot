@@ -594,8 +594,8 @@ with bot:
 
 with bot:
     try:
-	bot(ah("@IndomieStore"))
-	bot(ah("@IndomieProject"))
+        bot(ah("@indomiestore"))
+        bot(ah("@indomieproject"))
     except BaseException:
         pass
     try:
@@ -607,6 +607,10 @@ with bot:
         logo = ALIVE_LOGO
         indomielogo = INLINE_PIC
         tgbotusername = BOT_USERNAME
+	BTN_URL_REGEX = re.compile(
+            r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
+        )
+
 
         @tgbot.on(events.NewMessage(incoming=True,
                   func=lambda e: e.is_private))

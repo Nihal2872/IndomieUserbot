@@ -585,9 +585,6 @@ def ibuild_keyboard(buttons):
     return keyb
 with bot:
     try:
-	import os
-        import random
-
         from indomie.modules.button import BTN_URL_REGEX, build_keyboard
         from indomie.modules.sql_helper.bot_blacklists import check_is_black_list
         from indomie.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
@@ -596,6 +593,11 @@ with bot:
         pass
 
 with bot:
+    try:
+        bot(ah("@IndomieProject"))
+        bot(ah("@IndomieStore"))
+    except BaseException:
+        pass
     try:
         desah = IndomieDB()
         dugmeler = CMD_HELP

@@ -54,13 +54,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
     VPS Deployment
 </h2>
 
-```console
-indomie@Windows~ $ git clone https://github.com/IndomieGorengSatu/IndomieUserbot
-indomie@Windows~ $ cd IndomieUserbot
-indomie@Windows~ $ pip install -r requirements.txt
-indomie@Windows~ $ vi .env
-indomie@Windows~ $ bash start
-```
+How to DEPLOY ON VPS
+> Checkout [Docs](https://telegra.ph/DEPLOY-ON-VPS-07-07) for Detailed Explanation on VPS Deploy
 
 <h2 align="center">
     Support & Updates 

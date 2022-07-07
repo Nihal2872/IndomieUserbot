@@ -1,75 +1,46 @@
-<h1 align="center">
-    𝕴𝖓𝖉𝖔𝖒𝖎𝖊𝖀𝖘𝖊𝖗𝖇𝖔𝖙
-</h1>
+<img src="https://telegra.ph/file/6400d5ad5b7d9fcb1fab0.jpg" align="right" width="200" height="200"/>
 
-<p align="center">
-    <a href="https://github.com/indomiegorengsatu/IndomieUserbot/commits/IndomieUserbot"><img src="https://img.shields.io/github/last-commit/indomiegorengsatu/IndomieUserbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
-    <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
-    <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
-    </p>
+#  IndomieUserbot
+
+[IndomieUserbot](https://github.com/IndomieGorengSatu/muciks) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
 
 
-<p align="center">
-  <a href="https://github.com/IndomieGorengSatu/IndomieUserbot/fork">
-    <img src="https://img.shields.io/github/forks/IndomieGorengSatu/IndomieUserbot?label=Fork&style=social">
-    
-  </a>
-  <a href="https://github.com/IndomieGorengSatu/IndomieUserbot">
-    <img src="https://img.shields.io/github/stars/IndomieGorengSatu/IndomieUserbot?style=social">
-  </a>
-</p>  
-
-
-<p align="center">
-  <img src="https://telegra.ph/file/6400d5ad5b7d9fcb1fab0.jpg">
-</p>
-
-<h1 align="center">
-    Disclaimer
-</h1>
+##  Disclaimer
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
-<h2 align="center">
-    Generating Telethon String Session
-</h2>
+
+##  Generating Telethon String Session
 
 - Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
 
 - Generate a Telethon String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
 
 
-<h2 align="center">
-   Heroku Deployment
-</h2>
+##  Heroku Deployment
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/IndomieGorengSatu/IndomieDeploy"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=flat&logo=heroku" width="210" height="34.45" /></a></p>  
+<h4>Click the button below to deploy IndomieUserbot on Heroku!</h4>
+<a href="https://dashboard.heroku.com/new?template=https://github.com/IndomieGorengSatu/IndomieDeploy"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=flat&logo=heroku" width="210" height="34.45"/></a> 
 
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20To%20Bot%20Heroku-blue?style=flat&logo=Telegram" width="210" height="34.45" /></a></p>
+<h4>Click the button below to deploy Indomie on Heroku bot!</h4>
+<a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20To%20Bot%20Heroku-blue?style=flat&logo=Telegram" width="210" height="34.45"/></a>
 
 
-<h2 align="center">
-    VPS Deployment
-</h2>
+##  VPS Deployment
 
-How to DEPLOY ON VPS
+## How to DEPLOY ON VPS
 > Checkout [Docs](https://telegra.ph/DEPLOY-ON-VPS-07-07) for Detailed Explanation on VPS Deploy
 
-<h2 align="center">
-    Support & Updates 
-</h2>
 
-</p>
-    <p align="center">
-    <a href="https://t.me/IndomieStore" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a> 
-    <a href="https://t.me/IndomieProject" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-</p>
+##  Channel & Updates 
+
+- [IndomieStore](https://t.me/IndomieStore) Checkout my store lmao
+- [IndomieProject](https://t.me/IndomieProject) Checkout for new IndomieUserbot and bots updates
 
 
-<h2 align="center">
-    Follow Me
+## Social Media
 </h2>
 
 </p>

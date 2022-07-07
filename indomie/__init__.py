@@ -581,7 +581,7 @@ with bot:
         from indomie.modules.button import BTN_URL_REGEX, build_keyboard
         from indomie.modules.sql_helper.bot_blacklists import check_is_black_list
         from indomie.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
-        from indomie.utils import reply_id
+        from indomie.utils import IndomieDB, HOSTED_ON, reply_id
     except BaseException:
 	pass
 
@@ -592,6 +592,7 @@ with bot:
     except BaseException:
         pass
     try:
+	desah = IndomieDB()
         dugmeler = CMD_HELP
         user = bot.get_me()
         uid = user.id
@@ -682,7 +683,7 @@ with bot:
                 result = builder.photo(
                     file=indomielogo,
                     link_preview=False,
-                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -695,18 +696,15 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Rᴇᴘᴏ :** [Indomie](https://t.me/IndomieGenetik)\n✦ **Cʜᴀɴɴᴇʟ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ :** @IndomieStore\n✦ **Rᴇᴘᴏsɪᴛᴏʀʏ :** [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n━━━━━━━━━━━━━━━━━━━",
+                    text="**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ ✦ **Updates :** @IndomieProject\n✦ **Channel :** @IndomieStore\n✦ **Repository :** [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
                             custom.Button.url(
-                                "• Cʜᴀɴɴᴇʟ •",
+                                "• Updates •",
                                 "https://t.me/IndomieProject"),
                             custom.Button.url(
-                                "• Sᴛᴏʀᴇ •",
+                                "• Channel •",
                                 "https://t.me/IndomieStore"),
-                            custom.Button.url(
-                                "• Rᴇᴘᴏ •",
-                                "https://github.com/IndomieGorengSatu/IndomieUserbot"),
                         ],
                     ],
                     link_preview=False,
@@ -757,14 +755,11 @@ with bot:
                     buttons=[
                         [
                             custom.Button.url(
-                                "• Cʜᴀɴɴᴇʟ •",
+                                "• Updates •",
                                 "https://t.me/IndomieProject"),
                             custom.Button.url(
-                                "• Sᴛᴏʀᴇ •",
+                                "• Channel •",
                                 "https://t.me/IndomieStore"),
-                            custom.Button.url(
-                                "• Rᴇᴘᴏ •",
-                                "https://github.com/IndomieGorengSatu/IndomieUserbot"),
                         ],
                     ],
                     link_preview=False,
@@ -779,7 +774,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"
                 await event.edit(
                     text,
                     file=indomielogo,
@@ -868,6 +863,4 @@ with bot:
 
     except BaseException:
         LOGS.info(
-            "Help Mode Inline Bot Mu Tidak aktif. Tidak di aktifkan juga tidak apa-apa. "
-            "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
-            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. ")
+            f"KALO BOT LU NGECRASH, KLIK SAVE YANG DI POJOK KANAN BAWAH DAN KIRIM KE @IndomieGenetik » Info By: Userbot {BOT_VER}")

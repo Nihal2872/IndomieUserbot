@@ -9,7 +9,7 @@
 import os
 import sys
 
-from Indomie import DB_URI, LOGS
+from indomie import DB_URI, LOGS
 
 
 try:
@@ -85,7 +85,7 @@ class MongoDB:
         self.re_cache()
 
     def __repr__(self):
-        return f"<Indomie.MonGoDB\n -total_keys: {len(self.keys())}\n>"
+        return f"<indomie.MonGoDB\n -total_keys: {len(self.keys())}\n>"
 
     @property
     def name(self):

@@ -575,7 +575,14 @@ def paginate_help(page_number, loaded_modules, prefix):
 
     return pairs
 
-
+def ibuild_keyboard(buttons):
+    keyb = []
+    for btn in buttons:
+        if btn[2] and keyb:
+            keyb[-1].append(Button.url(btn[0], btn[1]))
+        else:
+            keyb.append([Button.url(btn[0], btn[1])])
+    return keyb
 with bot:
     try:
         from indomie.modules.button import BTN_URL_REGEX, build_keyboard
@@ -583,7 +590,7 @@ with bot:
         from indomie.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
         from indomie.utils import IndomieDB, HOSTED_ON, reply_id
     except BaseException:
-	pass
+        pass
 
 with bot:
     try:

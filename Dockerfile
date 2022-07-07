@@ -8,10 +8,4 @@ RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUser
 
 WORKDIR /home/IndomieUserbot/
 
-COPY ./sample.env ./config.env* /home/IndomieUserbot/
-
-#Install python requirements
-RUN pip install -r requirements.txt
-
-# Finalization
-CMD ["bash","start"]
+CMD ["python3", "-m", "rams"]

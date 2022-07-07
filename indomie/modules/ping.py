@@ -14,6 +14,7 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from indomie import CMD_HELP, StartTime, owner
+from indomie.modules.asben import asben, rbb
 from indomie.events import register
 from indomie.utils import edit_or_reply, humanbytes, indomie_cmd
 
@@ -254,9 +255,14 @@ async def redis(pong):
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
-@register(pattern=r"^\.absen$", sudo=True)
+@register(pattern=r"^\.asben$", sudo=True)
 async def memek(jembut):
-    await jembut.reply(choice(absen))
+    await jembut.reply(choice(asben))
+
+
+@register(pattern=r"^\.rbb$", sudo=True)
+async def memek(ah):
+    await ah.reply(choice(rbb))
 
 
 # JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN

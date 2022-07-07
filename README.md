@@ -5,18 +5,21 @@
 [IndomieUserbot](https://github.com/IndomieGorengSatu/muciks) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
 
 
+
 ##  Disclaimer
 
-```
-Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
-Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
-```
+
+> Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
+> Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
+
+
 
 ##  Generating Telethon String Session
 
 - Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
 
 - Generate a Telethon String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
+
 
 
 ##  Heroku Deployment
@@ -28,10 +31,12 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20To%20Bot%20Heroku-blue?style=flat&logo=Telegram" width="210" height="34.45"/></a>
 
 
+
 ##  VPS Deployment
 
 ## How to DEPLOY ON VPS
 > Checkout [Docs](https://telegra.ph/DEPLOY-ON-VPS-07-07) for Detailed Explanation on VPS Deploy
+
 
 
 ##  Channel & Updates 
@@ -40,17 +45,13 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 - [IndomieProject](https://t.me/IndomieProject) Checkout for new IndomieUserbot and bots updates
 
 
-## Social Media
-</h2>
 
-</p>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-    <p align="center"> 
-    <a href="https://t.me/IndomieGenetik" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
-    <a href="https://github.com/IndomieGorengSatu" target="blank"><img src="https://img.icons8.com/nolan/55/github.png" /></a>
-    <a href="https://instagram.com/w1thmyluv" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-</p>
+## Social Media
+
+- [Telegram](https://t.me/IndomieGenetik)
+- [Github](https://github.com/IndomieGorengSatu)
+- [Instagram](https://instagram.com/w1thmyluv)
+
 
 
 </details>

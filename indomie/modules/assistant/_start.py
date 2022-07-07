@@ -237,7 +237,7 @@ async def users(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="indomie/resources/logo",
+                thumb="indomie/resources/logo.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
@@ -635,8 +635,8 @@ async def _(event):
 @callback(data=re.compile(b"infor"))
 async def infor(event):
     await event.edit(
-        f"**Owner** - {OWNER} \
-                \n**Id** - {OWNER_ID} \
+                f"**Owner** - {OWNER} \
+                \n**ID** - {OWNER_ID} \
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
                 \n**Store** - [Link](t.me/IndomieStore) \
                 \n**Repo** - [Github](github.com/IndomieGorengSatu) \

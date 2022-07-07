@@ -1,17 +1,20 @@
 # Ayiin - Userbot
 # Copyright (C) 2022-2023 @AyiinXd
+# This file is a part of <https://github.com/AyiinXd/Ayiin-Userbot>
 #
-# FROM Ayiin-Userbot <https://github.com/AyiinXd/Ayiin-Userbot>
-# t.me/AyiinXdSupport & t.me/AyiinSupport
+# Ported by IndomieGorengSatu
+# From IndomieUserbot < https://github.com/IndomieGorengSatu/IndomieUserbot >
+#
+# Kalo mau ngecopas, jangan hapus credit ya goblok
 
 
 from time import sleep
-from secrets import choice
+import random
 
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
-from indomie.utils.truthdare import Dare as d
-from indomie.utils.truthdare import Truth as t
+from indomie.utils.tod import Dare as d
+from indomie.utils.tod import Truth as t
 from indomie.utils import indomie_cmd, edit_or_reply as eor
 
 
@@ -28,14 +31,14 @@ async def truth_or_dare(tord):
     if trod == "truth":
         ah = await eor(tord, ("__Memproses Truth__")
         sleep(1)
-        trth = choice(t)
+        trth = random.choice(t)
         await ah.edit("__Mendapatkan Hasil Truth__\n\n**»** __Truth__ :\n**»** __{trth}__")
         return
 
     if trod == "dare":
         uh = await eor(tord, ("__Memproses Dare__")
         sleep(1)
-        dr = choice(d)
+        dr = random.choice(d)
         await uh.edit("__Mendapatkan Hasil Dare Tod__\n\n**»** __Dare__ :\n**»** __{dr}__")
 
         return

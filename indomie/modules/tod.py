@@ -21,12 +21,12 @@ from indomie.utils import indomie_cmd, edit_or_reply as eor
 Tod = ["Truth", "Dare"]
 
 
-@memek_cmd(pattern=r"tod( truth| dare|$)")
+@indomie_cmd(pattern=r"tod( truth| dare|$)")
 async def truth_or_dare(tord):
     trod = tord.pattern_match.group(1).strip()
     troll = choice(Tod)
     if trod == "":
-        await tord.edit(f"    __Truth Or Dare ???__\n\n__Didapatkan Secara Acak__\n**      »» {troll} ««**")
+        await tord.edit(f"__Truth Or Dare ???__\n\n__Didapatkan Secara Acak__\n**»» {troll} ««**")
 
     if trod == "truth":
         ah = await eor(tord, "__Memproses Truth__")

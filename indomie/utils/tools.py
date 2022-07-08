@@ -12,7 +12,7 @@ from os.path import basename
 from html_telegraph_poster import TelegraphPoster
 from PIL import Image
 from yt_dlp import YoutubeDL
-from typing import Optional, Union
+from typing import Optional, Tuple, Union
 from indomie import (
     bot,
     LOGS,
@@ -40,22 +40,23 @@ async def md5(fname: str) -> str:
 
 
 def media_type(message):
-    if message and message.photo:
-        return "Photo"
-    if message and message.audio:
-        return "Audio"
-    if message and message.voice:
-        return "Voice"
-    if message and message.video_note:
-        return "Round Video"
-    if message and message.gif:
-        return "Gif"
-    if message and message.sticker:
-        return "Sticker"
-    if message and message.video:
-        return "Video"
-    if message and message.document:
-        return "Document"
+    if message:
+        if message.photo:
+            return "Photo"
+        if message.audio:
+            return "Audio"
+        if message.voice:
+            return "Voice"
+        if message.video_note:
+            return "Round Video"
+        if message.gif:
+            return "Gif"
+        if message.sticker:
+            return "Sticker"
+        if message.video:
+            return "Video"
+        if message.document:
+            return "Document"
     return None
 
 
@@ -69,7 +70,7 @@ def humanbytes(size: Union[int, float]) -> str:
     while size > power:
         size /= power
         raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}B"
 
 
 def time_formatter(seconds: int) -> str:
@@ -77,10 +78,10 @@ def time_formatter(seconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        ((str(days) + " day(s), ") if days else "")
-        + ((str(hours) + " hour(s), ") if hours else "")
-        + ((str(minutes) + " minute(s), ") if minutes else "")
-        + ((str(seconds) + " second(s), ") if seconds else "")
+        (f"{str(days)} + " day(s), ") if days else "")
+        + (f"{(str(hours)} + " hour(s), ") if hours else "")
+        + (f"{(str(minutes)} + " minute(s), ") if minutes else "")
+        + (f"{(str(seconds)} + " second(s), ") if seconds else "")
     )
     return tmp[:-2]
 
@@ -112,7 +113,7 @@ async def is_admin(chat_id, user_id):
     return False
 
 
-async def runcmd(cmd: str) -> tuple[str, str, int, int]:
+async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     """run command in terminal"""
     args = shlex.split(cmd)
     process = await asyncio.create_subprocess_exec(
@@ -189,7 +190,7 @@ async def check_media(reply_message):
     return data
 
 
-async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
+async def run_cmd(cmd: list) -> Tuple[bytes, bytes]:
     process = await asyncio.create_subprocess_exec(
         *cmd,
         stdout=asyncio.subprocess.PIPE,
@@ -267,7 +268,7 @@ async def edit_or_reply(
     if aslink or deflink:
         linktext = linktext or "**Pesan Terlalu Panjang**"
         response = await paste_message(text, pastetype="s")
-        text = linktext + f" [Lihat Disini]({response})"
+        text = linktext + f"{linktext} [Lihat Disini]({response})"
         if not event.out and event.sender_id:
             if reply_to:
                 return await reply_to.reply(text, link_preview=link_preview)
@@ -289,6 +290,7 @@ async def edit_or_reply(
     await event.client.send_file(event.chat_id, file_name, caption=caption)
     await event.delete()
     os.remove(file_name)
+
 
 
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
@@ -331,10 +333,15 @@ async def media_to_pic(event, reply):
             await runcmd(
                 f"lottie_convert.py --frame 0 -if lottie -of png '{media}' '{file}'"
             )
-        elif media.endswith(".webp"):
-            im = Image.open(media)
-            im.save(file)
-    elif mediatype in ["Round Video", "Video", "Gif"]:
+         elif (
+        mediatype == "Sticker"
+        and not media.endswith(".tgs")
+        and media.endswith(".webp")
+        or mediatype not in ["Sticker", "Round Video", "Video", "Gif"]
+    ):
+        im = Image.open(media)
+        im.save(file)
+    elif mediatype != "Sticker" or media.endswith(".tgs") or media.endswith(".webp"):
         extractMetadata(createParser(media))
         await runcmd(f"rm -rf '{file}'")
         await take_screen_shot(media, 0, file)
@@ -344,9 +351,6 @@ async def media_to_pic(event, reply):
                 f"**Maaf. Saya tidak dapat mengekstrak gambar dari ini {mediatype}**",
             )
             return None
-    else:
-        im = Image.open(media)
-        im.save(file)
     await runcmd(f"rm -rf '{media}'")
     return [event, file, mediatype]
 
@@ -519,7 +523,7 @@ async def create_quotly(
     reply={},
     bg=None,
     sender=None,
-    file_name="quote.webp",
+    file_name="indomie.webp",
 ):
     if not isinstance(event, list):
         event = [event]

@@ -25,7 +25,7 @@ from indomie import bot, tgbot
 from indomie.utils import edit_or_reply, indomie_cmd
 
 
-@indomie_cmd(pattern="helpme")
+@indomie_cmd(pattern="helps")
 async def _(event):
     if event.fwd_from:
         return

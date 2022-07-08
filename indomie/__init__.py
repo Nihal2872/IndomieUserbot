@@ -575,6 +575,7 @@ def paginate_help(page_number, loaded_modules, prefix):
 
     return pairs
 
+
 def ibuild_keyboard(buttons):
     keyb = []
     for btn in buttons:
@@ -583,6 +584,8 @@ def ibuild_keyboard(buttons):
         else:
             keyb.append([Button.url(btn[0], btn[1])])
     return keyb
+
+
 with bot:
     try:
         from indomie.modules.button import BTN_URL_REGEX, build_keyboard
@@ -605,9 +608,9 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        indomielogo = INLINE_PIC
+        indomielogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
-	BTN_URL_REGEX = re.compile(
+        BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
@@ -689,7 +692,7 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@IndomieProject"):
+                    "@IndomieUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=indomielogo,

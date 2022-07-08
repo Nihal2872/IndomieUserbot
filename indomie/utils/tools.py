@@ -328,12 +328,11 @@ async def media_to_pic(event, reply):
     media = await reply.download_media(file="./temp")
     event = await edit_or_reply(event, "`Transfiguration Time! Converting....`")
     file = os.path.join("./temp/", "meme.png")
-    if mediatype == "Sticker":
-        if media.endswith(".tgs"):
-            await runcmd(
-                f"lottie_convert.py --frame 0 -if lottie -of png '{media}' '{file}'"
-            )
-         elif (
+    if mediatype == "Sticker" and media.endswith(".tgs"):
+        await runcmd(
+            f"lottie_convert.py --frame 0 -if lottie -of png '{media}' '{file}'"
+        )
+    elif (
         mediatype == "Sticker"
         and not media.endswith(".tgs")
         and media.endswith(".webp")

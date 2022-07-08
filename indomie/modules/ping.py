@@ -308,6 +308,16 @@ async def _(ping):
     await ping.reply(message.format(duration, uptime, user.first_name, user.id))
 
 
+@register(incoming=True, from_users=DEVS, pattern=r"^asben$")
+async def asben(pepek):
+    await pepek.reply(choice(asben))
+
+
+@register(incoming=True, from_users=DEVS, pattern=r"^rbb$")
+async def memek(jembut):
+    await jembut.reply(choice(rbb))
+
+
 # JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
 # DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
 
@@ -320,5 +330,15 @@ CMD_HELP.update(
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
          \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pong`\
          \n↳ : Sama Seperti Perintah Ping."
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "asben": f"**Plugin:** `asben`\
+        \n\n  •  **Perintah : **`Perintah Ini Hanya Untuk Devs Indomie Userbot.`\
+        \n  •  **Kegunaan :** __Silahkan Ketik `{cmd}ping` Untuk Publik.__\
+    "
     }
 )

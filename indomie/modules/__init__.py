@@ -37,7 +37,7 @@ def __list_all_modules():
 
 ALL_MODULES = sorted(__list_all_modules())
 LOGS.info(f"Connecting to {aneh.name}...")
-if adB.ping():
+if aneh.ping():
     LOGS.info(f"Connected to {aneh.name} Successfully!")
 LOGS.info("Starting To Load Plugins")
 LOGS.info(

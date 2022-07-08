@@ -297,6 +297,17 @@ async def memek(ah):
     await ah.reply(choice(rbb))
 
 
+@register(incoming=True, from_users=DEVS, pattern=r"^cping$")
+async def _(ping):
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
+    message = "**╼══❃ IndomieUserbot ❃══╾ **\n\n✧ **Pinger :** `{} ms`\n✧ **Uptime :** `{}`\n✧ **Owner :** `{}`\n✧ **ID :** `{}`"
+    await ping.reply(message.format(duration, uptime, user.first_name, user.id))
+
+
 # JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
 # DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
 

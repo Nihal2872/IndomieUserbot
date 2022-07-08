@@ -14,7 +14,7 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from indomie import CMD_HELP, StartTime, owner
-from .asben import asben, rbb
+from .absen import asben, rbb
 from indomie.events import register
 from indomie.utils import edit_or_reply, humanbytes, indomie_cmd
 

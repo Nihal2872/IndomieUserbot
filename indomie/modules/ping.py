@@ -14,10 +14,42 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from indomie import CMD_HELP, StartTime, owner
-from .absen import asben, rbb
 from indomie.events import register
 from indomie.utils import edit_or_reply, humanbytes, indomie_cmd
 
+
+asben = [
+    "**Eh ada Owner keren**",
+    "**Hi Tuan, kemana sj?** 🤗",
+    "**Hadir ganteng** 🥵",
+    "**Hadir bro** 😎",
+    "**Saya slalu ada buat Tuan Owner** 🥵",
+    "**Hadir kak** 😉",
+    "**Jangan kemana mana lagi ya bang**",
+    "**Pas banget bang, aku lagi kangen**",
+    "**Hadir bang** 😁",
+    "**Sokap lo tai** 😡",
+    "**Hadir sayang** 😚",
+    "**Hadir kak maap telat** 🥺",
+    "**Bang owner on juga akhirnya** 🥵",
+]
+
+rbb = [
+    "**Bang owner mau off.**",
+    "**Jangan off dong bang.**",
+    "**Bang, mau kemana?**",
+    "**Jangan lama lama bang**",
+    "**Siap bang.**",
+    "**Yah udah off aja bang.**",
+    "**Off lagi, mau ngewe ya?**",
+    "**Bang indomie, lagi ange kah?**",
+    "**Jangan lupa makan bang.**",
+    "**Yah pasti mao ngocok ni.**",
+    "**Jangan off terus lah bang.**",
+    "**Mau nonton bokep kah?**",
+    "**Mau nonton lipshoe ya?**",
+    "**Bang Ganteng telah off.**",
+]
 
 
 async def get_readable_time(seconds: int) -> str:

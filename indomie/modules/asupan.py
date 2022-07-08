@@ -32,6 +32,7 @@ async def _(event):
 
 @indomie_cmd(pattern="desahcewe$")
 async def _(event):
+    memek = await edit_or_reply(event, "`Tunggu Sebentar...`")
     try:
         desahannya = [
             desah
@@ -44,13 +45,14 @@ async def _(event):
             file=random.choice(desahannya), reply_to=event.reply_to_msg_id,
             caption=f"**Desahan by** {owner}")
 
-        await event.delete()
+        await memek.delete()
     except Exception:
-        await event.edit("**Tidak dapat menemukan vn desah.**")
+        await memek.edit("**Tidak dapat menemukan vn desah.**")
 
 
 @indomie_cmd(pattern="desahcowo$")
 async def _(event):
+    memek = await edit_or_reply(event, "`Tunggu Sebentar...`")
     try:
         desahcowo = [
             desahnya
@@ -63,9 +65,9 @@ async def _(event):
             file=random.choice(desahcowo), reply_to=event.reply_to_msg_id,
             caption=f"**Desahan cowo by** {owner}")
 
-        await event.delete()
+        await memek.delete()
     except Exception:
-        await event.edit("**Tidak dapat menemukan desahan cowo.**")
+        await memek.edit("**Tidak dapat menemukan desahan cowo.**")
 
 
 @indomie_cmd(pattern="ayang$")

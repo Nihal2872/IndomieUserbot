@@ -16,3 +16,11 @@
 
 class CancelProcess(Exception):
     """Cancel Process"""
+
+
+class FFmpegReturnCodeError(Exception):
+    pass
+
+
+class DependencyMissingError(Exception):
+    pass

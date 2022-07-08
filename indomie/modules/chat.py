@@ -42,7 +42,7 @@ from indomie import BLACKLIST_CHAT
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
 from indomie.events import register
-from indomie.modules.asben import asben, rbb
+from indomie.modules.ping import asben, rbb
 from indomie.utils import edit_delete, edit_or_reply, get_user_from_event, indomie_cmd
 from indomie.events import register as sokap
 

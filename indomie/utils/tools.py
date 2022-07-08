@@ -163,32 +163,42 @@ async def take_screen_shot(
 
 
 async def check_media(reply_message):
-    if reply_message and reply_message.media:
-        if reply_message.photo:
-            data = reply_message.photo
-        elif reply_message.document:
-            if (
-                DocumentAttributeFilename(file_name="AnimatedSticker.tgs")
-                in reply_message.media.document.attributes
-            ):
-                return False
-            if (
-                reply_message.gif
-                or reply_message.video
-                or reply_message.audio
-                or reply_message.voice
-            ):
-                return False
-            data = reply_message.media.document
-        else:
-            return False
-    else:
+    if not reply_message or not reply_message.media:
         return False
 
+    if reply_message.photo:
+        data = reply_message.photo
+    elif reply_message.document:
+        if (
+            DocumentAttributeFilename(file_name="AnimatedSticker.tgs")
+            in reply_message.media.document.attributes
+        ):
+            return False
+        if (
+            reply_message.gif
+            or reply_message.video
+            or reply_message.audio
+            or reply_message.voice
+        ):
+            return False
+        data = reply_message.media.document
+    else:
+        return False
     if not data or data is None:
         return False
-    else:
-        return data
+    return data
+
+
+async def run_cmd(cmd: list) -> Tuple[bytes, bytes]:
+    process = await asyncio.create_subprocess_exec(
+        *cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    out, err = await process.communicate()
+    t_resp = out.strip()
+    e_resp = err.strip()
+    return t_resp, e_resp
 
 
 async def run_cmd(cmd: list) -> tuple[bytes, bytes]:

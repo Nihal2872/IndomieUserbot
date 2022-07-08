@@ -6,13 +6,16 @@ import asyncio
 import shlex
 import os
 import aiohttp
+import time
 import os.path
 
 from os.path import basename
 from html_telegraph_poster import TelegraphPoster
+from hachoir.metadata import extractMetadata
 from PIL import Image
 from yt_dlp import YoutubeDL
 from typing import Optional, Tuple, Union
+from indomie.utils.format import md_to_text, paste_message
 from indomie import (
     bot,
     LOGS,
@@ -78,12 +81,42 @@ def time_formatter(seconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        (f"{str(days)} day(s), " if days else "")
-        + (f"{(str(hours)} hour(s), " if hours else "")
-        + (f"{(str(minutes)} minute(s), " if minutes else "")
-        + (f"{(str(seconds)} second(s), " if seconds else "")
+        (f"{str(days)} hari, " if days else "")
+        + (f"{str(hours)} jam, " if hours else "")
+        + (f"{str(minutes)} menit, " if minutes else "")
+        + (f"{str(seconds)} detik, " if seconds else "")
     )
+
     return tmp[:-2]
+
+
+async def extract_time(man, time_val):
+    if any(time_val.endswith(unit) for unit in ("s", "m", "h", "d", "w")):
+        unit = time_val[-1]
+        time_num = time_val[:-1]
+        if not time_num.isdigit():
+            await man.edit("Jumlah waktu yang ditentukan tidak valid.")
+            return None
+        if unit == "s":
+            bantime = int(time.time() + int(time_num) * 1)
+        elif unit == "m":
+            bantime = int(time.time() + int(time_num) * 60)
+        elif unit == "h":
+            bantime = int(time.time() + int(time_num) * 60 * 60)
+        elif unit == "d":
+            bantime = int(time.time() + int(time_num) * 24 * 60 * 60)
+        elif unit == "w":
+            bantime = int(time.time() + int(time_num) * 7 * 24 * 60 * 60)
+        else:
+            await man.edit(
+                f"**Jenis waktu yang dimasukan tidak valid. Harap masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
+            )
+            return None
+        return bantime
+    await man.edit(
+        f"**Jenis waktu yang dimasukan tidak valid. Harap Masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
+    )
+    return None
 
 
 def human_to_bytes(size: str) -> int:
@@ -251,7 +284,7 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096 and not deflink:
         parse_mode = parse_mode or "md"
-        if not event.out and event.sender_id:
+        if not event.out and event.sender_id in SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview

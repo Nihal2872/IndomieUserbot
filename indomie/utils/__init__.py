@@ -31,6 +31,7 @@ from .tools import (
     humanbytes,
     md5,
     media_type,
+    check_media,
     post_to_telegraph,
     reply_id,
     run_cmd,

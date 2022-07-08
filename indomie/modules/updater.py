@@ -4,7 +4,7 @@ This module updates the userbot based on upstream revision
 
 from os import remove, execle, path, environ
 import asyncio
-from base64 import 
+from base64 import b64decode 
 import sys
 
 from git import Repo

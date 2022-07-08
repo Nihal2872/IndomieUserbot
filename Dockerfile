@@ -8,4 +8,6 @@ RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUser
 
 WORKDIR /home/IndomieUserbot/
 
+RUN pip install -r requirements.txt
+
 CMD ["python3", "-m", "indomie"]

@@ -13,7 +13,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from indomie import CMD_HELP, StartTime, owner
+from indomie import CMD_HELP, DEVS, StartTime, owner
 from indomie.events import register
 from indomie.utils import edit_or_reply, humanbytes, indomie_cmd
 

@@ -78,10 +78,10 @@ def time_formatter(seconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        (f"{str(days)} + " day(s), ") if days else "")
-        + (f"{(str(hours)} + " hour(s), ") if hours else "")
-        + (f"{(str(minutes)} + " minute(s), ") if minutes else "")
-        + (f"{(str(seconds)} + " second(s), ") if seconds else "")
+        (f"{str(days)} day(s), " if days else "")
+        + (f"{(str(hours)} hour(s), " if hours else "")
+        + (f"{(str(minutes)} minute(s), " if minutes else "")
+        + (f"{(str(seconds)} second(s), " if seconds else "")
     )
     return tmp[:-2]
 
@@ -106,11 +106,9 @@ def human_to_bytes(size: str) -> int:
 async def is_admin(chat_id, user_id):
     req_jo = await bot(GetParticipantRequest(channel=chat_id, user_id=user_id))
     chat_participant = req_jo.participant
-    if isinstance(chat_participant, ChannelParticipantCreator) or isinstance(
-        chat_participant, ChannelParticipantAdmin
-    ):
-        return True
-    return False
+    return isinstance(
+        chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)
+    )
 
 
 async def runcmd(cmd: str) -> Tuple[str, str, int, int]:

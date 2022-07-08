@@ -10,7 +10,7 @@ from telethon.tl.types import Channel, Chat, User
 
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
-from indomie.utils import edit_delete, edit_or_reply, man_cmd
+from indomie.utils import edit_delete, edit_or_reply, indomie_cmd
 
 
 # Functions

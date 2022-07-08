@@ -30,7 +30,7 @@ from indomie import (
     call_py,
     tgbot,
 )
-from userbot.modules.gcast import GCAST_BLACKLIST as GBL
+from indomie.modules.gcast import GCAST_BLACKLIST as GBL
 
 EOL = "EOL\nIndomieUserBot v{}, Copyright © 2021-2022 Indomie• <https://github.com/indomiegorengsatu>"
 MSG_BLACKLIST = "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOT {} GUA MATIIN NAJIS BANGET DIPAKE BOCAH KONTOL KEK LU."

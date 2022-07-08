@@ -17,7 +17,7 @@ async def help(indomie):
     args = indomie.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© {ch2}
+            await edit_or_reply(indomie, f"{CMD_HELP[args]}\n\n© {ch2}")
         else:
             await edit_delete(indomie, f"`{args}`**NGETIK YANG BENER NGENTOT!!.**")
     else:

@@ -186,7 +186,7 @@ async def redis(alive):
         f"├  **Pytgcalls        :** `{pytgcalls.__version__}` \n"
         f"├  **Branch           :** `{UPSTREAM_REPO_BRANCH}` \n"
         f"├  **Userbot Version  :** `{BOT_VER}` \n"
-        f"├  **Indomie Version  :** `{indomie_version}` **[{HOSTED_ON}]**\n"
+        f"├  **Indomie Version  :** `{indomie_version}` **<{HOSTED_ON}>**\n"
         f"├  **Modules          :** `{len(modules)}` Modules \n"
         f"├  **Uptime           :** `{uptime}` \n"
         f"└  **Base on          :** `{ah.name}` \n"

@@ -20,10 +20,11 @@ from sys import version_info
 from dotenv import load_dotenv
 from git import Repo
 from pylast import LastFMNetwork, md5
+from pytgcalls import PyTgCalls
 from pySmartDL import SmartDL
 from pymongo import MongoClient
-from pytgcalls import PyTgCalls
 from redis import StrictRedis
+from pytgcalls import PyTgCalls
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.errors import UserIsBlockedError

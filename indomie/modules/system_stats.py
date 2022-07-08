@@ -39,7 +39,6 @@ modules = CMD_HELP
 
 @register(pattern=r"spc")
 async def psu(event):
-    async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
     softw += f"**Sistem   :** `{uname.system}`\n"

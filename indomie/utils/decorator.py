@@ -178,7 +178,7 @@ def indomie_cmd(
                     wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=indomie_reg))
             bot.add_event_handler(wrapper, events.NewMessage(
-                **args, outgoing=True, pattern=memek_reg))
+                **args, outgoing=True, pattern=indomie_reg))
         if bot:
             if allow_sudo:
                 if not disable_edited:

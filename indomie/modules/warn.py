@@ -5,14 +5,17 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 #
-
+# Ported by IndomieGorengSatu 
+# FROM IndomieUserbot < https://github.com/IndomieGorengSatu/IndomieUserbot >
+#
+# Kredit jangan di apus kontol
 
 from telethon.tl import types
 from telethon.utils import get_display_name
 
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
-from indomie.utils import indomie_cmd, eor
+from indomie.utils import indomie_cmd, edit_or_reply
 from indomie.utils._base import IndomieDB
 from indomie.modules.sql_helper.warn_db import add_warn, reset_warn, warns
 
@@ -100,7 +103,7 @@ async def warn(e):
     add_warn(e.chat_id, user, count + 1, r)
     ok = await pepek.get_entity(user)
     user = inline_mention(ok)
-    await eor(
+    await edit_or_reply(
         e,
         f"**PERINGATAN :** {count+1}/{number}\n**Ke :**{user}\n**Hati-hati !!!**\n\n**Alasan** : {reason}",
     )

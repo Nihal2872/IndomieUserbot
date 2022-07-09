@@ -13,7 +13,6 @@
 > Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
-<details>
 
 <details>
 <summary><b>Generating Telethon String Session</b></summary>
@@ -66,7 +65,7 @@
 - [Github](https://github.com/IndomieGorengSatu)
 - [Instagram](https://instagram.com/w1thmyluv)
 
-
+</details>
 
 
 ## BACA INI KONTOL

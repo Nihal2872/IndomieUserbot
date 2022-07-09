@@ -1016,7 +1016,6 @@ Menu Voice chat group untuk [{user.first_name}](tg://user?id={user.id})
                         Button.inline("« ᴋᴇᴍʙᴀʟɪ", data="reopen")]
                 )
 
-
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)

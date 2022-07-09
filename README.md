@@ -12,7 +12,7 @@
 > Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 > Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
-
+## ========×========
 
 <details>
 <summary><b> ──「 Generating Telethon String Session 」── </b></summary>

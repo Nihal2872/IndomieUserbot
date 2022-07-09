@@ -14,9 +14,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 
 
-<details>
-<summary><b>Generating Telethon String Session</b></summary>
-<br>
+## Generating Telethon String Session
 
 - Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
 

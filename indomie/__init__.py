@@ -827,7 +827,7 @@ with bot:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
-            @tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_close\((.+?)\)")
             )
@@ -838,12 +838,27 @@ with bot:
                     file=indomielogo,
                     link_preview=True,
                     buttons=main_help_button)
-                
+           
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"ahback")
+            )
+        )
+        async def gback_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                text = (
+                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"")
+                await event.edit(
+                    text,
+                    file=indomielogo,
+                    link_preview=True,
+                    buttons=main_help_button)
+            
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             indomie = [
-                (custom.Button.inline("• Re-Open Menu •", data="reopen"),),
+                (custom.Button.inline("• Re-Open Menu •", data="ahback"),),
             ]
             await event.edit("• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", file=indomielogo, buttons=indomie)
             else:

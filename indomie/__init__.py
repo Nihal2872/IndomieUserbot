@@ -861,9 +861,6 @@ with bot:
                 (custom.Button.inline("• Re-Open Menu •", data="ahback"),),
             ]
             await event.edit("• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", file=indomielogo, buttons=indomie)
-            else:
-                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(

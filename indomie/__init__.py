@@ -614,6 +614,14 @@ with bot:
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
+             
+        main_help_button = [
+            [
+                Button.inline("• Helps •"), data="reopen"),
+                Button.url("• Settings •"), url=f"t.me/{botusername}?start="),
+            ],
+            [Button.inline("• Kembali •"), data="close")],
+        ]
 
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -699,7 +707,7 @@ with bot:
                     file=indomielogo,
                     link_preview=False,
                     text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**",
-                    buttons=buttons,
+                    buttons=main_help_button,
                 )
             elif query.startswith("repo"):
                 result = builder.article(
@@ -818,14 +826,26 @@ with bot:
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
+
+            @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"helpme_close\((.+?)\)")
+            )
+        )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline(
-                    "• Re-Open Menu •", data="reopen")
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(
-                    "• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", buttons=openlagi
-                )
+                    file=indomielogo,
+                    link_preview=True,
+                    buttons=main_help_button)
+                
+
+        @tgbot.on(events.CallbackQuery(data=b"close"))
+        async def close(event):
+            indomie = [
+                (custom.Button.inline("• Re-Open Menu •", data="reopen"),),
+            ]
+            await event.edit("• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", file=indomielogo, buttons=indomie)
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)

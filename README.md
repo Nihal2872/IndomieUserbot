@@ -45,8 +45,11 @@
 - [IndomieProject](https://t.me/IndomieProject) Checkout for new IndomieUserbot and bots updates
 
 
+</details>
 
-## Social Media
+<details>
+<summary><b> Social Media </b></summary>
+<br>
 
 - [Telegram](https://t.me/IndomieGenetik)
 - [Github](https://github.com/IndomieGorengSatu)

@@ -1,26 +1,28 @@
 <img src="https://telegra.ph/file/6400d5ad5b7d9fcb1fab0.jpg" align="right" width="200" height="200"/>
 
-# ──「 IndomieUserbot 」──
+# IndomieUserbot
 
 [IndomieUserbot](https://github.com/IndomieGorengSatu/muciks) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
 
 
 
-## ──「  Disclaimer 」──
+## Disclaimer
 
 
 > Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
 > Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
-## ========×========
+
 
 <details>
-<summary><b> ──「 Generating Telethon String Session 」── </b></summary>
+<summary><b>Generating Telethon String Session</b></summary>
 <br>
 
-- Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
+- Generate a Telethon String Session via Replit
+<p><a href="https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1"><img src="https://img.shields.io/badge/Generate%20Via%20Replit-blueviolet?style=for-the-badge&logo=Replit" width="200"/></a>
 
-- Generate a Telethon String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
+- Generate a Telethon String Session via Telegram
+<p><a href="https://t.me/IndomieStringBot"><img src="https://img.shields.io/badge/Generate%20Via%20Telegram-blueviolet?style=for-the-badge&logo=Telegram" width="200"/></a>
 
 <details>
 

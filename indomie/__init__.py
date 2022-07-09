@@ -609,6 +609,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
+        cmd = CMD_HANDLER
         indomielogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
@@ -618,9 +619,14 @@ with bot:
         main_help_button = [
             [
                 Button.inline("• Helps •", data="reopen"),
+                 Button.inline("• VcPlugin •", data="kontol_inline"),
+            ],
+            [
                 Button.url("• Settings •", url=f"t.me/{botusername}?start="),
             ],
-            [Button.inline("• Kembali •", data="close")],
+            [   
+                Button.inline("• ᴛᴜᴛᴜᴘ •", data="close"),
+            ]
         ]
 
 
@@ -695,13 +701,31 @@ with bot:
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
 
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                current_page_number = int(looters)
+                buttons = paginate_help(
+                    current_page_number, dugmeler, "helpme")
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"
+                await event.edit(
+                    text,
+                    file=indomielogo,
+                    buttons=buttons,
+                    link_preview=False,
+                )
+            else:
+                reply_pop_up_alert = f"⛔ Kamu Tidak diizinkan, ini Userbot Milik {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@IndomieUserbot"):
+                    "@IndomieProject"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=indomielogo,
@@ -791,23 +815,6 @@ with bot:
                 [result], switch_pm="👥 USERBOT PORTAL", switch_pm_param="start"
             )
 
-        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(looters)
-                buttons = paginate_help(
-                    current_page_number, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"
-                await event.edit(
-                    text,
-                    file=indomielogo,
-                    buttons=buttons,
-                    link_preview=False,
-                )
-            else:
-                reply_pop_up_alert = f"⛔ Kamu Tidak diizinkan, ini Userbot Milik {owner} ⛔"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(
                 data=re.compile(rb"helpme_next\((.+?)\)")
@@ -853,14 +860,115 @@ with bot:
                     file=indomielogo,
                     link_preview=True,
                     buttons=main_help_button)
-            
+                 
+        @tgbot.on(events.CallbackQuery(data=b"kontol_inline"))
+        async def about(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                await event.edit(f"""
+Menu Voice chat group untuk [{user.first_name}](tg://user?id={user.id})
+""",
+                                 buttons=[
+                                     [
+                                         Button.inline("• ᴠᴄ ᴘʟᴜɢɪɴ •",
+                                                       data="vcplugin"),
+                                         Button.inline("• ᴠᴄ ᴛᴏᴏʟs •",
+                                                       data="vctools")],
+                                     [custom.Button.inline(
+                                         "« ᴋᴇᴍʙᴀʟɪ", data="ahback")],
+                                 ]
+                                 )
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"vcplugin")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                text = (
+                    f"""
+✘ **Perintah yang tersedia di vcplugin** ✘
+
+  •  **Perintah : **`{cmd}play` <Judul Lagu/Link YT>
+  •  **Kegunaan :** __Untuk Memutar Lagu di voice chat group dengan akun kamu.__
+
+  •  **Perintah : **`{cmd}vplay` <Judul Video/Link YT>
+  •  **Kegunaan :** __Untuk Memutar Video di voice chat group dengan akun kamu.__
+
+  •  **Perintah : **`{cmd}end`
+  •  **Kegunaan :** __Untuk Memberhentikan video/lagu yang sedang putar di voice chat group.__
+
+  •  **Perintah : **`{cmd}skip`
+  •  **Kegunaan :** __Untuk Melewati video/lagu yang sedang di putar.__
+
+  •  **Perintah : **`{cmd}pause`
+  •  **Kegunaan :** __Untuk memberhentikan video/lagu yang sedang diputar.__
+
+  •  **Perintah : **`{cmd}resume`
+  •  **Kegunaan :** __Untuk melanjutkan pemutaran video/lagu yang sedang diputar.__
+
+  •  **Perintah : **`{cmd}volume` 1-200
+  •  **Kegunaan :** __Untuk mengubah volume (Membutuhkan Hak admin).__
+
+  •  **Perintah : **`{cmd}playlist`
+  •  **Kegunaan :** __Untuk menampilkan daftar putar Lagu/Video.__
+""")
+                await event.edit(
+                    text,
+                    file=indomielogo,
+                    link_preview=True,
+                    buttons=[Button.inline("« ᴋᴇᴍʙᴀʟɪ", data="ahback")])
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"vctools")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                text = (
+                    f"""
+✘ **Perintah yang tersedia di vctools** ✘
+
+  •  **Perintah : **`{cmd}startvc`
+  •  **Kegunaan :** __Untuk Memulai voice chat group.__
+
+  •  **Perintah : **`{cmd}stopvc`
+  •  **Kegunaan :** __Untuk Memberhentikan voice chat group.__
+
+  •  **Perintah :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>
+  •  **Kegunaan :** __Untuk Bergabung ke voice chat group.__
+
+  •  **Perintah : **`{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>
+  •  **Kegunaan :** __Untuk Turun dari voice chat group.__
+
+  •  **Perintah : **`{cmd}vctitle` <title vcg>
+  •  **Kegunaan :** __Untuk Mengubah title/judul voice chat group.__
+
+  •  **Perintah : **`{cmd}vcinvite`
+  •  **Kegunaan :** __Mengundang Member group ke voice chat group.__
+""")
+                await event.edit(
+                    text,
+                    file=indomielogo,
+                    link_preview=True,
+                    buttons=[Button.inline("« ᴋᴇᴍʙᴀʟɪ", data="ahback")])
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             indomie = [
-                (custom.Button.inline("• Re-Open Menu •", data="ahback"),),
+                (custom.Button.inline("• Main Menu •", data="ahback"),),
             ]
-            await event.edit("• **Hᴇʟᴘ Mᴏᴅᴇ Bᴜᴛᴛᴏɴ Dɪᴛᴜᴛᴜᴘ!** •", file=indomielogo, buttons=indomie)
+            await event.edit("• **Help Mode Button Ditutup!** •", file=indomielogo, buttons=indomie)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
@@ -890,7 +998,7 @@ with bot:
                         .replace("`", "")
                         .replace("**", "")[:150]
                         + "..."
-                        + "\n\nBaca Teks Berikutnya Ketik .help "
+                        + f"\n\nBaca Teks Berikutnya Ketik {cmd}help "
                         + modul_name
                         + " "
                     )
@@ -903,6 +1011,11 @@ with bot:
                     if help_string is not None
                     else f"{modul_name} Tidak ada dokumen yang telah ditulis untuk modul."
                 )
+                await event.edit(
+                    reply_pop_up_alert, buttons=[
+                        Button.inline("« ᴋᴇᴍʙᴀʟɪ", data="reopen")]
+                )
+
 
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
@@ -911,3 +1024,5 @@ with bot:
     except BaseException:
         LOGS.info(
             f"KALO BOT LU NGECRASH, KLIK SAVE YANG DI POJOK KANAN BAWAH DAN KIRIM KE @IndomieGenetik » Info By: Userbot {BOT_VER}")
+        LOGS.info(
+            "© Copyright 2022 IndomieUserbot. CHANNEL : @IndomieStore UPDATES : @IndomieProject")

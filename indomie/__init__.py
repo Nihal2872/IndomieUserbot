@@ -617,10 +617,10 @@ with bot:
              
         main_help_button = [
             [
-                Button.inline("• Helps •"), data="reopen"),
-                Button.url("• Settings •"), url=f"t.me/{botusername}?start="),
+                Button.inline("• Helps •", data="reopen"),
+                Button.url("• Settings •", url=f"t.me/{botusername}?start="),
             ],
-            [Button.inline("• Kembali •"), data="close")],
+            [Button.inline("• Kembali •", data="close")],
         ]
 
 

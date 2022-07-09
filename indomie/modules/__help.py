@@ -28,6 +28,8 @@ from indomie.utils import edit_or_reply, indomie_cmd
 
 @indomie_cmd(pattern="helps(?: |$)(.*)")
 async def indomie(event):
+    if event.fwd_from:
+        return
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:

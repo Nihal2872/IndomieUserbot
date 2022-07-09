@@ -50,7 +50,8 @@ async def indomie(event):
             except timout:
                 return await edit_or_reply(
                     event,
-                    f"Bot tidak dapat menanggapi inline help.\nSilahkan Ketik `{cmd}restart`"
+                    f"Bot tidak dapat menanggapi inline help.\nSilahkan Ketik `{cmd}restart`",
+                )
             except noinline:
                 xx = await edit_or_reply(
                     event,

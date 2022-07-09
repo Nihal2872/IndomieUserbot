@@ -847,7 +847,7 @@ with bot:
         async def gback_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
-                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"")
+                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**")
                 await event.edit(
                     text,
                     file=indomielogo,

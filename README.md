@@ -13,9 +13,10 @@
 > Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
+<details>
 
 <details>
-<summary><b> Generating Telethon String Session </b></summary>
+<summary><b>Generating Telethon String Session</b></summary>
 <br>
 
 - Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
@@ -23,6 +24,7 @@
 - Generate a Telethon String Session via [Telegram String Generation Bot](https://t.me/IndomieStringBot)
 
 
+<details>
 
 <details>
 <summary><b> Heroku Deployment </b></summary>
@@ -35,9 +37,10 @@
 <a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20To%20Bot%20Heroku-blue?style=flat&logo=Telegram" width="210" height="34.45"/></a>
 
 
+</details>
 
 <details>
-<summary><b>  VPS Deployment </b></summary>
+<summary><b> VPS Deployment </b></summary>
 <br>
 
 > Checkout [Docs](https://telegra.ph/DEPLOY-ON-VPS-07-07) for Detailed Explanation on VPS Deploy
@@ -46,7 +49,7 @@
 </details>
 
 <details>
-<summary><b>  Channel & Updates </b></summary>
+<summary><b> Channel & Updates </b></summary>
 <br>
 
 - [IndomieStore](https://t.me/IndomieStore) Checkout my store lmao
@@ -56,7 +59,7 @@
 </details>
 
 <details>
-<summary><b> Social Media </b></summary>
+<summary><b>Social Media</b></summary>
 <br>
 
 - [Telegram](https://t.me/IndomieGenetik)
@@ -75,7 +78,7 @@
 
 
 ## © Credits
-## JANGAN DI HAPUS CREDIT NYA YA KONTOL
+> JANGAN DI HAPUS CREDIT NYA YA KONTOL
 
 🏆 **THANKS TO**
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot

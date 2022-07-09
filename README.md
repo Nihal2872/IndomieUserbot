@@ -1,12 +1,12 @@
 <img src="https://telegra.ph/file/6400d5ad5b7d9fcb1fab0.jpg" align="right" width="200" height="200"/>
 
-#──「 IndomieUserbot 」──
+# ──「 IndomieUserbot 」──
 
 [IndomieUserbot](https://github.com/IndomieGorengSatu/muciks) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
 
 
 
-##──「  Disclaimer 」──
+## ──「  Disclaimer 」──
 
 
 > Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -15,7 +15,7 @@
 
 
 <details>
-<summary><b>──「 Generating Telethon String Session 」──</b></summary>
+<summary><b> ──「 Generating Telethon String Session 」── </b></summary>
 <br>
 
 - Generate a Telethon String Session via [Replit](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)
@@ -25,7 +25,7 @@
 <details>
 
 <details>
-<summary><b>──「 Heroku Deployment 」──</b></summary>
+<summary><b> ──「 Heroku Deployment 」── </b></summary>
 <br>
 
 <h4>Click the button below to deploy IndomieUserbot on Heroku!</h4>

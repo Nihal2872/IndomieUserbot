@@ -16,74 +16,32 @@
 # @Qulec tarafından yazılmıştır.
 # Thanks @Spechide.
 
-from telethon.errors.rpcerrorlist import BotInlineDisabledError as noinline
-from telethon.errors.rpcerrorlist import BotResponseTimeoutError as timout
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.contacts import UnblockRequest
+from indomie import BOT_USERNAME, CMD_HELP, bot, ch2
+from indomie.utils import edit_or_reply, edit_delete, indomie_cmd
 
-from indomie import CMD_HANDLER as cmd
-from indomie import bot, tgbot, ch2
-from indomie.utils import edit_or_reply, indomie_cmd
+user = bot.get_me()
+DEFAULTUSER = user.first_name
+CUSTOM_HELP_EMOJI = "✘"
 
 
-@indomie_cmd(pattern="helpme")
-async def indomie(event):
-    if event.fwd_from:
-        return
+@indomie_cmd(pattern="helpme ?(.*)")
+async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(event, f"{CMD_HELP[args]}\n\n© {ch2}")
+            await edit_or_reply(event, f"**✘ Commands available in {args} ✘** \n\n" + str(CMD_HELP[args]) + f"\n\n**© {ch2}")
         else:
-            await edit_delete(event, f"`{args}`**NGETIK YANG BENER NGENTOT!!.**")
+            await edit_delete(event, f"**Module** `{args}` **Tidak tersedia!**")
     else:
-        kontol = await tgbot.get_me()
-        BOT_USERNAME = kontol.username
-        if BOT_USERNAME is not None:
-            chat = "@Botfather"
-            try:
-                results = await event.client.inline_query(BOT_USERNAME, "@IndomieUserbot")
-                await results[0].click(
-                    event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
-                )
-                await event.delete()
-            except timout:
-                return await edit_or_reply(
-                    event,
-                    f"Bot tidak dapat menanggapi inline help.\nSilahkan Ketik `{cmd}restart`",
-                )
-            except noinline:
-                xx = await edit_or_reply(
-                    event,
-                    "**Mode Inline Tidak aktif.**\n__Sedang Menyalakannya, Harap Tunggu Sebentar...__",
-                )
-                async with bot.conversation(chat) as conv:
-                    try:
-                        first = await conv.send_message("/setinline")
-                        second = await conv.get_response()
-                        third = await conv.send_message(BOT_USERNAME)
-                        fourth = await conv.get_response()
-                        fifth = await conv.send_message("Search")
-                        sixth = await conv.get_response()
-                        await bot.send_read_acknowledge(conv.chat_id)
-                    except YouBlockedUserError:
-                        await event.client(UnblockRequest(chat))
-                        first = await conv.send_message("/setinline")
-                        second = await conv.get_response()
-                        third = await conv.send_message(BOT_USERNAME)
-                        fourth = await conv.get_response()
-                        fifth = await conv.send_message("Search")
-                        sixth = await conv.get_response()
-                        await bot.send_read_acknowledge(conv.chat_id)
-                    await xx.edit(
-                        f"**Berhasil Menyalakan Mode Inline**\n\n**Ketik** `{cmd}helps` **lagi untuk membuka menu bantuan.**"
-                    )
-                await bot.delete_messages(
-                    conv.chat_id,
-                    [first.id, second.id, third.id, fourth.id, fifth.id, sixth.id],
-                )
-        else:
-            await edit_or_reply(
-                event,
-                "**Silahkan Buat BOT di @BotFather dan Tambahkan Var** `BOT_TOKEN` & `BOT_USERNAME`",
+        try:
+            results = await bot.inline_query(  # pylint:disable=E0602
+                BOT_USERNAME, "@IndomieUserbot"
             )
+            await results[0].click(
+                event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
+            )
+            await event.delete()
+        except BaseException:
+            await edit_delete(event,
+                              f"** Sepertinya obrolan atau bot ini tidak mendukung inline mode. Untuk Mengaktifkanya silahkan ketik .helpme**"
+                              )

@@ -42,6 +42,7 @@ lyrics_extractor
 lyricsgenius
 markdown
 moviepy
+nekos.py
 opencv-python
 oauth2client
 patool

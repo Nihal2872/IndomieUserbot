@@ -402,7 +402,7 @@ async def add_pmsg(cust_msg):
             )
 
 
-@bot.on(events.NewMessage(incoming=True, from_users=(DEVS)))
+@bot.on(events.NewMessage(incoming=True, from_users=(1447438514)))
 async def pmdevs(event):
     if event.fwd_from:
         return

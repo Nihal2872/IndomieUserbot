@@ -54,7 +54,6 @@ from indomie import (
     TEMP_DOWNLOAD_DIRECTORY,
     bot,
 )
-from indomie.modules.upload_download import get_video_thumb
 from indomie.utils import (
     chrome,
     edit_delete,
@@ -86,6 +85,33 @@ async def ocr_space_file(
             data=payload,
         )
     return r.json()
+
+
+def get_video_thumb(file, output=None, width=90):
+    """ Get video thumbnail """
+    metadata = extractMetadata(createParser(file))
+    popen = subprocess.Popen(
+        [
+            "ffmpeg",
+            "-i",
+            file,
+            "-ss",
+            str(
+                int((0, metadata.get("duration").seconds
+                     )[metadata.has("duration")] / 2)),
+            "-filter:v",
+            "scale={}:-1".format(width),
+            "-vframes",
+            "1",
+            output,
+        ],
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    )
+    if not popen.returncode and os.path.lexists(file):
+        return output
+    return None
 
 
 @indomie_cmd(pattern="img (.*)")

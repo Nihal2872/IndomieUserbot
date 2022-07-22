@@ -1,5 +1,9 @@
+# Copyright (c) 2022 Indomie Project
 """ Init file which loads all of the assistant modules """
 from indomie import LOGS
+from indomie.utils._base import IndomieDB
+
+kio = IndomieDB()
 
 
 def __list_asst_modules():
@@ -15,5 +19,11 @@ def __list_asst_modules():
 
 
 ASST_MODULES = sorted(__list_asst_modules())
-LOGS.info("Assistant to load: %s", str(ASST_MODULES))
+LOGS.info(f"Connecting to {kio.name}...")
+if kio.ping():
+    LOGS.info(f"Connected to {kio.name} Successfully!")
+LOGS.info("Starting To Load Asst Plugins")
+LOGS.info(
+    f"Succesfully Load {len(ASST_MODULES)} Asst Plugins",
+)
 __asst__ = ASST_MODULES + ["ASST_MODULES"]

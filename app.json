@@ -27,11 +27,15 @@
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini.",
+      "description": "Bikin bot dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini.",
+      "required": false
+    },
+    "BOT_USERNAME": {
+      "description": "Bikin bot dulu tolol, bikinnya tu di @botfather trus salin id bot kesini.",
       "required": false
     },
     "BOTLOG_CHATID": {
-      "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
+      "description": "Bikin Grup Publik Lalu Invite Bot @IndomieMusicRobot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": false
     }
  },

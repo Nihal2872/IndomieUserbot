@@ -15,7 +15,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from .carbon import all_col
 
 
-@indomie_cmd(pattern="q ?(.*)")
+@indomie_cmd(pattern="quotly ?(.*)")
 async def quott_(event):
     match = event.pattern_match.group(1).strip()
     if not event.is_reply:
@@ -79,13 +79,13 @@ async def quott_(event):
 CMD_HELP.update(
     {
         "quotly": f"**Plugin : **`quotly`\
-        \n\n**Command :** `{cmd}q`\
+        \n\n**Command :** `{cmd}quotly`\
         \n**Usage : **Membuat pesan menjadi sticker dengan random background.\
-        \n\n**Command :** `{cmd}q` <angka>\
+        \n\n**Command :** `{cmd}quotly` <angka>\
         \n**Usage : **Membuat pesan menjadi sticker dengan custom jumlah pesan yang diberikan.\
-        \n\n**Command :** `{cmd}q` <warna>\
+        \n\n**Command :** `{cmd}quotly` <warna>\
         \n**Usage : **Membuat pesan menjadi sticker dengan custom warna background yang diberikan.\
-        \n\n**Command :** `{cmd}q` <username>\
+        \n\n**Command :** `{cmd}quotly` <username>\
         \n**Usage : **Membuat pesan menjadi sticker dengan custom username user tele yang diberikan.\
     "
     }

@@ -60,11 +60,11 @@ async def autobot():
         BOTLOG_CHATID, "**SEDANG MEMBUAT BOT TELEGRAM UNTUK ANDA DI @BotFather**"
     )
     who = await bot.get_me()
-    name = f"{who.first_name} Assistant Bot"
+    name = who.first_name + " Assistant"
     if who.username:
-        username = f"{who.username}_userbot"
+        username = who.username + "_userbot"
     else:
-        username = f"Indomie{(str(who.id))[5:]}userbot"
+        username = "Indomie" + (str(who.id))[5:] + "userbot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -91,19 +91,13 @@ async def autobot():
                 "Silakan buat Bot dari @BotFather dan tambahkan tokennya di var BOT_TOKEN"
             )
             sys.exit(1)
-    pepek = random.choice(
-          [
-              "https://telegra.ph/file/6400d5ad5b7d9fcb1fab0.jpg",
-              "indomie/resources/logo.jpg",
-          ]
-    )
     await bot.send_message(bf, username)
     await asyncio.sleep(1)
     isdone = (await bot.get_messages(bf, limit=1))[0].text
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = f"indomie{(str(who.id))[6:]}{str(ran)}userbot"
+        username = "Asisstant" + (str(who.id))[6:] + str(ran) + "userbot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
@@ -119,7 +113,7 @@ async def autobot():
             await asyncio.sleep(1)
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
-            await bot.send_file(bf, pepek)
+            await bot.send_file(bf, indomie/utils/styles/asisstant.png)
             await asyncio.sleep(3)
             await bot.send_message(bf, "/setabouttext")
             await asyncio.sleep(1)
@@ -163,7 +157,7 @@ async def autobot():
         await asyncio.sleep(1)
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
-        await bot.send_file(bf, pepek)
+        await bot.send_file(bf, indomie/utils/styles/asisstant.png)
         await asyncio.sleep(3)
         await bot.send_message(bf, "/setabouttext")
         await asyncio.sleep(1)

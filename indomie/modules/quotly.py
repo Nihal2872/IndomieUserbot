@@ -3,14 +3,13 @@
 # FROM GeezProjects <https://github.com/vckyou/GeezProjects>
 
 
-import os
-
-
+from os import remove
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
 from indomie.utils import edit_delete, edit_or_reply, indomie_cmd
 from indomie.utils.misc import create_quotly
 from telethon.tl.functions.users import GetFullUserRequest
+from secrets import choice
 
 from .carbon import all_col
 
@@ -69,9 +68,9 @@ async def quott_(event):
     try:
         file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
     except Exception as er:
-        return await msg.edit(str(er))
+        return await msg.edit(f"**ERROR:** `{er}`")
     message = await reply.reply("Quotly by IndomieProject", file=file)
-    os.remove(file)
+    remove(file)
     await msg.delete()
     return message
 

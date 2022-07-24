@@ -22,11 +22,11 @@ Tod = ["Truth", "Dare"]
 
 
 @indomie_cmd(pattern=r"acak")
-async def truth_or_dare(tord):
-    trod = tord.pattern_match.group(1).strip()
+async def acak(acek):
+    acek = acek.pattern_match.group(1).strip()
     troll = random.choice(Tod)
-    if trod == "":
-        await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
+    if acek == "":
+        await acek.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
 
 
 @indomie_cmd(pattern=r"truth")
@@ -44,15 +44,16 @@ async def truth(tord):
 
 
 @indomie_cmd(pattern=r"dare")
-    trod = tord.pattern_match.group(1).strip()
+async def dare(der):
+    der = der.pattern_match.group(1).strip()
     troll = random.choice(Tod)
-    if trod == "":
-        await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
-    if trod == "dare":
-        uh = await edit_or_reply(tord, "Memproses Dare")
+    if der == "":
+        await der.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
+    if der == "dare":
+        uh = await edit_or_reply(der, "Memproses Dare")
         sleep(1)
         dr = random.choice(d)
-        await uh.edit(f"**{trth}**")
+        await uh.edit(f"**{dr}**")
         return
 
 
@@ -64,7 +65,7 @@ CMD_HELP.update(
         \n\n  •  **Perintah :** `{cmd}truth`\
         \n  •  **Kegunaan :** Untuk Mendapatkan Truth Secara Acak.\
         \n\n  •  **Perintah :** `{cmd}dare`\
-        \n  •  **Kegunaan :** Untuk Mendapatkan Truth or Dare Secara Acak.\
+        \n  •  **Kegunaan :** Untuk Mendapatkan Dare Secara Acak.\
     "
     }
 )

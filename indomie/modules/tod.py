@@ -21,36 +21,50 @@ from indomie.utils import indomie_cmd, edit_or_reply
 Tod = ["Truth", "Dare"]
 
 
-@indomie_cmd(pattern=r"tod( truth| dare|$)")
+@indomie_cmd(pattern=r"acak")
 async def truth_or_dare(tord):
     trod = tord.pattern_match.group(1).strip()
     troll = random.choice(Tod)
     if trod == "":
-        await tord.edit(f"__Truth Or Dare ???__\n\n__Didapatkan Secara Acak__\n**»» {troll} ««**")
+        await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
 
+
+@indomie_cmd(pattern=r"truth")
+async def truth(tord):
+    trod = tord.pattern_match.group(1).strip()
+    troll = random.choice(Tod)
+    if trod == "":
+        await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
     if trod == "truth":
-        ah = await edit_or_reply(tord, "__Memproses Truth__")
+        ah = await edit_or_reply(tord, "Memproses Truth")
         sleep(1)
         trth = random.choice(t)
-        await ah.edit(f"__Mendapatkan Hasil Truth__\n\n**»** __Truth__ :\n**»** __{trth}__")
+        await ah.edit(f"**{trth}**")
         return
 
+
+@indomie_cmd(pattern=r"dare")
+    trod = tord.pattern_match.group(1).strip()
+    troll = random.choice(Tod)
+    if trod == "":
+        await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
     if trod == "dare":
-        uh = await edit_or_reply(tord, "__Memproses Dare__")
+        uh = await edit_or_reply(tord, "Memproses Dare")
         sleep(1)
         dr = random.choice(d)
-        await uh.edit(f"__Mendapatkan Hasil Dare Tod__\n\n**»** __Dare__ :\n**»** __{dr}__")
-
+        await uh.edit(f"**{trth}**")
         return
 
 
 CMD_HELP.update(
     {
         "tod": f"**Plugin:** `tod`\
-        \n\n  •  **Perintah :** `{cmd}tod`\
-        \n  •  **Kegunaan :** __Mendapatkan Pilihan Secara Acak.__\
-        \n\n  •  **Perintah :** `{cmd}tod <truth/dare>`\
-        \n  •  **Kegunaan :** __Untuk Mendapatkan Truth or Dare Secara Acak.__\
+        \n\n  •  **Perintah :** `{cmd}acak`\
+        \n  •  **Kegunaan :** Mendapatkan Pilihan Secara Acak.\
+        \n\n  •  **Perintah :** `{cmd}truth`\
+        \n  •  **Kegunaan :** Untuk Mendapatkan Truth Secara Acak.\
+        \n\n  •  **Perintah :** `{cmd}dare`\
+        \n  •  **Kegunaan :** Untuk Mendapatkan Truth or Dare Secara Acak.\
     "
     }
 )

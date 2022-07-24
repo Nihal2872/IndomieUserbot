@@ -33,7 +33,7 @@ async def truth(tord):
     ah = await tord.edit("Memproses Truth")
     sleep(1)
     trth = random.choice(t)
-    await ah.edit(f"**{trth}**")
+    await ah.edit(f"TRUTH\n\n**{trth}**")
 
     return
 
@@ -44,7 +44,7 @@ async def dare(der):
     uh = await der.edit("Memproses Dare")
     sleep(1)
     dr = random.choice(d)
-    await uh.edit(f"**{dr}**")
+    await uh.edit(f"DARE\n\n**{dr}**")
 
     return
 

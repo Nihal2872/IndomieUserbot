@@ -30,8 +30,7 @@ async def acak(acek):
 @indomie_cmd(pattern=r"truth")
 async def truth(tord):
     troll = random.choice(Tod)
-    await tord.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
-    ah = await edit_or_reply(tord, "Memproses Truth")
+    ah = await tord.edit("Memproses Truth")
     sleep(1)
     trth = random.choice(t)
     await ah.edit(f"**{trth}**")
@@ -42,8 +41,7 @@ async def truth(tord):
 @indomie_cmd(pattern=r"dare")
 async def dare(der):
     troll = random.choice(Tod)
-    await der.edit(f"Kamu mendapat `{troll}`\n\nSilahkan ketik `.{troll}` untuk mendapatkan {troll}.")
-    uh = await edit_or_reply(der, "Memproses Dare")
+    uh = await der.edit("Memproses Dare")
     sleep(1)
     dr = random.choice(d)
     await uh.edit(f"**{dr}**")

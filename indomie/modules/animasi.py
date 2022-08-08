@@ -14,7 +14,7 @@ async def typewriter(typew):
     sleep(1)
     await typew.edit("`Dan yang terakhir adalah kamu bukan jodohku`")
 
-# Create by myself @localheart
+# Create by https://github.com/IndomieGorengSatu
 
 
 @indomie_cmd(pattern='hujan(?: |$)(.*)')
@@ -75,7 +75,7 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("`Dah la besok besok ga mau lagi`")
 
-# Create by myself @IndomieGenetik
+# Create by https://github.com/IndomieGorengSatu
 
 
 @indomie_cmd(pattern='engas(?: |$)(.*)')
@@ -98,7 +98,7 @@ async def typewriter(typew):
     await typew.edit("Tapi pake pengaman")
 
 
-# Create by myself @IndomieGenetik
+# Create by https://github.com/IndomieGorengSatu
 
 
 @indomie_cmd(pattern='ehm(?: |$)(.*)')
@@ -139,5 +139,5 @@ CMD_HELP.update({
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ehm`\
     \n↳ : cobain sendiri.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vc`\
-    n↳: sagapung."
+    \n↳: sagapung."
 })

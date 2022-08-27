@@ -23,8 +23,9 @@ from pylast import LastFMNetwork, md5
 from pytgcalls import PyTgCalls
 from pySmartDL import SmartDL
 from pymongo import MongoClient
+from platform import python_version
+from pytgcalls import __version__ as pytgcalls
 from redis import StrictRedis
-from pytgcalls import PyTgCalls
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.errors import UserIsBlockedError
@@ -32,6 +33,7 @@ from telethon.tl.functions.channels import JoinChannelRequest as ah
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
 from telethon import Button
+from telethon import __version__, version
 from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
 
@@ -567,10 +569,10 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "««", data=f"{prefix}_prev({modulo_page})"),
-                custom.Button.inline("Tutup", b"close"),
+                    "«", data=f"{prefix}_prev({modulo_page})"),
+                custom.Button.inline("Tutup", data="{}_close({})".format(prefix, modulo_page)
                 custom.Button.inline(
-                    "»»", data=f"{prefix}_next({modulo_page})"),
+                    "»", data=f"{prefix}_next({modulo_page})"),
             )
         ]
 
@@ -589,36 +591,71 @@ def ibuild_keyboard(buttons):
 
 with bot:
     try:
-        from indomie.modules.button import BTN_URL_REGEX, build_keyboard
         from indomie.modules.sql_helper.bot_blacklists import check_is_black_list
         from indomie.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
-        from indomie.utils import IndomieDB, HOSTED_ON, reply_id
+        from indomie.utils import IndomieDB, HOSTED_ON, indomie_version, reply_id
 
         desah = IndomieDB()
         dugmeler = CMD_HELP
         user = bot.get_me()
+        asst = tgbot.get_me()
         uid = user.id
         owner = user.first_name
-        logo = ALIVE_LOGO
+        BOT_USERNAME = asst.username
         cmd = CMD_HANDLER
         sange = ALIVE_LOGO
-        tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
-        S_PACK_NAME = os.environ.get("S_PACK_NAME", f"Sticker Pack {owner}")
        
+        angek = INLINE_PIC
+        plugins = CMD_HELP
+        vr = BOT_VER
+        CALC = {}
+
+        m = [
+            "AC",
+            "C",
+            "⌫",
+            "%",
+            "7",
+            "8",
+            "9",
+            "+",
+            "4",
+            "5",
+            "6",
+            "-",
+            "1",
+            "2",
+            "3",
+            "x",
+            "00",
+            "0",
+            ".",
+            "÷",
+        ]
+        tultd = [Button.inline(f"{x}", data=f"calc{x}") for x in m]
+        lst = list(zip(tultd[::4], tultd[1::4], tultd[2::4], tultd[3::4]))
+        lst.append([Button.inline("=", data="calc=")])
+
+
         main_help_button = [
             [
-                Button.inline("• Helps •", data="reopen"),       
+                Button.url("• Settings •", f"t.me/{BOT_USERNAME}?start=set"),       
                 Button.inline("• VC Plugin •", data="memek_inline"),
             ],
             [
+                Button.inline("• Helps •", data="reopen"),
+                Button.inline("• Owner Menu •", data="ownrmn"),
                 Button.url("• Updates •", f"https://t.me/IndomieProject"),
-                Button.url("• Settings •", f"t.me/{botusername}"),
             ],
             [Button.inline("• Close •", data="close")],
         ]
+        USER_BOT_NO_WARN = (
+           f"**PMSecurity of** {owner}!"
+            "\n\nSilahkan beri alasan mengapa anda chat saya"
+            "\nAtau tunggu saya untuk merespon atau Anda akan **diblokir dan dilaporkan sebagai spam!!**")
 
         
         @tgbot.on(events.NewMessage(incoming=True,
@@ -692,20 +729,97 @@ with bot:
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
 
+        @tgbot.on(events.CallbackQuery(data=b"keluar"))
+        async def keluar(event):
+            await event.delete()
+
+        @tgbot.on(events.NewMessage(pattern=r"/repo"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                u = await event.client.get_entity(event.chat_id)
+                await event.reply(
+                    f"👋🏻 Hai [{get_display_name(u)}](tg://user?id={u.id}) Jika anda\n"
+                    f"Ingin deploy userbot ini\n\n"
+                    f"👇🏻 __Klik button url di bawah ini__ 👇🏻\n\n"
+                    f"**Indomie Userbot**\n",
+                    buttons=[
+                        [
+                            Button.url("• Repo •",
+                                       "https://github.com/IndomieGorengSatu/IndomieUserbot")
+                    ]
+                )
+
+        @tgbot.on(events.NewMessage(pattern=r"/alive"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                u = await event.client.get_entity(event.chat_id)
+                await event.message.get_sender()
+                text = (
+                    f"**Hello** [{get_display_name(u)}](tg://user?id={u.id}) **Is Alive**\n\n"
+                    f"         ✘ **IndomieUserbot** ✘ \n"
+                    f"**User             :** [{get_display_name(u)}](tg://user?id={u.id}) \n"
+                    f"**Telethon         :** `Vᴇʀ {version.__version__}` \n"
+                    f"**Python           :** `Vᴇʀ {python_version()}` \n"
+                    f"**Pytgcalls        :** `{pytgcalls.__version__}` \n"
+                    f"**Userbot Version  :** `{BOT_VER}` \n"
+                    f"**Indomie Version  :** `{indomie_version}`\n"
+                    f"**Branch           :** `{UPSTREAM_REPO_BRANCH}` \n"
+                    f"**Base on          :** `{ah.name}` \n"
+                    f"**Owner            :** {owner} \n\n"
+                    f"       **Telegram Userbot** \n")
+                await tgbot.send_file(event.chat_id, file=sange,
+                                      caption=text,
+                                      buttons=[
+                                              [
+                                                  custom.Button.url(
+                                                      text="• Repo •",
+                                                      url="https://github.com/IndomieGorengSatu/IndomieUserbot")
+                                              ]
+                                      ]
+                                      )
+
+        @tgbot.on(events.NewMessage(pattern=r"/string"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                reply = "**STRING SESSION**"
+                await event.reply(
+                    f"**Hai Kamu!**\n\n"
+                    f"Ingin Mengambil String Session?\n\n"
+                    f"Cukup Ambil Dibawah Button URL Ini\n\n"
+                    f"⚠️ **Gunakan String Session Dengan Bijak!!**\n\n"
+                    f"{reply}\n",
+                    buttons=[
+                        [
+                            Button.url("String Session",
+                                       "https://t.me/IndomieStringBot")],
+                    ]
+                )
+
+        @tgbot.on(events.NewMessage(pattern="/ping"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                start = datetime.now()
+                end = datetime.now()
+                ms = (end - start).microseconds / 1000
+                await tgbot.send_message(
+                    event.chat_id,
+                    f"**PONG!!**\n `{ms}ms`",
+                )
+
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"get_back")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(looters)
+            if event.query.user_id == uid:
+                current_page_number = int(lockpage)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**",
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**",
                 await event.edit(
                     text,
-                    file=sange,
+                    file=angek,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -719,12 +833,12 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid:
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**"
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**"
                 await event.edit(
                     text,
-                    file=sange,
+                    file=angek,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -738,35 +852,42 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith("@IndomieUserbot"):
-                buttons = paginate_help(0, dugmeler, "helpme")
-                result = await event.builder.photo(
-                    file=desah,
+                result = builder.photo(
+                    file=angek,
                     link_preview=False,
-                    text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**",
+                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**".format(
+                        len(dugmeler),
+                    ),
                     buttons=main_help_button,
                 )
-            elif query.startswith("repo"):
+            elif query.startswith("calc"):
+                result = event.builder.article("Calc", text="• Flicks Inline Calculator •", buttons=lst)
+
+            elif query.startswith("pmpermit"):
+                tempik = USER_BOT_NO_WARN
                 result = builder.article(
-                    title="Repository",
-                    description="Repository Indomie Userbot",
-                    url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(
-                        ALIVE_LOGO,
-                        0,
-                        "image/jpeg",
-                        []),
-                    text="**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ ✦ **Updates :** @IndomieProject\n✦ **Channel :** @IndomieStore\n✦ **Repository :** [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n━━━━━━━━━━━━━━━━━━━",
+                    "PmPermit",
+                    text=tempik,
                     buttons=[
                         [
-                            custom.Button.url(
-                                "• Updates •",
-                                "https://t.me/IndomieProject"),
-                            custom.Button.url(
-                                "• Channel •",
-                                "https://t.me/IndomieStore"),
+                            Button.inline("• PM •", data="pm"),
+                            Button.inline("• Spam •", data="flood"),
                         ],
                     ],
-                    link_preview=False,
+                )
+            elif query.startswith("pasta"):
+                ok = event.text.split("-")[1]
+                link = "https://spaceb.in/" + ok
+                raw = f"https://spaceb.in/api/v1/documents/{ok}/raw"
+                result = builder.article(
+                    "Paste",
+                    text="Pasted to Spacebin 🌌",
+                    buttons=[
+                        [
+                            Button.url("SpaceBin", url=link),
+                            Button.url("Raw", url=raw),
+                        ],
+                    ],
                 )
             elif query.startswith("Inline buttons"):
                 markdown_note = query[14:]
@@ -802,23 +923,16 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="IndomieUserbot",
-                    description="Indomie Userbot | Telethon",
-                    url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(
-                        ALIVE_LOGO,
-                        0,
-                        "image/jpeg",
-                        []),
+                    "✘ Indomie Userbot ✘"
                     text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
-                            custom.Button.url(
+                            Button.url(
                                 "• Updates •",
-                                "https://t.me/IndomieProject"),
-                            custom.Button.url(
+                                url="https://t.me/IndomieProject"),
+                            Button.url(
                                 "• Channel •",
-                                "https://t.me/IndomieStore"),
+                                url="https://t.me/IndomieStore"),
                         ],
                     ],
                     link_preview=False,
@@ -833,7 +947,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid:
                 current_page_number = int(
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
@@ -851,10 +965,12 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @Kyy-Userbot
+            if event.query.user_id == uid:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot
+                text = (f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**")
                 await event.edit(
-                    file=desah,
+                    text,
+                    file=angek,
                     link_preview=True,
                     buttons=main_help_button)
 
@@ -864,69 +980,204 @@ with bot:
             )
         )
         async def gback_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @Kyy-Userbot
+            if event.query.user_id == uid:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot    
-                text = (
-                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Jumlah :** {len(dugmeler)} **Modules**")
+                text = (f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**")
                 await event.edit(
                     text,
-                    file=ciliklogo,
+                    file=angek,
                     link_preview=True,
                     buttons=main_help_button)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"memek_inline")
+                data=re.compile(rb"ownrmn")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid:
+                text = (
+                    f"Owner Menu\n"
+                    f"**Telethon         :** `Vᴇʀ {version.__version__}` \n"
+                    f"**Python           :** `Vᴇʀ {python_version()}` \n"
+                    f"**Pytgcalls        :** `{pytgcalls.__version__}` \n"
+                    f"**Branch           :** `{UPSTREAM_REPO_BRANCH}` \n"
+                    f"**Userbot Version  :** `{BOT_VER}` \n"
+                    f"**Indomie Version  :** `{indomie_version}`\n"
+                    f"**Modules          :** `{len(plugins)}` \n"
+                    f"**Base on          :** `{ah.name}` \n")
+                await event.edit(
+                    text,
+                    file=angek,
+                    link_preview=True,
+                    buttons=[
+                        [
+                            Button.inline("• Ping •",
+                                          data="pingbot"),
+                            Button.inline("• Info •",
+                                          data="about")],
+                        [custom.Button.inline(
+                            "• Back •", data="gcback")],
+                    ]
+                )
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"pingbot")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:
+                start = datetime.now()
+                end = datetime.now()
+                ms = (end - start).microseconds / 1000
+                await event.answer(
+                    f"PONG 🏓\n {ms}ms", cache_time=0, alert=True)
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.CallbackQuery(data=b"about"))
+        async def about(event):
+            if event.query.user_id == uid:
+                await event.edit(f"""
+Owner - {owner}
+OwnerID - {uid}
+[Link To Profile 👤](tg://user?id={uid})
+Owner repo - [Indomie](tg://openmessage?user_id=1447438514)
+Updates - [Indomie](t.me/IndomieProject)
+Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot)
+""",
+                                 buttons=[
+                                     [
+                                         Button.url("• Repo •",
+                                                    "https://github.com/IndomieGorengSatu/IndomieUserbot"),
+                                         custom.Button.inline("• ʙᴀᴄᴋ •",
+                                                              data="ownrmn")],
+                                 ]
+                                 )
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=b"sangek"))
+        async def about(event):
+            if event.query.user_id == uid:
+                await event.edit(
+                    f"Voice chat group menu untuk {owner}",
+                                 buttons=[
+                                     [
+                                         Button.inline("Vc Plugin ⚙️",
+                                                       data="vcplugin"),
+                                         Button.inline("Vc Tools ⚙️",
+                                                       data="vctools")],
+                                     [custom.Button.inline(
+                                         "Back", data="gcback")],
+                                 ]
+                                 )
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"vcplugin")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:
                 text = (
                     f"""
      🎧 **VC Plugin Menu** 🎧
-┌ **Syntax   :** {cmd}play <Judul Lagu>
-└ **Function :** Untuk Memutar Lagu
+**WARNING!!!⚠️**
+**DISARANKAN UNTUK TIDAK DI GUNAKAN PERINTAH DI BAWAH ATAU BOT ANDA AKAN MATI TOTAL**
+
+┌ **Syntax   :** `{cmd}play` <Judul Lagu>
+└ **Function :** Memutar Lagu
  
-┌ **Syntax   :** {cmd}vplay <Judul Video>
-└ **Function :** Untuk Memutar Video 
+┌ **Syntax   :** `{cmd}vplay` <Judul Video>
+└ **Function :** Memutar Video 
   
-┌ **Syntax   :** {cmd}end
-└ **Function :** Untuk Menghentikan Lagu/Video
+┌ **Syntax   :** `{cmd}end`
+└ **Function :** Menghentikan Lagu/Video
  
-┌ **Syntax   :** {cmd}skip
-└ **Function :** Untuk Melewati Video/Lagu 
+┌ **Syntax   :** `{cmd}skip`
+└ **Function :** Melewati Video/Lagu 
   
-┌ **Syntax   :** {cmd}pause
-└ **Function :** Untuk memberhentikan video/lagu
+┌ **Syntax   :** `{cmd}pause`
+└ **Function :** memberhentikan video/lagu
   
-┌ **Syntax   :** {cmd}resume
-└ **Function :** Untuk melanjutkan pemutaran video/lagu
+┌ **Syntax   :** `{cmd}resume`
+└ **Function :** melanjutkan pemutaran video/lagu
   
-┌ **Syntax   :** {cmd}volume 1-200
-└ **Function :** Untuk mengubah volume
+┌ **Syntax   :** `{cmd}volume` 1-200
+└ **Function :** mengubah volume
  
-┌ **Syntax   :** {cmd}playlist
-└ **Function :** Untuk menampilkan daftar putar
-┌ **Syntax   :** {cmd}joinvc
-└ **Function :** Untuk Join Vcg Menggunakan bot
-┌ **Syntax   :** {cmd}leavevc
-└ **Function :** Untuk Turun Vcg Menggunakan bot
+┌ **Syntax   :** `{cmd}playlist`
+└ **Function :** menampilkan daftar putar
+
+**DWYOR ~ Do With Your Own Risk!**
 """)
                 await event.edit(
                     text,
-                    file=sange,
+                    file=angek,
                     link_preview=True,
-                    buttons=[Button.inline("« Back", data="gcback")])
+                    buttons=[Button.inline("« Back", data="sangek")])
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"vctools")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:
+                text = (
+                    f"""
+**PAKE PERINTAH YANG DI BAWAH INI AJA, GA BKAL KENAPA NAPA KO BOT NYA**
+
+┌ **Syntax   :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>
+└ **Function :** Bergabung ke voice chat group
+
+┌ **Syntax   :** `{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>
+└ **Function :** Turun dari voice chat group
+
+┌ **Syntax   :** `{cmd}startvc`
+└ **Function :** Untuk Turun Vcg Menggunakan bot
+
+┌ **Syntax   :** `{cmd}stopvc`
+└ **Function :** Memberhentikan voice chat group
+
+┌ **Syntax   :** `{cmd}vctitle` <title vcg>
+└ **Function :** Mengubah title/judul voice chat group
+
+┌ **Syntax   :** `{cmd}vcinvite`
+└ **Function :** Mengundang Member group ke voice chat group (anda harus berada di OS/VCG terlebih dahulu)
+""")
+                await event.edit(
+                    text,
+                    file=angek,
+                    link_preview=True,
+                    buttons=[Button.inline("Back", data="sangek")])
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            buttons = [
-                (custom.Button.inline("• Re-Open Menu •", data="gcback"),),
-            ]
-            await event.edit("**• Menu diTutup •**", file=ciliklogo, buttons=buttons)
+            if event.query.user_id == uid:
+                buttons = [
+                    (custom.Button.inline("• Re-Open Menu •", data="gcback"),),
+                ]
+                await event.edit("**• Menu diTutup •**", file=angek, buttons=buttons)
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
@@ -934,7 +1185,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid:
                 current_page_number = int(
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
@@ -946,20 +1197,19 @@ with bot:
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ub_modul_(.*)")))
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid:
                 modul_name = event.data_match.group(1).decode("UTF-8")
 
-                cmdhel = str(CMD_HELP[modul_name])
-                if len(cmdhel) > 950:
+                cmdhel = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + "\n\n© {ch2}"
+                if len(cmdhel) > 4030:
                     help_string = (
-                        str(CMD_HELP[modul_name])[:950]
-                        + "..."
+                        str(CMD_HELP[modul_name])[:4030] + "..."
                         + "\n\nBaca Teks Berikutnya Ketik .help "
                         + modul_name
                         + " "
                     )
                 else:
-                    help_string = str(CMD_HELP[modul_name])
+                    help_string = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + "\n\n© {ch2}"
 
                 reply_pop_up_alert = (
                     help_string
@@ -969,12 +1219,213 @@ with bot:
                     )
                 )
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("« Back", data="reopen")]
+                    reply_pop_up_alert, buttons=[Button.inline("« Back", data="get_back")]
                 )
 
             else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"calc(.*)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(e):
+            if e.query.user_id == uid:  # pylint:disable=E0602
+                x = (e.data_match.group(1)).decode()
+                user = e.query.user_id
+                get = None
+                if x == "AC":
+                    if CALC.get(user):
+                        CALC.pop(user)
+                    await e.edit(
+                        "• Indomie Inline Calculator •",
+                        buttons=[Button.inline("• Open Calculator •", data="recalc")],
+                    )
+                elif x == "C":
+                    if CALC.get(user):
+                        CALC.pop(user)
+                    await e.answer("cleared")
+                elif x == "⌫":
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        CALC.update({user: get[:-1]})
+                        await e.answer(str(get[:-1]))
+                elif x == "%":
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        CALC.update({user: get + "/100"})
+                        await e.answer(str(get + "/100"))
+                elif x == "÷":
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        CALC.update({user: get + "/"})
+                        await e.answer(str(get + "/"))
+                elif x == "x":
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        CALC.update({user: get + "*"})
+                        await e.answer(str(get + "*"))
+                elif x == "=":
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        if get.endswith(("*", ".", "/", "-", "+")):
+                            get = get[:-1]
+                        out = eval(get)
+                        try:
+                            num = float(out)
+                            await e.answer(f"Answer : {num}", cache_time=0, alert=True)
+                        except BaseException:
+                            CALC.pop(user)
+                            await e.answer("Kesalahan", cache_time=0, alert=True)
+                    await e.answer("None")
+                else:
+                    if CALC.get(user):
+                        get = CALC[user]
+                    if get:
+                        CALC.update({user: get + x})
+                        return await e.answer(str(get + x))
+                    CALC.update({user: x})
+                    await e.answer(str(x))
+
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await e.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"recalc")
+            )
+        )
+        async def on_plug_in_callback_query_handler(e):
+            if e.query.user_id == uid:  # pylint:disable=E0602
+                m = [
+                    "AC",
+                    "C",
+                    "⌫",
+                    "%",
+                    "7",
+                    "8",
+                    "9",
+                    "+",
+                    "4",
+                    "5",
+                    "6",
+                    "-",
+                    "1",
+                    "2",
+                    "3",
+                    "x",
+                    "00",
+                    "0",
+                    ".",
+                    "÷",
+                ]
+                tultd = [Button.inline(f"{x}", data=f"calc{x}") for x in m]
+                lst = list(zip(tultd[::4], tultd[1::4], tultd[2::4], tultd[3::4]))
+                lst.append([Button.inline("=", data="calc=")])
+                await e.edit("• Indomie Inline Calculator •", buttons=lst)
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await e.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
+        async def on_pm_click(event):
+            if event.query.user_id == uid:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            else:
+                await event.edit(
+                    f"Keamanan PM {owner} untuk menjauhkan spammer.\n\nDilindungi oleh [Userbot](t.me/IndomieProject)"
+                )
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
+        async def on_pm_click(event):
+            if event.query.user_id == uid:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            else:
+                await event.edit(
+                    f"**Tunggu sampai** `{owner}` **menyetujui PM anda.**\n**Jangan Spam Chat atau kamu akan otomatis diblokir.**"
+                )
+                target = await event.client(GetFullUserRequest(event.query.user_id))
+                first_name = html.escape(target.user.first_name)
+                ok = event.query.user_id
+                if first_name is not None:
+                    first_name = first_name.replace("\u2060", "")
+                tosend = f"**Hey {owner},** [{first_name}](tg://user?id={ok}) **ngemis ngemis minta di acc PM nya**"
+                await tgbot.send_message(BOTLOG_CHATID, tosend)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chat")))
+        async def on_pm_click(event):
+            event.query.user_id
+            if event.query.user_id == uid:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            else:
+                await event.edit(
+                    f"**Sabar ya kontol,** `{owner}` ** gatau mood nya lagi bagus pa kaga, ntr juga bakal di bales**\n**Jangan Spam Chat atau kamu akan otomatis diblokir.**"
+                )
+                target = await event.client(GetFullUserRequest(event.query.user_id))
+                ok = event.query.user_id
+                first_name = html.escape(target.user.first_name)
+                if first_name is not None:
+                    first_name = first_name.replace("\u2060", "")
+                tosend = f"**woi {owner},** [{first_name}](tg://user?id={ok}) **pengen cs ama lo noh anjeng**"
+                await tgbot.send_message(BOTLOG_CHATID, tosend)
+
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"setuju")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:
+                await event.answer(
+                    f"Untuk menyetujui PM, gunakan {cmd}ok", cache_time=0, alert=True)
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"block")))
+        async def on_pm_click(event):
+            if event.query.user_id == uid:
+                await event.edit(
+                    f"**keknya `{owner}` **lagi ga bagus mood nya**\n**Pesan lo di kacangin tolol.**\n&&kalo gamau di blok jan spam memek, dewasa dikit lah goblok**"
+                )
+            else:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"flood")))
+        async def on_pm_click(event):
+            if event.query.user_id == uid:
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            else:
+                await event.edit(
+                    f"**ye si goblok ternyata pen spam doang, salah lapak kontol**"
+                )
+                await bot(functions.contacts.BlockRequest(event.query.user_id))
+                target = await event.client(GetFullUserRequest(event.query.user_id))
+                ok = event.query.user_id
+                first_name = html.escape(target.user.first_name)
+                if first_name is not None:
+                    first_name = first_name.replace("\u2060", "")
+                first_name = html.escape(target.user.first_name)
+                await tgbot.send_message(
+                    BOTLOG_CHATID,
+                    f"[{first_name}](tg://user?id={ok}) nyoba nyoba buat nge spam, tpi tenang, uda gua blok ko. baek kan gua 🥴😎",
+                )
+
 
     except BaseException:
         LOGS.info(

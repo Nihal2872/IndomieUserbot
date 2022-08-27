@@ -37,8 +37,9 @@ else:
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
-        await var.edit("`[HEROKU]"
-                       "\nHarap Siapkan`  **HEROKU_APP_NAME**.")
+        return await var.edit(
+             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+        )
         return False
     if exe == "get":
         await var.edit("`Mendapatkan Informasi...`")
@@ -97,6 +98,10 @@ async def variable(var):
 
 @indomie_cmd(pattern="set var (\\w *) ([\\s\\S]*)")
 async def set_var(var):
+    if app is None:
+        return await var.edit(
+             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+        )
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
     value = var.pattern_match.group(2)
@@ -129,6 +134,10 @@ async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
     """
+    if app is None:
+        return await dyno.edit(
+             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+        )
     aku = await bot.get_me()
     await dyno.edit("Sabar goblok.")
     await dyno.edit("Sabar goblok..")
@@ -225,7 +234,7 @@ async def _(dyno):
         app = Heroku.app(HEROKU_APP_NAME)
     except BaseException:
         return await dyno.reply(
-            "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
+            "`Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME Anda diisi dengan benar di var heroku.`"
         )
     await dyno.edit("`Sedang Mengambil Logs Anda`")
     with open("logs.txt", "w") as log:

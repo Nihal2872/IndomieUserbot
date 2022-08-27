@@ -16,8 +16,11 @@
 # @Qulec tarafından yazılmıştır.
 # Thanks @Spechide.
 
+from telethon import events
+from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from Indomie import BOT_USERNAME, CMD_HELP, bot, ch2
+from Indomie import CMD_HANDLER as cmd
 from Indomie.utils import edit_or_reply, edit_delete, indomie_cmd
 
 
@@ -42,3 +45,24 @@ async def cmd_list(event):
             await edit_delete(event,
                               f"**INLINE MODE KAMU BELUM AKTIF!!**\n** Silahkan Ikuti Tutorial dibawah ini Untuk Menyalakan Inline Mode Kamu.**\n\n**© Tutorial Untuk Menyalakan Inline Mode Kamu :**\n**❖ Silahkan pergi ke bot @BotFather ketikan** '/mybots'\n**❖ Kemudian pilih bot Assistant mu yang ada di group log**\n**❖ Lalu pilih Bot Settings > Pilih inline Mode > pilih Turn on**\n**❖ Setelah itu Pergi ke group log atau group ini lagi**\n**Ketik** `.helpme` **lagi untuk membuka menu bantuan modules nya.**"
                               )
+
+
+@indomie_cmd(pattern="inlineon")
+async def _(event):
+    await event.edit(f"**Sedang menyalakan inline untuk** `@{BOT_USERNAME}` **tunggu sebentar**")
+    async with bot.conversation("@BotFather") as conv:
+        try:
+            response = conv.wait_event(
+                events.NewMessage(incoming=True, from_users=93372553)
+            )
+            await conv.send_message("/setinline")
+            await conv.get_response()
+            await conv.send_message(f"@{BOT_USERNAME}")
+            await conv.get_response()
+            await conv.send_message("Search")
+            await conv.get_response()
+            await bot.send_read_acknowledge(conv.chat_id)
+        except YouBlockedUserError:
+            return await event.edit("**Harap unblock** `@BotFather` **dan coba lagi**")
+            await event.edit(
+                f"**Berhasil Menyalakan Mode Inline untuk `@{BOT_USERNAME}`**\n\n**Ketik** `{cmd}helpme` **lagi untuk membuka menu bantuan.**")

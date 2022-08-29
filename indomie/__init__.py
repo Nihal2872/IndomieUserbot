@@ -569,7 +569,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     "«", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "Cʟᴏsᴇ", data="{}_close({})".format(prefix, modulo_page)
+                    "Back", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
                     "»", data="{}_next({})".format(prefix, modulo_page)
@@ -643,7 +643,7 @@ with bot:
         main_help_button = [
             [
                 Button.url("• Settings •", f"t.me/{BOT_USERNAME}?start=set"),       
-                Button.inline("• VC Plugin •", data="memek_inline"),
+                Button.inline("• VC Plugin •", data="sangek"),
             ],
             [
                 Button.inline("• Helps •", data="reopen"),
@@ -653,9 +653,9 @@ with bot:
             [Button.inline("• Close •", data="close")],
         ]
         USER_BOT_NO_WARN = (
-           f"**PMSecurity of** {owner}!"
-            "\n\nSilahkan beri alasan mengapa anda chat saya"
-            "\nAtau tunggu saya untuk merespon atau Anda akan **diblokir dan dilaporkan sebagai spam!!**")
+           f"**PMSecurity of** `{owner}`"
+           f"\n\nS**ilahkan beri alasan mengapa anda chat** `{owner}`"
+           f"\n**Atau Tunggu sampai** `{owner}` **menyetujui PM anda.**\n**Jangan Spam Chat atau kamu akan otomatis diblokir.**")
 
         
         @tgbot.on(events.NewMessage(incoming=True,
@@ -740,7 +740,7 @@ with bot:
                 await event.reply(
                     f"👋🏻 Hai [{get_display_name(u)}](tg://user?id={u.id}) Jika anda\n"
                     f"Ingin deploy userbot ini\n\n"
-                    f"👇🏻 __Klik button url di bawah ini__ 👇🏻\n\n"
+                    f"👇🏻 __Klik button di bawah ini__ 👇🏻\n\n"
                     f"**Indomie Userbot**\n",
                     buttons=[
                         [
@@ -764,9 +764,9 @@ with bot:
                     f"**Userbot Version  :** `{BOT_VER}` \n"
                     f"**Indomie Version  :** `{indomie_version}`\n"
                     f"**Branch           :** `{UPSTREAM_REPO_BRANCH}` \n"
-                    f"**Base on          :** `{ah.name}` \n"
+                    f"**Base on          :** `{desah.name}` \n"
                     f"**Owner            :** {owner} \n\n"
-                    f"       **Telegram Userbot** \n")
+                    "       **Telegram Userbot** \n")
                 await tgbot.send_file(event.chat_id, file=sange,
                                       caption=text,
                                       buttons=[
@@ -796,17 +796,6 @@ with bot:
                     ]
                 )
 
-        @tgbot.on(events.NewMessage(pattern="/ping"))
-        async def handler(event):
-            if event.message.from_id != uid:
-                start = datetime.now()
-                end = datetime.now()
-                ms = (end - start).microseconds / 1000
-                await tgbot.send_message(
-                    event.chat_id,
-                    f"**PONG!!**\n `{ms}ms`",
-                )
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"get_back")
@@ -817,7 +806,7 @@ with bot:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**",
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**",
                 await event.edit(
                     text,
                     file=angek,
@@ -836,7 +825,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**"
+                text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**"
                 await event.edit(
                     text,
                     file=angek,
@@ -856,13 +845,13 @@ with bot:
                 result = builder.photo(
                     file=angek,
                     link_preview=False,
-                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**".format(
+                    text=f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**".format(
                         len(dugmeler),
                     ),
                     buttons=main_help_button,
                 )
             elif query.startswith("calc"):
-                result = event.builder.article("Calc", text="• Flicks Inline Calculator •", buttons=lst)
+                result = event.builder.article("Calc", text="• Indomie Inline Calculator •", buttons=lst)
 
             elif query.startswith("pmpermit"):
                 tempik = USER_BOT_NO_WARN
@@ -939,7 +928,7 @@ with bot:
                     link_preview=False,
                 )
             await event.answer(
-                [result], switch_pm="👥 USERBOT PORTAL", switch_pm_param="start"
+                [result], switch_pm=f"👥 ASISSTANT BOT OF {owner}", switch_pm_param="start"
             )
 
         @tgbot.on(
@@ -968,7 +957,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot
-                text = (f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**")
+                text = (
+                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**")
                 await event.edit(
                     text,
                     file=angek,
@@ -983,7 +973,8 @@ with bot:
         async def gback_handler(event):
             if event.query.user_id == uid:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot    
-                text = (f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** {user.first_name}\n• **Base on :** {desah.name}\n• **Deploy on :** •[{HOSTED_ON}]•\n• `{len(plugins)}` **Modules**")
+                text = (
+                    f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**")
                 await event.edit(
                     text,
                     file=angek,
@@ -1056,7 +1047,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                                      [
                                          Button.url("• Repo •",
                                                     "https://github.com/IndomieGorengSatu/IndomieUserbot"),
-                                         custom.Button.inline("• ʙᴀᴄᴋ •",
+                                         custom.Button.inline("« ʙᴀᴄᴋ",
                                                               data="ownrmn")],
                                  ]
                                  )
@@ -1076,7 +1067,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                                          Button.inline("Vc Tools ⚙️",
                                                        data="vctools")],
                                      [custom.Button.inline(
-                                         "Back", data="gcback")],
+                                         "« Back", data="gcback")],
                                  ]
                                  )
             else:
@@ -1164,7 +1155,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                     text,
                     file=angek,
                     link_preview=True,
-                    buttons=[Button.inline("Back", data="sangek")])
+                    buttons=[Button.inline("« Back", data="sangek")])
             else:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -1201,7 +1192,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             if event.query.user_id == uid:
                 modul_name = event.data_match.group(1).decode("UTF-8")
 
-                cmdhel = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + "\n\n© {ch2}"
+                cmdhel = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + f"\n\n© {ch2}"
                 if len(cmdhel) > 4030:
                     help_string = (
                         str(CMD_HELP[modul_name])[:4030] + "..."
@@ -1210,7 +1201,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                         + " "
                     )
                 else:
-                    help_string = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + "\n\n© {ch2}"
+                    help_string = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + f"\n\n© {ch2}"
 
                 reply_pop_up_alert = (
                     help_string
@@ -1343,7 +1334,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:
                 await event.edit(
-                    f"Keamanan PM {owner} untuk menjauhkan spammer.\n\nDilindungi oleh [Userbot](t.me/IndomieProject)"
+                    f"Keamanan PM {owner} untuk menjauhkan spammer.\n\nDilindungi oleh [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)"
                 )
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
@@ -1371,7 +1362,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:
                 await event.edit(
-                    f"**Sabar ya kontol,** `{owner}` ** gatau mood nya lagi bagus pa kaga, ntr juga bakal di bales**\n**Jangan Spam Chat atau kamu akan otomatis diblokir.**"
+                    f"**Sabar ya kontol,** `{owner}` **gatau mood nya lagi bagus pa kaga, ntr juga bakal di bales**\n**Jangan Spam Chat atau kamu akan otomatis diblokir.**"
                 )
                 target = await event.client(GetFullUserRequest(event.query.user_id))
                 ok = event.query.user_id

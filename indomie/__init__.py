@@ -924,7 +924,7 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "✘ Indomie Userbot ✘"
+                    "✘ Indomie Userbot ✘",
                     text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [

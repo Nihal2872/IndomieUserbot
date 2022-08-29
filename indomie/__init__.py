@@ -745,7 +745,7 @@ with bot:
                     buttons=[
                         [
                             Button.url("• Repo •",
-                                       "https://github.com/IndomieGorengSatu/IndomieUserbot")
+                                       "https://github.com/IndomieGorengSatu/IndomieUserbot")],
                     ]
                 )
 
@@ -773,7 +773,8 @@ with bot:
                                               [
                                                   custom.Button.url(
                                                       text="• Repo •",
-                                                      url="https://github.com/IndomieGorengSatu/IndomieUserbot")
+                                                      url="https://github.com/IndomieGorengSatu/IndomieUserbot"
+                                                   )
                                               ]
                                       ]
                                       )

@@ -823,7 +823,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 buttons = paginate_help(0, dugmeler, "helpme")
                 text = f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**"
                 await event.edit(
@@ -937,7 +937,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
@@ -955,7 +955,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot
                 text = (
                     f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**")
@@ -971,7 +971,7 @@ with bot:
             )
         )
         async def gback_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 # https://t.me/TelethonChat/115200                               # @Fliks-Userbot    
                 text = (
                     f"**• IndomieUserbot Iɴʟɪɴᴇ Mᴇɴᴜ •**\n\n• **Owner** `{user.first_name}`\n• **Base on :** `{desah.name}`\n• **Deploy on :** `{HOSTED_ON}`\n• `{len(plugins)}` **Modules**")
@@ -987,7 +987,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
                     f"Owner Menu\n"
                     f"**Telethon         :** `Vᴇʀ {version.__version__}` \n"
@@ -1022,7 +1022,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 start = datetime.now()
                 end = datetime.now()
                 ms = (end - start).microseconds / 1000
@@ -1034,7 +1034,7 @@ with bot:
 
         @tgbot.on(events.CallbackQuery(data=b"about"))
         async def about(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(f"""
 Owner - {owner}
 OwnerID - {uid}
@@ -1057,7 +1057,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=b"sangek"))
         async def about(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(
                     f"Voice chat group menu untuk {owner}",
                                  buttons=[
@@ -1128,7 +1128,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
                     f"""
 **PAKE PERINTAH YANG DI BAWAH INI AJA, GA BKAL KENAPA NAPA KO BOT NYA**
@@ -1162,7 +1162,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
                 buttons = [
                     (custom.Button.inline("• Re-Open Menu •", data="gcback"),),
                 ]
@@ -1177,7 +1177,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
@@ -1189,7 +1189,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ub_modul_(.*)")))
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 modul_name = event.data_match.group(1).decode("UTF-8")
 
                 cmdhel = f"**✘ Commands available**\n\n" + str(CMD_HELP[modul_name]) + f"\n\n© {ch2}"
@@ -1224,7 +1224,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             )
         )
         async def on_plug_in_callback_query_handler(e):
-            if e.query.user_id == uid:  # pylint:disable=E0602
+            if e.query.user_id == uid or e.query.user_id in SUDO_USERS:  # pylint:disable=E0602
                 x = (e.data_match.group(1)).decode()
                 user = e.query.user_id
                 get = None
@@ -1296,7 +1296,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             )
         )
         async def on_plug_in_callback_query_handler(e):
-            if e.query.user_id == uid:  # pylint:disable=E0602
+            if e.query.user_id == uid or e.query.user_id in SUDO_USERS:  # pylint:disable=E0602
                 m = [
                     "AC",
                     "C",
@@ -1329,7 +1329,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
         async def on_pm_click(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:
@@ -1339,7 +1339,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
         async def on_pm_click(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:
@@ -1357,7 +1357,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chat")))
         async def on_pm_click(event):
             event.query.user_id
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:
@@ -1379,7 +1379,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.answer(
                     f"Untuk menyetujui PM, gunakan {cmd}ok", cache_time=0, alert=True)
             else:
@@ -1389,7 +1389,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"block")))
         async def on_pm_click(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(
                     f"**keknya `{owner}` **lagi ga bagus mood nya**\n**Pesan lo di kacangin tolol.**\n&&kalo gamau di blok jan spam memek, dewasa dikit lah goblok**"
                 )
@@ -1399,7 +1399,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"flood")))
         async def on_pm_click(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
             else:

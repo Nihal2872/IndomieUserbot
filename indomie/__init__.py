@@ -570,7 +570,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             (
                 custom.Button.inline(
                     "«", data=f"{prefix}_prev({modulo_page})"),
-                custom.Button.inline("Tutup", data="{}_close({})".format(prefix, modulo_page)
+                custom.Button.inline("Tutup", data="{}_close({})".format(prefix, modulo_page),
                 custom.Button.inline(
                     "»", data=f"{prefix}_next({modulo_page})"),
             )

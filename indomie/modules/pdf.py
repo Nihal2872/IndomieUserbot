@@ -27,7 +27,7 @@ async def _(event):
                 cnfrm = await conv.get_response()
                 editfilename = await conv.send_message("Yes")
                 enterfilename = await conv.get_response()
-                filename = await conv.send_message("Flicks-Userbot")
+                filename = await conv.send_message("Indomie Userbot")
                 started = await conv.get_response()
                 pdf = await conv.get_response()
                 """- jangan spam notif -"""

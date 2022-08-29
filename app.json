@@ -38,7 +38,7 @@
       "description": "Bikin Grup Publik Lalu Invite Bot @IndomieMusicRobot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": false
     }
- },
+  },
   "addons": [
     {
       "plan": "heroku-postgresql",

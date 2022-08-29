@@ -1006,7 +1006,7 @@ with bot:
                     f"**Userbot Version  :** `{BOT_VER}` \n"
                     f"**Indomie Version  :** `{indomie_version}`\n"
                     f"**Modules          :** `{len(plugins)}` \n"
-                    f"**Base on          :** `{ah.name}` \n")
+                    f"**Base on          :** `{desah.name}` \n")
                 await event.edit(
                     text,
                     file=angek,

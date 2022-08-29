@@ -19,9 +19,9 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from Indomie import BOT_USERNAME, CMD_HELP, bot, ch2
-from Indomie import CMD_HANDLER as cmd
-from Indomie.utils import edit_or_reply, edit_delete, indomie_cmd
+from indomie import BOT_USERNAME, CMD_HELP, bot, ch2
+from indomie import CMD_HANDLER as cmd
+from indomie.utils import edit_or_reply, edit_delete, indomie_cmd
 
 
 @indomie_cmd(pattern="helpme ?(.*)")

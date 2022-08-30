@@ -4,7 +4,7 @@ import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from indomie.events import register
-from indomie import CMD_HELP, bot, owner
+from indomie import CMD_HELP, bot
 from indomie import CMD_HANDLER as cmd
 
 
@@ -14,7 +14,8 @@ async def gbun(event):
         return
     gbunVar = event.text
     gbunVar = gbunVar[6:]
-    mentions = f"`Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By` {owner}\n"
+    aku = await event.client.get_me()
+    mentions = f"`Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By` [{aku.first_name}](tg://user?id={aku.id})\n"
     no_reason = "No Reason Given "
     await event.edit("**Summoning out the mighty gban hammer ☠️**")
     asyncio.sleep(3.5)
@@ -34,7 +35,7 @@ async def gbun(event):
         else:
             jnl = ("`Warning!!`"
                    "[{}](tg://user?id={})"
-                   f"` 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By` {owner}\n\n"
+                   f"` 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By` [{aku.first_name}](tg://user?id={aku.id})\n\n"
                    "**Name: ** __{}__\n"
                    "**ID : ** `{}`\n"
                    ).format(firstname, idd, firstname, idd)
@@ -51,7 +52,7 @@ async def gbun(event):
             await reply_message.reply(jnl)
     else:
         mention = (
-            f"Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By {owner} \nReason: No Reason Given. ")
+            f"Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By [{aku.first_name}](tg://user?id={aku.id}) \nReason: No Reason Given. ")
         await event.reply(mention)
     await event.delete()
 

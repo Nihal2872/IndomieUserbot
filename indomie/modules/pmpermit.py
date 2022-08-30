@@ -13,16 +13,19 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
 from indomie import BOTLOG_CHATID
-from indomie import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, bot, owner
+from indomie import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, bot
 from indomie.events import indomie_cmd
 from indomie.utils import edit_delete, edit_or_reply
+
+OWNER = user.first_name
+OWNER_ID = user.id
 
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "   𝗣𝗘𝗠𝗕𝗘𝗥𝗜𝗧𝗔𝗛𝗨𝗔𝗡\n"
     "╚═════════════════════╝\n"
-    f"• [`{owner}`] belum menyetujui anda untuk PM.\n"
-    f"• Tunggu sampai [`{owner}`] menyetujui PM anda.\n"
+    f"• [{OWNER}](tg://user?id={OWNER_ID}) belum menyetujui anda untuk PM.\n"
+    f"• Tunggu sampai [{OWNER}](tg://user?id={OWNER_ID}) menyetujui PM anda.\n"
     "• Jangan Spam Chat atau kamu akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "𝗕𝗢𝗧 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 𝗕𝗬 𝗜𝗡𝗗𝗢𝗠𝗜𝗘𝗨𝗦𝗘𝗥𝗕𝗢𝗧\n"

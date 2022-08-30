@@ -601,7 +601,7 @@ with bot:
         asst = tgbot.get_me()
         uid = user.id
         owner = user.first_name
-        BOT_USERNAME = asst.username
+        asstuser = BOT_USERNAME
         cmd = CMD_HANDLER
         sange = ALIVE_LOGO
         BTN_URL_REGEX = re.compile(
@@ -642,7 +642,7 @@ with bot:
 
         main_help_button = [
             [
-                Button.url("• Settings •", f"t.me/{BOT_USERNAME}?start=set"),       
+                Button.url("• Settings •", f"t.me/{asstuser}?start=set"),       
                 Button.inline("• VC Plugin •", data="sangek"),
             ],
             [
@@ -914,7 +914,7 @@ with bot:
             else:
                 result = builder.article(
                     "✘ Indomie Userbot ✘",
-                    text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
+                    text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {asstuser}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
                             Button.url(

@@ -598,10 +598,10 @@ with bot:
         desah = IndomieDB()
         dugmeler = CMD_HELP
         user = bot.get_me()
-        asst = tgbot.get_me()
         uid = user.id
         owner = user.first_name
-        asstuser = BOT_USERNAME
+        asst = tgbot.get_me()
+        asstuser = asst.username
         cmd = CMD_HANDLER
         sange = ALIVE_LOGO
         BTN_URL_REGEX = re.compile(
@@ -610,6 +610,7 @@ with bot:
        
         angek = INLINE_PIC
         plugins = CMD_HELP
+        tgbotusername = BOT_USERNAME
         vr = BOT_VER
         CALC = {}
 
@@ -642,7 +643,7 @@ with bot:
 
         main_help_button = [
             [
-                Button.url("• Settings •", f"t.me/{asstuser}?start=set"),       
+                Button.url("• Settings •", f"t.me/{asstuser}?start="),       
                 Button.inline("• VC Plugin •", data="sangek"),
             ],
             [
@@ -755,7 +756,7 @@ with bot:
                 u = await event.client.get_entity(event.chat_id)
                 await event.message.get_sender()
                 text = (
-                    f"**Hello** [{get_display_name(u)}](tg://user?id={u.id}) **Is Alive**\n\n"
+                    f"**Hello** [{get_display_name(u)}](tg://user?id={u.id})\n\n"
                     f"         ✘ **IndomieUserbot** ✘ \n"
                     f"**User             :** [{get_display_name(u)}](tg://user?id={u.id}) \n"
                     f"**Telethon         :** `Vᴇʀ {version.__version__}` \n"
@@ -783,8 +784,9 @@ with bot:
         async def handler(event):
             if event.message.from_id != uid:
                 reply = "**STRING SESSION**"
+                u = await event.client.get_entity(event.chat_id)
                 await event.reply(
-                    f"**Hai Kamu!**\n\n"
+                    f"**Hai [{get_display_name(u)}](tg://user?id={u.id})**\n\n"
                     f"Ingin Mengambil String Session?\n\n"
                     f"Cukup Ambil Dibawah Button URL Ini\n\n"
                     f"⚠️ **Gunakan String Session Dengan Bijak!!**\n\n"
@@ -917,7 +919,7 @@ with bot:
                     description="IndomieUserBot | Telethon",
                     url="https://t.me/IndomieProject",
                     thumb=InputWebDocument(angek, 0, "image/jpeg", []),
-                    text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {asstuser}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
+                    text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
                             Button.url(
@@ -992,7 +994,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
-                    f"Owner Menu\n"
+                    f"**Name             :** [{user.first_name}](tg://user?id={user.id}) \n"
                     f"**Telethon         :** `Vᴇʀ {version.__version__}` \n"
                     f"**Python           :** `Vᴇʀ {python_version()}` \n"
                     f"**Pytgcalls        :** `{pytgcalls.__version__}` \n"
@@ -1012,7 +1014,7 @@ with bot:
                             Button.inline("• Info •",
                                           data="about")],
                         [custom.Button.inline(
-                            "• Back •", data="gcback")],
+                            "« Back", data="gcback")],
                     ]
                 )
             else:
@@ -1039,17 +1041,20 @@ with bot:
         async def about(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(f"""
-Owner - {owner}
-OwnerID - {uid}
-[Link To Profile 👤](tg://user?id={uid})
-Owner repo - [Indomie](tg://openmessage?user_id=1447438514)
-Updates - [Indomie](t.me/IndomieProject)
-Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot)
+**Owner -** `{owner}`
+**OwnerID -** `{uid}`
+[👤 Link To Profile](tg://user?id={uid})
+**Owner repo -** [Indomie](https://github.com/IndomieGorengSatu)
+**Updates -** [Indomie](t.me/IndomieProject)
+**Indomie Userbot** [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot)
 """,
                                  buttons=[
                                      [
                                          Button.url("• Repo •",
                                                     "https://github.com/IndomieGorengSatu/IndomieUserbot"),
+                                         Button.url("• Updates •",
+                                                    "https://t.me/IndomieProject")],
+                                     [
                                          custom.Button.inline("« ʙᴀᴄᴋ",
                                                               data="ownrmn")],
                                  ]
@@ -1087,6 +1092,7 @@ Indomie Userbot [v{BOT_VER}](https://github.com/IndomieGorengSatu/IndomieUserbot
                 text = (
                     f"""
      🎧 **VC Plugin Menu** 🎧
+
 **WARNING!!!⚠️**
 **DISARANKAN UNTUK TIDAK DI GUNAKAN PERINTAH DI BAWAH ATAU BOT ANDA AKAN MATI TOTAL**
 

@@ -13,7 +13,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
 from indomie import BOTLOG_CHATID
-from indomie import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, bot
+from indomie import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, bot, user
 from indomie.events import indomie_cmd
 from indomie.utils import edit_delete, edit_or_reply
 

@@ -2,7 +2,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from indomie.events import register
-from indomie import bot, CMD_HELP, owner
+from indomie import bot, CMD_HELP
 from indomie import CMD_HANDLER as cmd
 
 
@@ -39,10 +39,11 @@ async def igsaver(event):
             )
         else:
             await event.delete()
+            aku = await event.client.get_me()
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
-                caption=f"**Download By {owner}**",
+                caption=f"**Download By {aku.first_name}**",
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             await bot(functions.messages.DeleteHistoryRequest(peer=chat, max_id=0))

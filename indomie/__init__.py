@@ -913,7 +913,10 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "✘ Indomie Userbot ✘",
+                    title="✘ Indomie Userbot ✘",
+                    description="IndomieUserBot | Telethon",
+                    url="https://t.me/IndomieProject",
+                    thumb=InputWebDocument(angek, 0, "image/jpeg", []),
                     text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assistant:** {asstuser}\n━━━━━━━━━━━━━━━━━━━\n**Updates:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
@@ -921,8 +924,8 @@ with bot:
                                 "• Updates •",
                                 url="https://t.me/IndomieProject"),
                             Button.url(
-                                "• Channel •",
-                                url="https://t.me/IndomieStore"),
+                                "• Repository •",
+                                url="https://github.com/IndomieGorengSatu/IndomieUserbot"),
                         ],
                     ],
                     link_preview=False,

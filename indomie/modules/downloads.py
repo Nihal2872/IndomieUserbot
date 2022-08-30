@@ -18,7 +18,7 @@ from youtube_dl.utils import (ContentTooShortError, DownloadError,
 from youtubesearchpython import SearchVideos
 
 from indomie.events import register
-from indomie import CMD_HELP, owner
+from indomie import CMD_HELP
 from indomie import CMD_HANDLER as cmd
 
 
@@ -105,7 +105,8 @@ Connected to server...
         rip_data["title"], rip_data["uploader"]
     )
     await event.edit(f"`{upteload}`")
-    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {owner}\n╰┈────────────────┈➤"
+    aku = await event.client.get_me()
+    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : [{aku.first_name}](tg://user?id={aku.id})\n╰┈────────────────┈➤"
     await event.client.send_file(
         event.chat_id,
         f"{rip_data['id']}.mp3",

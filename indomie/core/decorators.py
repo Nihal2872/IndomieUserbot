@@ -3,9 +3,11 @@ import asyncio
 from telethon.errors import FloodWaitError, MessageNotModifiedError
 from telethon.events import CallbackQuery
 
-from indomie import SUDO_USERS, bot, owner
+from indomie import SUDO_USERS, bot
 from indomie.modules.sql_helper.globals import gvarstatus
 
+
+owner = user.first_name
 
 def check_owner(func):
     async def wrapper(c_q: CallbackQuery):

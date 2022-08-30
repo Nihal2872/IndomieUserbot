@@ -1,11 +1,12 @@
 # 🍀 © @tofik_dn
 # ⚠️ Do not remove credits
 
+import random
 
 from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
 from indomie.utils import indomie_cmd
-import random
+
 from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
@@ -20,7 +21,7 @@ async def _(event):
                 "@IndomieGantengV3", filter=InputMessagesFilterVideo
             )
         ]
-	aku = await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya), reply_to=event.reply_to_msg_id,
@@ -41,7 +42,7 @@ async def _(event):
                 "@IndomieGanteng", filter=InputMessagesFilterVoice
             )
         ]
-	aku = await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahannya), reply_to=event.reply_to_msg_id,
@@ -62,7 +63,7 @@ async def _(event):
                 "@desahancowokkkk", filter=InputMessagesFilterVoice
             )
 	]
-	aku = await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahcowo), reply_to=event.reply_to_msg_id,
@@ -82,7 +83,7 @@ async def _(event):
                 "@IndomieGantengV2", filter=InputMessagesFilterPhotos
             )
         ]
-	aku = await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(ayangnya), reply_to=event.reply_to_msg_id,

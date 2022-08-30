@@ -5,7 +5,6 @@
 import asyncio
 import importlib
 import logging
-import random
 import sys
 from pathlib import Path
 from random import randint

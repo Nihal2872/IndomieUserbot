@@ -21,7 +21,6 @@ from indomie import (
     SUDO_HANDLER,
     StartTime,
     tgbot,
-    bot,
     user,
 )
 from indomie.modules.sql_helper.bot_blacklists import check_is_black_list

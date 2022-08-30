@@ -15,7 +15,7 @@ from indomie import CMD_HANDLER as cmd
 from indomie import CMD_HELP
 from indomie.utils.tod import Dare as d
 from indomie.utils.tod import Truth as t
-from indomie.utils import indomie_cmd, edit_or_reply
+from indomie.utils import indomie_cmd
 
 
 Tod = ["Truth", "Dare"]
@@ -29,7 +29,7 @@ async def acak(acek):
 
 @indomie_cmd(pattern=r"truth")
 async def truth(tord):
-    troll = random.choice(Tod)
+    random.choice(Tod)
     ah = await tord.edit("Memproses Truth")
     sleep(1)
     trth = random.choice(t)
@@ -40,7 +40,7 @@ async def truth(tord):
 
 @indomie_cmd(pattern=r"dare")
 async def dare(der):
-    troll = random.choice(Tod)
+    random.choice(Tod)
     uh = await der.edit("Memproses Dare")
     sleep(1)
     dr = random.choice(d)

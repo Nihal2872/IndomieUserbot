@@ -19,7 +19,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from indomie import BOT_USERNAME, CMD_HELP, bot, ch2
+from indomie import BOT_USERNAME, CMD_HELP, bot
 from indomie import CMD_HANDLER as cmd
 from indomie.utils import edit_or_reply, edit_delete, indomie_cmd
 

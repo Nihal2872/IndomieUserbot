@@ -3,30 +3,20 @@
 # Kalo mau dihargai, jangan hapus kredit yakak:)
 
 import asyncio
-import random
-import sys
 from asyncio import sleep
 from datetime import datetime
-from io import BytesIO
-from os import environ, execle, remove
 
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from telethon import events
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditBannedRequest
-from telethon.tl.types import Channel
 
 import indomie.modules.sql_helper.gban_sql as gban_sql
 from indomie import BOTLOG_CHATID
-from indomie import HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_REPO_URL
 from indomie import CMD_HANDLER as cmd
-from indomie import CMD_HELP, DEVS, bot, owner
+from indomie import CMD_HELP, DEVS
 from indomie.events import register
-from indomie.utils import edit_delete, humanbytes
-from indomie.utils import edit_or_reply, get_user_from_event, indomie_cmd
-from telethon.events import ChatAction
+from indomie.utils import edit_delete
+from indomie.utils import edit_or_reply, get_user_from_event
 
 
 from .admin import BANNED_RIGHTS, UNBAN_RIGHTS

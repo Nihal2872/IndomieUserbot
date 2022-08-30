@@ -10,7 +10,7 @@ import html
 from justwatch import JustWatch
 from telethon import *
 from indomie.events import register
-from indomie import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO, owner
+from indomie import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO
 from telethon import events
 from telethon.tl import functions
 from urllib.parse import quote
@@ -1021,13 +1021,14 @@ async def xcursive(cursivelite):
 async def _(event):
     if event.fwd_from:
         return
-    name = f"{owner}"
+    aku = await event.client.get_me()
+    name = f"{aku.first_name}"
     bio = f"{DEFAULT_BIO}"
     n = 1
     await bot(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit=n)))
     await bot(functions.account.UpdateProfileRequest(about=bio))
     await bot(functions.account.UpdateProfileRequest(first_name=name))
-    await event.edit(f"`{owner} Berhasil Mengembalikan Akun Anda dari clone.`")
+    await event.edit(f"`{aku.first_name} Berhasil Mengembalikan Akun Anda dari clone.`")
 
 CMD_HELP.update({
     "appmisc":

@@ -13,7 +13,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from indomie import CMD_HELP, DEVS, StartTime, owner
+from indomie import CMD_HELP, DEVS, StartTime
 from indomie import CMD_HANDLER as cmd
 from indomie.events import register
 from indomie.utils import edit_or_reply, humanbytes, indomie_cmd
@@ -138,8 +138,9 @@ async def redis(pong):
     await pong.edit("`Connecting...`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    aku = await pong.client.get_me()
     await pong.edit(
-        f"**`{owner}`**\n"
+        f"`{aku.first_name}`\n"
         f"✧ **-ꜱɪɢɴᴀʟ- :** "
         f"`%sms` \n"
         f"✧ **-ᴜᴘᴛɪᴍᴇ- :** "

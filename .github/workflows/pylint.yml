@@ -1,7 +1,5 @@
 name: PyLint
-
 on: push
-
 jobs:
   PEP8:
     runs-on: ubuntu-latest
@@ -11,15 +9,15 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
-
       - name: Install Python lint libraries
         run: |
           pip install autoflake isort black
-       - name: Remove unused imports and variables
+      - name: Remove unused imports and variables
         run: |
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
-
-      # commit changes
+          
+          
+          # commit change
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'IndomieUserbot: auto fixes'

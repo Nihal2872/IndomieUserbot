@@ -19,7 +19,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from indomie import BOT_USERNAME, CMD_HELP, bot
+from indomie import BOT_USERNAME, CMD_HELP, bot, ch2
 from indomie import CMD_HANDLER as cmd
 from indomie.utils import edit_or_reply, edit_delete, indomie_cmd
 
@@ -29,7 +29,7 @@ async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(event, f"**✦ Commands available in {args} ✦** \n\n" + str(CMD_HELP[args]) + "\n\n© {ch2}")
+            await edit_or_reply(event, f"**✦ Commands available in {args} ✦** \n\n" + str(CMD_HELP[args]) + f"\n\n© {ch2}")
         else:
             await edit_delete(event, f"Plugins `{args}` tidak di temukan. **NGETIK YANG BENER NGENTOT!!.**")
     else:

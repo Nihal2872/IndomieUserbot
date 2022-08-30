@@ -3,7 +3,7 @@
 
 
 from indomie import CMD_HANDLER as cmd
-from indomie import CMD_HELP, owner
+from indomie import CMD_HELP
 from indomie.utils import indomie_cmd
 import random
 from telethon.tl.types import InputMessagesFilterVideo
@@ -20,10 +20,11 @@ async def _(event):
                 "@IndomieGantengV3", filter=InputMessagesFilterVideo
             )
         ]
+	aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya), reply_to=event.reply_to_msg_id,
-            caption=f"**Asupan by** {owner}")
+            caption=f"**Asupan by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await event.delete()
     except Exception:
@@ -40,10 +41,11 @@ async def _(event):
                 "@IndomieGanteng", filter=InputMessagesFilterVoice
             )
         ]
+	aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahannya), reply_to=event.reply_to_msg_id,
-            caption=f"**Desahan by** {owner}")
+            caption=f"**Desahan by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await memek.delete()
     except Exception:
@@ -60,10 +62,11 @@ async def _(event):
                 "@desahancowokkkk", filter=InputMessagesFilterVoice
             )
 	]
+	aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahcowo), reply_to=event.reply_to_msg_id,
-            caption=f"**Desahan cowo by** {owner}")
+            caption=f"**Desahan cowo by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await memek.delete()
     except Exception:
@@ -79,10 +82,11 @@ async def _(event):
                 "@IndomieGantengV2", filter=InputMessagesFilterPhotos
             )
         ]
+	aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(ayangnya), reply_to=event.reply_to_msg_id,
-            caption=f"**Ayang by** {owner}")
+            caption=f"**Ayang by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await event.delete()
     except Exception:

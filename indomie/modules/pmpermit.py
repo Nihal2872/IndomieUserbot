@@ -24,8 +24,8 @@ DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "   𝗣𝗘𝗠𝗕𝗘𝗥𝗜𝗧𝗔𝗛𝗨𝗔𝗡\n"
     "╚═════════════════════╝\n"
-    f"• [{OWNER}](tg://user?id={OWNER_ID}) belum menyetujui anda untuk PM.\n"
-    f"• Tunggu sampai [{OWNER}](tg://user?id={OWNER_ID}) menyetujui PM anda.\n"
+    f"• [{OWNER}] belum menyetujui anda untuk PM.\n"
+    f"• Tunggu sampai [{OWNER}] menyetujui PM anda.\n"
     "• Jangan Spam Chat atau kamu akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "𝗕𝗢𝗧 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 𝗕𝗬 𝗜𝗡𝗗𝗢𝗠𝗜𝗘𝗨𝗦𝗘𝗥𝗕𝗢𝗧\n"
@@ -426,7 +426,7 @@ async def pmdevs(event):
         if not memek_sql.is_approved(devs.id):
             try:
                 memek_sql.approve(devs.id)
-                await bot.send_message(BOTLOG_CHATID, f"**#AUTO_APPROVED_USER**\n\n👑 **Owner:** [{devs.first_name}](tg://user?id={devs.id})\n💬 `Owner Indomie Userbot Telah Mengirimi Anda Pesan...`")
+                await bot.send_message(BOTLOG_CHATID, f"**#AUTO_APPROVED_USER**\n\n👑 **Owner:** [{devs.first_name}](tg://user?id={devs.id})\n💬 `Indomie ngechat lu noh barusan`")
                 await bot.send_message(
                     devs, f"**Menerima Pesan!!!**\n**Terdeteksi [{devs.first_name}](tg://user?id={devs.id}) Adalah Owner Indomie Userbot**"
                 )

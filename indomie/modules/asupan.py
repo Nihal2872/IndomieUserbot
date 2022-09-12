@@ -14,6 +14,7 @@ from telethon.tl.types import InputMessagesFilterPhotos
 
 @indomie_cmd(pattern="asupan$")
 async def _(event):
+    memek = await edit_or_reply(event, "**🔍 Mencari Video Asupan...**")
     try:
         asupannya = [
             asupan
@@ -27,14 +28,14 @@ async def _(event):
             file=random.choice(asupannya), reply_to=event.reply_to_msg_id,
             caption=f"**Asupan by** [{aku.first_name}](tg://user?id={aku.id})")
 
-        await event.delete()
+        await memek.delete()
     except Exception:
-        await event.edit("**Tidak dapat menemukan video asupan.**")
+        await memek.edit("**Tidak dapat menemukan video asupan.**")
 
 
 @indomie_cmd(pattern="desahcewe$")
 async def _(event):
-    memek = await edit_or_reply(event, "`Tunggu Sebentar...`")
+    memek = await edit_or_reply(event, "**🔍 Mencari VN Desahan Cewe...**")
     try:
         desahannya = [
             desah
@@ -50,17 +51,17 @@ async def _(event):
 
         await memek.delete()
     except Exception:
-        await memek.edit("**Tidak dapat menemukan vn desah.**")
+        await memek.edit("**Tidak dapat menemukan vn desahan cowo.**")
 
 
 @indomie_cmd(pattern="desahcowo$")
 async def _(event):
-    memek = await edit_or_reply(event, "`Tunggu Sebentar...`")
+    memek = await edit_or_reply(event, "**🔍 Mencari VN Desahan Cowo...**")
     try:
         desahcowo = [
             desahnya
             async for desahnya in event.client.iter_messages(
-                "@desahancowokkkk", filter=InputMessagesFilterVoice
+                "@desahancowok3", filter=InputMessagesFilterVoice
             )
 	]
         aku = await event.client.get_me()
@@ -76,6 +77,7 @@ async def _(event):
 
 @indomie_cmd(pattern="ayang$")
 async def _(event):
+    memek = await edit_or_reply(event, "**🔍 Mencari Ayang...**")
     try:
         ayangnya = [
             ayang
@@ -89,9 +91,9 @@ async def _(event):
             file=random.choice(ayangnya), reply_to=event.reply_to_msg_id,
             caption=f"**Ayang by** [{aku.first_name}](tg://user?id={aku.id})")
 
-        await event.delete()
+        await meemk.delete()
     except Exception:
-        await event.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
+        await memek.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
 
 
 CMD_HELP.update(

@@ -2,8 +2,7 @@
 
 # IndomieUserbot
 
-[IndomieUserbot](https://github.com/IndomieGorengSatu/muciks) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
-
+[IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot) This is UserBot Telegram with many cool modules. Written in Python with Telethon and Py-Tgcalls.
 
 
 ## Disclaimer

@@ -17,7 +17,6 @@ from importlib import import_module
 from platform import python_version
 
 from pytgcalls import __version__ as pytgcalls
-from pytgcalls import idle
 from telethon import version
 
 from indomie import BOT_TOKEN
@@ -61,7 +60,6 @@ LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
 LOGS.info(f"Userbot Version - {ubotversion} •[{aduh.name}]•")
 LOGS.info(f"IndomieUserbot Version - {ngewe} •[{HOSTED_ON}]•")
 LOGS.info("[ BERHASIL DIAKTIFKAN! ]")
-idle()
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:

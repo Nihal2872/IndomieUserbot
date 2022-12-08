@@ -36,7 +36,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 ## Channel & Updates 
 
-- [IndomieStore](https://t.me/IndomieStore) Checkout my store lmao
 - [IndomieProject](https://t.me/IndomieProject) Checkout for new IndomieUserbot and bots updates
 
 

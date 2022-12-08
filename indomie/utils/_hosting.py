@@ -12,8 +12,6 @@ import os
 def where_hosted():
     if os.getenv("DYNO"):
         return "heroku"
-    if os.getenv("KOYEB"):
-        return "koyeb"
     if os.getenv("RAILWAY_STATIC_URL"):
         return "railway"
     if os.getenv("KUBERNETES_PORT"):

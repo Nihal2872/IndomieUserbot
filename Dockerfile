@@ -2,7 +2,7 @@
 FROM indomie/indomie:buster
 #━━━━━ By IndomieUserbot ━━━━━
 
-RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUserbot /home/IndomieUserbot/ \
+RUN git clone -b IndomieUserbot https://github.com/Nihal2872/IndomieTag/blob/IndomieUserbot /home/IndomieUserbot/ \
     && chmod 777 /home/IndomieUserbot \
     && mkdir /home/IndomieUserbot/bin/
 

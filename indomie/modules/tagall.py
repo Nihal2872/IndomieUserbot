@@ -65,7 +65,7 @@ async def _(event):
 
             current_pack.append(participant)
 
-            if len(current_pack) == 5:
+            if len(current_pack) == 1:
                 tags = list(
                     map(
                         lambda m: f"[{random.choice(emoji)}](tg://user?id={m.id})",
@@ -78,7 +78,7 @@ async def _(event):
                     tags.append(text)
 
                 await event.client.send_message(event.chat_id, " ".join(tags))
-                await asyncio.sleep(2)
+                await asyncio.sleep(5)
     finally:
         FlagContainer.is_active = False
 

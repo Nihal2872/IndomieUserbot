@@ -2,11 +2,11 @@
 FROM indomie/indomie:buster
 #━━━━━ By IndomieUserbot ━━━━━
 
-RUN git clone -b IndomieTag https://github.com/Nihal2872/IndomieTag/blob/IndomieTag /home/IndomieTag/ \
-    && chmod 777 /home/IndomieTag \
-    && mkdir /home/IndomieTag/bin/
+RUN git clone -b IndomieUserbot https://github.com/Nihal2872/IndomieUserbot /home/IndomieUserbot/ \
+    && chmod 777 /home/IndomieUserbot \
+    && mkdir /home/IndomieUserbot/bin/
 
-WORKDIR /home/IndomieTag/
+WORKDIR /home/IndomieUserbot/
 
 RUN pip install -r requirements.txt
 
